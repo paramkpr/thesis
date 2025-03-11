@@ -58,7 +58,7 @@ def test_make_fair_with_debug():
         color_ids=color_ids,
         title="Before SplitRoot",
         figsize=(10, 6),
-        save_path="outs/before_split_root.png"
+        save_path="outs/before_split_root_mf.png"
     )
     
     plot_colored_tree(
@@ -66,7 +66,7 @@ def test_make_fair_with_debug():
         color_ids=color_ids,
         title="After SplitRoot",
         figsize=(10, 6),
-        save_path="outs/after_split_root.png"
+        save_path="outs/after_split_root_mf.png"
     )
 
     # Run MakeFair with modifications

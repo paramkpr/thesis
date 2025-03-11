@@ -23,7 +23,8 @@ def generate_colored_data(
     seed: Optional[int] = None
 ) -> Tuple[np.ndarray, List[List[int]]]:
     """
-    Generate data points with colors.
+    Generate data points with random color assignments.
+    Colors are assigned independently of spatial location.
     
     Args:
         total_points: Total number of points to generate
@@ -38,13 +39,34 @@ def generate_colored_data(
     """
     if seed is not None:
         np.random.seed(seed)
-        random.seed(seed)
         
     # Validate proportions
     if abs(sum(color_proportions) - 1.0) > 1e-10:
         raise ValueError(f"Color proportions must sum to 1.0, got {sum(color_proportions)}")
     
-    # Calculate counts for each color
+    # First, generate all points without color assignment
+    # Let's create some natural clusters (e.g., 4-5 spatial clusters)
+    num_spatial_clusters = 4
+    # Generate cluster centers
+    spatial_centers = np.random.uniform(-5, 5, size=(num_spatial_clusters, dim))
+    
+    # Assign each point to a random spatial cluster
+    cluster_sizes = np.random.multinomial(total_points, [1/num_spatial_clusters]*num_spatial_clusters)
+    
+    # Generate all points
+    points = []
+    for i in range(num_spatial_clusters):
+        cluster_points = np.random.normal(
+            loc=spatial_centers[i],
+            scale=cluster_std,
+            size=(cluster_sizes[i], dim)
+        )
+        points.extend(cluster_points)
+    
+    points = np.array(points)
+    
+    # Now assign colors completely independently of spatial location
+    # Calculate the number of points for each color
     num_colors = len(color_proportions)
     color_counts = []
     remaining_points = total_points
@@ -57,28 +79,17 @@ def generate_colored_data(
     # Assign remaining points to the last color
     color_counts.append(remaining_points)
     
-    # Generate points with different distributions for each color
-    points = []
-    color_ids = [[] for _ in range(num_colors)]
-    current_idx = 0
+    # Randomly assign colors by randomly permuting point indices
+    all_indices = np.arange(total_points)
+    np.random.shuffle(all_indices)  # This is the key - we shuffle all indices
     
-    # Generate centers that are reasonably separated
-    centers = np.random.uniform(-10, 10, size=(num_colors, dim))
+    # Split indices by color
+    color_ids = []
+    start_idx = 0
     
-    # For each color, generate points around a center
-    for color_idx, count in enumerate(color_counts):
-        # Generate points for this color around its center
-        color_points = np.random.normal(
-            loc=centers[color_idx], 
-            scale=cluster_std, 
-            size=(count, dim)
-        )
-        
-        # Add points to the list
-        points.extend(color_points)
-        
-        # Record indices for this color
-        color_ids[color_idx] = list(range(current_idx, current_idx + count))
-        current_idx += count
+    for count in color_counts:
+        color_indices = all_indices[start_idx:start_idx + count].tolist()
+        color_ids.append(color_indices)
+        start_idx += count
     
-    return np.array(points), color_ids
+    return points, color_ids

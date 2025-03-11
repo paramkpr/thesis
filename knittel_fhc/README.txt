@@ -11,7 +11,7 @@ fair_hierarchical_clustering/
 │   ├── __init__.py
 │   ├── average_linkage.py  # Vanilla hierarchical clustering                               [*]
 │   ├── split_root.py       # SplitRoot algorithm                                           [*]
-│   └── make_fair.py        # MakeFair algorithm                                            [~]    
+│   └── make_fair.py        # MakeFair algorithm                                            [*]    
 ├── experiments/
 │   ├── __init__.py
 │   ├── config.py           # Configuration for experiments                                 [ ]    
@@ -25,7 +25,7 @@ fair_hierarchical_clustering/
 ├── utils/
 │   ├── __init__.py
 │   ├── distance.py         # Distance and similarity calculations                          [*]
-│   └── tree_operations.py  # Common tree manipulation operations                           [~]
+│   └── tree_operations.py  # Common tree manipulation operations                           [*]
 ├── tests/                  # Unit tests                                                                
 │   ├── __init__.py                                                                         [*]
 │   ├── test_node.py
