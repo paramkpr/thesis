@@ -268,24 +268,22 @@ def make_fair(
 
 
 def _assign_colors(hierarchy: Hierarchy, color_ids: List[List[int]]) -> None:
-    """Assign color counts to all nodes in the hierarchy."""
-    # Initialize color counts for leaf nodes
+    # First, clear all color counts
     for node in hierarchy.get_all_nodes():
         node.color_counts = {}
         
-        if node.is_leaf():
-            # Check which color group this leaf belongs to
+    # Assign colors to leaf nodes based on their data_indices
+    for node in hierarchy.get_leaves():
+        for data_idx in node.data_indices:
             for color_idx, ids in enumerate(color_ids):
-                if node.id in ids:
-                    node.color_counts[color_idx] = 1
-                    break
+                if data_idx in ids:
+                    node.color_counts[color_idx] = node.color_counts.get(color_idx, 0) + 1
     
-    # Propagate color counts upward
-    def update_node_colors(node: Node) -> Dict[int, int]:
+    # Propagate colors upward
+    def update_node_colors(node):
         if node.is_leaf():
             return node.color_counts
         
-        # Aggregate color counts from children
         aggregate = {}
         for child in node.children:
             child_colors = update_node_colors(child)

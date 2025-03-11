@@ -32,12 +32,12 @@ from visualization.dendograms import plot_colored_tree
 
 def test_make_fair_with_debug():
     # Generate smaller dataset
-    n_points = 30
+    n_points = 128
     print(f"Generating {n_points} points...")
     
     points, color_ids = generate_colored_data(
         total_points=n_points,
-        color_proportions=[0.4, 0.6],
+        color_proportions=[0.4, 0.3, 0.3],
         dim=2,
         seed=42
     )
@@ -46,8 +46,8 @@ def test_make_fair_with_debug():
     vanilla_hierarchy = average_linkage(points)
     
     # Parameters - use smaller values for h and bigger epsilon for more stability
-    h = 4
-    k = 2
+    h = 8
+    k = 4
     epsilon = 1/6  # Larger epsilon allows more imbalance
     
     h_prime = split_root(vanilla_hierarchy, h, epsilon)
