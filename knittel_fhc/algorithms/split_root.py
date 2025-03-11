@@ -15,93 +15,114 @@ from models.hierarchy import Hierarchy
 from utils.tree_operations import del_ins
 
 
-def split_root(hierarchy: Hierarchy, h: int, epsilon: float) -> Hierarchy:
+def split_root(hierarchy: Hierarchy, h: int, epsilon: float, max_iterations: int = 100) -> Hierarchy:
     """
-    Implements the SplitRoot algorithm to balance the root of a hierarchical clustering.
+    Implements the SplitRoot algorithm with safety limits.
     
-    Ensures the root node has `h` children that are roughly balanced in size.
-
     Args:
-        hierarchy: The input hierarchy.
-        h: The desired number of children at the root.
-        epsilon: The balance parameter (0 < ε < 1/6).
-
+        hierarchy: The input hierarchy
+        h: The desired number of children
+        epsilon: The balance parameter
+        max_iterations: Maximum number of balancing iterations to prevent infinite loops
+        
     Returns:
-        Hierarchy: A modified hierarchy with a balanced root.
+        Hierarchy: Modified hierarchy with balanced root
     """
-    # Create a copy to avoid modifying the original hierarchy
+    # Create a copy
     result = hierarchy.copy()
     result.update_all_sizes()
-    
     root = result.root
     
-    all_nodes = result.get_all_nodes()
-    next_id = max(node.id for node in all_nodes) + 1 if all_nodes else 0
+    # Ensure h children
+    current_children = root.children.copy()
+    next_id = max(node.id for node in result.get_all_nodes()) + 1 if result.get_all_nodes() else 0
     
-    # Add dummy nodes if needed
     while len(root.children) < h:
         dummy = Node(
             node_id=next_id,
             parent=None,
             data_indices=[],
             size=0,
-            color_counts={}  # Initialize with empty dict
+            color_counts={}
         )
         next_id += 1
         root.add_child(dummy)
     
+    # Total leaves
     total_leaves = root.size
     
-    # Main loop: repeatedly balance the root
-    while True:
-        # Find the smallest and largest child clusters
+    # Balancing with iteration limit
+    iteration_count = 0
+    
+    while iteration_count < max_iterations:
+        iteration_count += 1
+        
+        # Find min and max children
         children = root.children
         if not children:
             break
-        
+            
         vmin = min(children, key=lambda c: c.size)
         vmax = max(children, key=lambda c: c.size)
         
-        # Check if the root is already balanced
+        # Check if balanced
         min_target = total_leaves * (1/h - epsilon)
         max_target = total_leaves * (1/h + epsilon)
         
         if vmax.size <= max_target and vmin.size >= min_target:
-            break  # If balanced, stop the process
+            break  # Balanced
         
-        # Calculate how much needs to be shifted
-        delta1 = (1/h) - (vmin.size / total_leaves)  # How much vmin is below target
-        delta2 = (vmax.size / total_leaves) - (1/h)  # How much vmax is above target
+        # Calculate shift amount
+        delta1 = (1/h) - (vmin.size / total_leaves)
+        delta2 = (vmax.size / total_leaves) - (1/h)
         delta = min(delta1, delta2)
+        delta_nodes = int(delta * total_leaves)
         
-        # Find the subtree in `vmax` to move
+        # Safety check: ensure we're making progress
+        if delta_nodes < 1:
+            # If we can't move at least one node, force a minimal move
+            delta_nodes = 1
+        
+        # Find subtree to move
         v = vmax
-        while not v.is_leaf() and v.size > delta * total_leaves:
-            largest_child = max(v.children, key=lambda c: c.size)
+        while not v.is_leaf() and v.size > delta_nodes:
+            # Find largest child
+            largest_child = max(v.children, key=lambda c: c.size) if v.children else None
+            if largest_child is None:
+                break
             v = largest_child
         
-        # Find the insertion point in `vmin`
+        # Find insertion point
         u = vmin
         while not u.is_leaf():
-            # Find the smallest child
-            children = u.children
-            if not children:
+            if not u.children:
                 break
                 
-            smallest_child = min(children, key=lambda c: c.size)
+            smallest_child = min(u.children, key=lambda c: c.size)
             
-            # If the right child of the current node is smaller than v,
-            # move down to the left child
             if smallest_child.size < v.size:
                 u = smallest_child
             else:
                 break
         
-        # Move `v` under `u` using del_ins operation
-        result = del_ins(result, v, u)
+        # Safety check: don't move a node to itself or a descendant
+        current = u
+        is_descendant = False
+        while current:
+            if current.id == v.id:
+                is_descendant = True
+                break
+            current = current.parent
+            
+        if is_descendant:
+            print(f"Warning: Attempted to move node {v.id} to its descendant {u.id}")
+            break
         
-        # After del_ins, we need to update the root reference
-        # since the hierarchy might have been restructured
-        root = result.root
+        # Perform the move
+        result = del_ins(result, v, u)
+        root = result.root  # Update root reference
+    
+    if iteration_count >= max_iterations:
+        print(f"Warning: SplitRoot reached max iterations ({max_iterations})")
     
     return result
