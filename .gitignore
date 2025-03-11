@@ -8,3 +8,4 @@ lib/*
 pyvenv.cfg
 share/
 fhc/codes_fairhc/
+__pycache__*
