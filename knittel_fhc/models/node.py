@@ -58,6 +58,9 @@ class Node:
         self.children.remove(child_node)
         child_node.parent = None
 
+    def get_children(self) -> Optional[List[Node]]:
+        return self.children
+
     def get_leaf_nodes(self) -> List[Node]:
         if self.is_leaf():
             return [self]

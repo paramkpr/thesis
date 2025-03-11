@@ -2,14 +2,6 @@
 tests/test_visualization_dendrograms.py
 Test the dendrogram visualization.
 """
-
-import numpy as np
-import sys
-import os
-
-# Add the project directory to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-
 from data.synthetic import generate_colored_data
 from algorithms.vanilla import average_linkage
 from visualization.dendograms import plot_colored_tree, plot_dendrogram_with_scipy

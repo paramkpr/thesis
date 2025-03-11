@@ -15,6 +15,7 @@ models/__init__.py
 models/hierarchy.py
 models/node.py
 tests/__init__.py
+tests/test__algorithms__split_root.py
 tests/test__algorithms__vanilla.py
 tests/test__data__synthetic.py
 tests/test__visualization__dendograms.py

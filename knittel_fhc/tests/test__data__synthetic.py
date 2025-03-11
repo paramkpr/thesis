@@ -31,17 +31,5 @@ reds = points[color_ids[1][0]:color_ids[1][-1]]
 plt.scatter(blues[:, 0], blues[:, 1], c='red', cmap='viridis', s=100, edgecolors='k')
 plt.scatter(reds[:, 0], reds[:, 1], c='blue', cmap='viridis', s=100, edgecolors='k')
 
-Z = linkage(points, 'average')
-fig = plt.figure(figsize=(25, 10))
-dn = dendrogram(Z)
-
-
-binary_Z = linkage(distance_matrix, 'average')
-fig_bin = plt.figure(figsize=(25, 10))
-binary_dn = dendrogram(binary_Z)
-
-average_linkage = average_linkage(similarity_matrix)
-
-
 plt.show()
 
