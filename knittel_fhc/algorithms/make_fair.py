@@ -131,6 +131,7 @@ def make_fair(
     step_start = time.time()
     if debug:
         logger.info(f"[Depth {current_depth}] Assigning colors...")
+        print(color_ids)
     
     _assign_colors(result, color_ids)
     
@@ -278,6 +279,7 @@ def _assign_colors(hierarchy: Hierarchy, color_ids: List[List[int]]) -> None:
             for color_idx, ids in enumerate(color_ids):
                 if data_idx in ids:
                     node.color_counts[color_idx] = node.color_counts.get(color_idx, 0) + 1
+                    print(node.color_counts[color_idx])
     
     # Propagate colors upward
     def update_node_colors(node):
@@ -291,6 +293,7 @@ def _assign_colors(hierarchy: Hierarchy, color_ids: List[List[int]]) -> None:
                 aggregate[color] = aggregate.get(color, 0) + count
         
         node.color_counts = aggregate
+        print("aggregate", aggregate)
         return aggregate
     
     if hierarchy.root:

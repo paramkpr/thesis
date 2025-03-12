@@ -11,7 +11,7 @@ def test_dendrogram_visualization():
     n_points = 50
     points, color_ids = generate_colored_data(
         total_points=n_points,
-        color_proportions=[0.4, 0.3, 0.3],
+        color_proportions=[0.4, 0.3, 0.2, 0.1],
         dim=2,
         seed=42
     )
