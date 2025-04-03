@@ -1,0 +1,105 @@
+\section{Fairness Concepts in Machine Learning}\label{sec:fairness_concepts}
+
+Machine learning has fundamentally transformed decision-making by allowing algorithms to discover intricate and
+meaningful patterns directly from data, without relying explicitly on predefined rules. Rather than encoding
+human expertise through manual programming, machine learning algorithms generalize from examples. This inductive
+process, which generalizes observed cases to unseen scenarios, enables the algorithm to identify underlying patterns
+from historical examples and predict future outcomes. However, such a reliance on historical data inherently carries
+    risks, especially when data reflects existing societal biases, stereotypes, or inequalities.
+
+\subsection{Algorithmic Bias}\label{subsec:algorithmic_bias}
+
+Algorithmic bias refers to systematic and repeatable errors or unfair outcomes produced by machine learning models
+due to biases embedded within the training data or algorithm design. According to existing literature
+\cite{barocas2016big,pessach2020algorithmic}, algorithmic bias commonly originates from:
+
+\begin{itemize}
+    \item \textbf{Biases inherent in training datasets:} These biases result from biased human decisions, measurement errors,
+     reporting inaccuracies, or historical prejudices embedded in datasets. Machine learning algorithms, aiming at optimizing
+     prediction accuracy, often replicate these biases.
+    \item \textbf{Biases due to missing data:} When datasets lack sufficient representation from certain groups or have
+     significant data omissions, the resulting models fail to accurately represent the target population.
+    \item \textbf{Algorithmic optimization bias:} Typical optimization objectives, such as minimizing aggregate prediction
+     errors, tend to favor majority groups, often leading to poorer performance for minority groups.
+    \item \textbf{Bias from proxy attributes:} Non-sensitive attributes may indirectly capture sensitive information
+     (e.g., race, gender, age), unintentionally introducing biases even when sensitive attributes are explicitly excluded
+     from the dataset.
+\end{itemize}
+
+\subsection{Defining Fairness in Machine Learning}\label{subsec:fairness_definitions}
+
+Given the increasing use of machine learning in high-stakes domains, rigorous fairness definitions have emerged to guide
+ algorithmic development. These definitions typically fall into two broad categories: individual fairness and group fairness.
+
+\paragraph{Individual Fairness.}  
+Individual fairness requires models to produce similar outputs for similar individuals, where similarity is assessed based
+ on relevant non-sensitive features. Formally, individual fairness can be articulated using Lipschitz continuity
+  as follows \cite{dwork2012fairness}:
+\[
+d(\text{output}(x), \text{output}(x')) \leq \rho \cdot d(x, x'),
+\]
+where \(x\) and \(x'\) are individuals with comparable non-sensitive attributes, and \(\rho\) is a small constant. This definition
+ emphasizes the fair treatment of similar cases on an individual basis, ensuring minimal unjustified variability.
+
+\paragraph{Group Fairness.}  
+Group fairness demands that statistical outcomes of algorithms be equitable across predefined demographic groups.
+ This approach explicitly acknowledges and attempts to rectify societal disparities. Notable metrics
+  for group fairness include:
+
+\begin{itemize}
+    \item \textbf{Demographic Parity:} Ensures equal rates of positive predictions across demographic groups:
+    \[
+    P(R = 1 \mid A = a) = P(R = 1 \mid A = b),
+    \]
+    where \(R\) denotes the model's prediction and \(A\) represents a protected attribute (e.g., race, gender).
+
+    \item \textbf{Equal Opportunity:} Requires equal true positive rates among groups, ensuring fairness in the
+     allocation of positive outcomes given actual positives:
+    \[
+    P(R = 1 \mid Y = 1, A = a) = P(R = 1 \mid Y = 1, A = b),
+    \]
+    with \(Y\) representing the true outcome.
+
+    \item \textbf{Equalized Odds:} Further requires equal true positive and false positive rates across groups,
+     encompassing both success and error equity:
+    \[
+    P(R = 1 \mid Y = y, A = a) = P(R = 1 \mid Y = y, A = b), \quad \forall y \in \{0, 1\}.
+    \]
+\end{itemize}
+
+Each of these metrics presents trade-offs, and no universal criterion exists to satisfy all simultaneously,
+ leading to a fundamental tension explored later.
+
+\subsection{Real-World Instances of Algorithmic Bias}\label{subsec:real_world_bias}
+
+Concrete examples vividly illustrate the risks associated with biased algorithms. For instance, the COMPAS
+algorithm—widely used to assess criminal recidivism—demonstrated significant racial bias, incorrectly labeling
+Black defendants as high-risk at nearly twice the rate of White defendants who later re-offended \cite{angwin2016machine}.
+Facial recognition software has similarly exhibited higher error rates among darker-skinned individuals, prompting concerns
+about racial profiling and misidentification. Likewise, historical employment datasets have led hiring algorithms
+to inadvertently discriminate against women due to previously biased hiring decisions embedded in the training data.
+
+These cases underscore the necessity of proactive and methodologically rigorous fairness interventions to mitigate
+ existing societal biases embedded within historical datasets.
+
+\subsection{Ethical and Legal Dimensions of Fairness}\label{subsec:ethical_legal_dimensions}
+
+Beyond technical definitions, fairness in machine learning embodies essential ethical and legal principles. Legally,
+frameworks like Title VII of the U.S. Civil Rights Act mandate nondiscrimination in employment. Similarly, regulatory
+initiatives such as the European Union’s GDPR and proposed AI Act explicitly address transparency and equity in
+algorithmic systems, embedding fairness as a regulatory imperative.
+
+Ethically, fairness resonates deeply with justice and equity, particularly when algorithms influence opportunities
+and resource allocations. Ensuring algorithmic fairness helps prevent perpetuating historical inequities, promotes
+social justice, and supports legitimacy and public trust in automated systems.
+
+\subsection{Challenges and Future Directions}\label{subsec:challenges_future}
+
+As the use of advanced AI models (such as large language models) expands rapidly, ensuring fairness becomes
+increasingly critical. "Alignment" methods—techniques aimed at harmonizing AI behavior with human values—emerge
+as a significant evolution in fairness research. Alignment expands the fairness discourse to complex AI models
+and broader ethical considerations, emphasizing human-centric objectives in AI behavior.
+
+Yet, achieving fairness is inherently challenging due to conflicting definitions and practical constraints.
+The impossibility of simultaneously satisfying all fairness definitions
+(e.g., demographic parity versus predictive parity) necessitates context-specific, nuanced solutions

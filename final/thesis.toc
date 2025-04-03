@@ -1,0 +1,20 @@
+\contentsline {chapter}{Introduction}{1}{}%
+\contentsline {section}{\numberline {0.1}Why use it?}{1}{}%
+\contentsline {section}{\numberline {0.2}Who should use it?}{1}{}%
+\contentsline {chapter}{Chapter 1: Background}{3}{}%
+\contentsline {section}{\numberline {1.1}Hierarchical Clustering and Cost}{3}{}%
+\contentsline {subsection}{\numberline {1.1.1}Definition and Concepts}{3}{}%
+\contentsline {subsection}{\numberline {1.1.2}Cost Functions in Hierarchical Clustering}{3}{}%
+\contentsline {section}{\numberline {1.2}Fairness Concepts in Machine Learning}{3}{}%
+\contentsline {subsection}{\numberline {1.2.1}Algorithmic Bias}{4}{}%
+\contentsline {subsection}{\numberline {1.2.2}Defining Fairness in Machine Learning}{4}{}%
+\contentsline {paragraph}{Individual Fairness.}{4}{}%
+\contentsline {paragraph}{Group Fairness.}{4}{}%
+\contentsline {subsection}{\numberline {1.2.3}Real-World Instances of Algorithmic Bias}{5}{}%
+\contentsline {subsection}{\numberline {1.2.4}Ethical and Legal Dimensions of Fairness}{5}{}%
+\contentsline {subsection}{\numberline {1.2.5}Challenges and Future Directions}{6}{}%
+\contentsline {chapter}{Conclusion}{7}{}%
+\contentsline {section}{\numberline {4.1}More info}{7}{}%
+\contentsline {chapter}{Appendix A: The First Appendix}{9}{}%
+\contentsline {chapter}{Appendix B: The Second Appendix, for Fun}{11}{}%
+\contentsline {chapter}{References}{13}{}%

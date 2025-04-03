@@ -1,0 +1,87 @@
+\begin{thebibliography}{16}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{}\fi
+
+\bibitem[{Angel(2000)}]{angel:2000}
+Angel, E. (2000).
+\newblock {\em Interactive Computer Graphics : A Top-Down Approach with OpenGL\/}.
+\newblock Boston, MA: Addison Wesley Longman.
+
+\bibitem[{Angel(2001{\natexlab{a}})}]{angel:2001}
+Angel, E. (2001{\natexlab{a}}).
+\newblock {\em Batch-file Computer Graphics : A Bottom-Up Approach with QuickTime\/}.
+\newblock Boston, MA: Wesley Addison Longman.
+
+\bibitem[{Angel(2001{\natexlab{b}})}]{angel:2002a}
+Angel, E. (2001{\natexlab{b}}).
+\newblock {\em test second book by angel\/}.
+\newblock Boston, MA: Wesley Addison Longman.
+
+\bibitem[{Deussen \& Strothotte(2000)}]{deussen:2000}
+Deussen, O., \& Strothotte, T. (2000).
+\newblock Computer-generated pen-and-ink illustration of trees.
+\newblock {\em ``Proceedings of'' SIGGRAPH 2000\/}, (pp. 13--18).
+
+\bibitem[{Fisher et~al.(1997)Fisher, Perkins, Walker, \& Wolfart}]{hipr:1997}
+Fisher, R., Perkins, S., Walker, A., \& Wolfart, E. (1997).
+\newblock {\em Hypermedia Image Processing Reference\/}.
+\newblock New York, NY: John Wiley \& Sons.
+
+\bibitem[{Gooch \& Gooch(2001{\natexlab{a}})}]{goochandgooch:2001}
+Gooch, B., \& Gooch, A. (2001{\natexlab{a}}).
+\newblock {\em {Non-Photorealistic Rendering}\/}.
+\newblock Natick, Massachusetts: A K Peters.
+
+\bibitem[{Gooch \& Gooch(2001{\natexlab{b}})}]{goochandgooch:2001a}
+Gooch, B., \& Gooch, A. (2001{\natexlab{b}}).
+\newblock {\em Test second book by gooches\/}.
+\newblock Natick, Massachusetts: A K Peters.
+
+\bibitem[{Hertzmann \& Zorin(2000)}]{hertzmann:2000}
+Hertzmann, A., \& Zorin, D. (2000).
+\newblock Illustrating smooth surfaces.
+\newblock {\em Proceedings of SIGGRAPH 2000\/}, {\em 5\/}(17), 517--526.
+
+\bibitem[{Jain(1989)}]{jain:1989}
+Jain, A.~K. (1989).
+\newblock {\em Fundamentals of Digital Image Processing\/}.
+\newblock Englewood Cliffs, New Jersey: Prentice-Hall.
+
+\bibitem[{Molina \& Borkovec(1994)}]{Molina1994}
+Molina, S.~T., \& Borkovec, T.~D. (1994).
+\newblock The {P}enn {S}tate worry questionnaire: Psychometric properties and associated characteristics.
+\newblock In G.~C.~L. Davey, \& F.~Tallis (Eds.), {\em Worrying: Perspectives on theory, assessment and treatment\/}, (pp. 265--283). New York: Wiley.
+
+\bibitem[{Noble(2002)}]{noble:2002}
+Noble, S.~G. (2002).
+\newblock {\em Turning images into simple line-art\/}.
+\newblock Undergraduate thesis, Reed College.
+
+\bibitem[{Reed{\ }College(2007)}]{reedweb:2007}
+Reed{\ }College (2007).
+\newblock Latex your document.
+\urlprefix\url{http://web.reed.edu/cis/help/LaTeX/index.html}
+
+\bibitem[{Russ(1995)}]{russ:1995}
+Russ, J.~C. (1995).
+\newblock {\em {The Image Processing Handbook, Second Edition}\/}.
+\newblock Boca Raton, Florida: CRC Press.
+
+\bibitem[{Salisbury et~al.(1997)Salisbury, Wong, Hughes, \& Salesin}]{salisbury:1997}
+Salisbury, M.~P., Wong, M.~T., Hughes, J.~F., \& Salesin, D.~H. (1997).
+\newblock Orientable textures for image-based pen-and-ink illustration.
+\newblock {\em ``Proceedings of'' SIGGRAPH 97\/}, (pp. 401--406).
+
+\bibitem[{Savitch(2001)}]{savitch:2001}
+Savitch, W. (2001).
+\newblock {\em JAVA: An Introduction to Computer Science \& Programming\/}.
+\newblock Upper Saddle River, New Jersey: Prentice Hall.
+
+\bibitem[{Wong(1999)}]{wong:1999}
+Wong, E. (1999).
+\newblock {\em {Artistic Rendering of Portrait Photographs}\/}.
+\newblock Master's thesis, Cornell University.
+
+\end{thebibliography}
