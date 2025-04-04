@@ -1,0 +1,64 @@
+\subsection{Clustering Algorithms}
+A clustering algorithm \(A\) partitions an input dataset \(X \in \mathbb{R}^{n \times m}\) into \(k\) clusters, where \(k \leq n\). Formally, the algorithm outputs a set \(C = \{C_1, C_2, \dots, C_k\}\), with each cluster \(C_i \subseteq X\), such that each data sample \(x \in X\) is assigned to at least one cluster. Depending on cluster assignment strategies, clustering is broadly categorized into two types:
+
+\begin{itemize}
+    \item \textbf{Hard clustering:} Each data point \(x\) belongs to exactly one cluster.
+    \item \textbf{Soft clustering:} Data points may belong partially or probabilistically to multiple clusters.
+\end{itemize}
+
+In clustering tasks, unlike supervised learning, labels for data samples are unavailable. Consequently, the same dataset \(X\) is used for both training and evaluating the clustering outcomes. This complicates the definition and enforcement of fairness, as conventional fairness measures for supervised methods rely on labels to evaluate biases or discrimination.
+
+The number of clusters \(k\) can either be provided as an input parameter or determined by the clustering method itself. For instance, in \(k\)-means, \(k\) is predefined, whereas hierarchical clustering outputs a dendrogram without a predetermined \(k\), allowing users to choose the number of clusters post hoc.
+
+\subsection{Taxonomy of Clustering Methods}
+A diverse set of clustering methodologies exists, each employing distinct strategies and assumptions. Following the taxonomy presented by Xu et al. \cite{XuSurvey}, we classify clustering algorithms as follows:
+
+\begin{enumerate}
+
+    \item \textbf{Center-Based Clustering:} These algorithms partition the data to minimize an error metric between samples and their cluster center. The canonical example is \(k\)-means, which minimizes the squared Euclidean distance.
+
+    \item \textbf{Hierarchical Clustering:} This approach creates a binary tree (dendrogram) where the root node represents the entire dataset, leaf nodes represent individual samples, and intermediate nodes represent clusters. Hierarchical clustering methods are either agglomerative (bottom-up) or divisive (top-down).
+
+    \item \textbf{Mixture Model-Based Clustering:} A probabilistic approach that assumes data points originate from a mixture of underlying distributions. Algorithms in this class, such as Gaussian Mixture Models (GMM), optimize parameters to best fit the data distribution, typically via Expectation Maximization.
+
+    \item \textbf{Graph-Based Clustering:} Data is first represented as a graph, where vertices represent samples, and edges denote similarity or proximity between samples. Clustering is performed by partitioning the graph based on its spectral properties, commonly by using eigenvectors of the Laplacian matrix. Graph-based clustering is particularly advantageous in scenarios involving complex relational data or non-convex clusters.
+
+    \item \textbf{Fuzzy Clustering:} Unlike traditional clustering, fuzzy clustering assigns samples a grade of membership to clusters. Fuzzy C-Means (FCM) is the archetypal algorithm, where data points have partial cluster memberships, reflecting uncertainty or gradual boundaries between clusters.
+
+    \item \textbf{Combinatorial Search-Based Clustering:} Many clustering objectives are NP-hard, prompting approaches to reformulate the clustering problem as a combinatorial optimization task. Evolutionary algorithms, genetic algorithms, and simulated annealing are typical techniques used to explore solutions efficiently.
+
+\end{enumerate}
+
+\subsection{Fairness in Machine Learning}
+Fairness in machine learning models can be ensured at different stages of the learning pipeline, typically categorized into:
+
+\begin{enumerate}
+    \item \textbf{Pre-processing}: The original dataset is modified prior to clustering to ensure fair representation or remove biases.
+    \item \textbf{In-processing}: Fairness constraints are directly integrated into the clustering algorithm.
+    \item \textbf{Post-processing}: The output clusters undergo modification to meet fairness constraints, which is uncommon for clustering due to the absence of a separate validation set.
+\end{enumerate}
+
+Since clustering is inherently unsupervised, without labels to quantify fairness explicitly, defining and enforcing fairness becomes notably challenging. Fairness in clustering often focuses on ensuring adequate representation of protected groups within each cluster (group-level fairness) or ensuring similar individuals are clustered similarly (individual-level fairness).
+
+\subsection{Fairness Notions for Clustering}
+Fairness notions in clustering can be classified into several categories:
+
+\begin{itemize}
+    \item \textbf{Group-Level Fairness}: Inspired by the Disparate Impact doctrine, these notions aim to ensure no protected group (e.g., based on ethnicity or gender) is disproportionately disadvantaged. For example, the \emph{balance} measure quantifies how proportionally protected groups are represented in clusters.
+
+    \item \textbf{Individual-Level Fairness}: Ensures similar individuals receive similar clustering outcomes, typically defined using a dissimilarity metric.
+
+    \item \textbf{Algorithm Agnostic Notions}: Defined independently of the clustering algorithm and applicable universally across clustering methods.
+
+    \item \textbf{Algorithm Specific Notions}: Tailored specifically for certain clustering objectives or algorithms, such as the social fairness cost for \(k\)-means clustering.
+\end{itemize}
+
+Prominent fairness notions include:
+\begin{itemize}
+    \item \textbf{Balance:} Ensures proportional representation of protected groups in clusters.
+    \item \textbf{Bounded Representation:} Enforces constraints on the maximum and minimum proportions of protected groups allowed in clusters.
+    \item \textbf{Max Fairness Cost:} Measures deviations from an ideal proportional representation.
+    \item \textbf{Social Fairness Cost:} Focuses on equitable representation of protected groups within the clustering cost objective.
+\end{itemize}
+
+Balancing fairness constraints with clustering quality often presents trade-offs, motivating methods that aim to find \emph{Pareto-optimal} solutions that best balance these competing objectives \cite{ChhabraOverview}.

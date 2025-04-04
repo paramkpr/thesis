@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1743711446.18839 "thesis.aux" "thesis.bbl" "thesis" 1743711446.96434 0
+["bibtex thesis"] 1743715887.05551 "thesis.aux" "thesis.bbl" "thesis" 1743715887.83845 0
   "./APA/apa-good.bst" 1743708167.29278 29521 681759d6fea01a76087da65eae747ed5 ""
   "./thesis.bib" 1743708167.31826 4700 81ae089109fb7aa2c6392fdd86f53ea4 ""
-  "thesis.aux" 1743711446.69898 3963 738583bf990a2e642300d9c40a335933 "pdflatex"
+  "thesis.aux" 1743715887.57003 4689 ac85a29acf380b0345227e0de55ddbf4 "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1743711446.30451 "/Users/paramkapur/projects/thesis/final/thesis.tex" "thesis.pdf" "thesis" 1743711446.96452 0
-  "/Users/paramkapur/projects/thesis/final/thesis.tex" 1743711445.26862 10239 316d1a98311976bc681010faf31e4ca4 ""
+["pdflatex"] 1743715887.16489 "/Users/paramkapur/projects/thesis/final/thesis.tex" "thesis.pdf" "thesis" 1743715887.83865 0
+  "/Users/paramkapur/projects/thesis/final/thesis.tex" 1743715885.96928 10374 2b5008edf41097a6c8a2b4ea29ad6998 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -38,6 +38,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy8.tfm" 1136768653 520 7bb3abb160b19e0ed6ac404bb59052b7 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb" 1248133631 34586 5a65dc15601f9c74fe3fb3f37b3b8b6f ""
@@ -45,6 +46,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1248133631 32626 4f5c1b83753b1dd3a97d1b399a005b4b ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb" 1248133631 36118 fad905eba93cff5bce1e185fe980a177 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb" 1248133631 24252 1e4e051947e12dfb50fee0b7f4e26e3a ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb" 1215737283 136101 f533469f523533d38317ab5729d00c8a ""
   "/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2025/texmf-dist/tex/latex/amscls/amsthm.sty" 1591045760 12594 0d51ac3a545aaaa555021326ff22a6cc ""
@@ -84,13 +86,14 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "chemarr.sty" 1743708167.31009 2427 429918874401aa8c2f0b441e3fc621f5 ""
   "reedthesis.cls" 1743708167.31304 8293 480a01b2533a1585368760477c470aa0 ""
-  "sections/background/2.1-fairness-in-ml.tex" 1743711437.38154 6934 ade0c2b7e922ef458925066e6b60120d ""
-  "thesis.aux" 1743711446.69898 3963 738583bf990a2e642300d9c40a335933 "pdflatex"
-  "thesis.bbl" 1743711446.30244 3580 0f5d647ab92d085b9be3b70f21adda8f "bibtex thesis"
-  "thesis.lof" 1743711446.7 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
-  "thesis.lot" 1743711446.69998 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
-  "thesis.tex" 1743711445.26862 10239 316d1a98311976bc681010faf31e4ca4 ""
-  "thesis.toc" 1743711446.69992 1379 3ad6197728628bcd2db71d2934e1a5bb "pdflatex"
+  "sections/background/2.1-fairness-in-ml.tex" 1743712107.43093 6931 4e58698e133e2ec51fcd88a2e23b79ae ""
+  "sections/background/2.2-fair-clustering.tex" 1743715854.2957 6335 bfa857a5f83b7dec6ec5111bba6664d4 ""
+  "thesis.aux" 1743715887.57003 4689 ac85a29acf380b0345227e0de55ddbf4 "pdflatex"
+  "thesis.bbl" 1743715887.16274 3580 0f5d647ab92d085b9be3b70f21adda8f "bibtex thesis"
+  "thesis.lof" 1743715887.57083 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
+  "thesis.lot" 1743715887.5708 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
+  "thesis.tex" 1743715885.96928 10374 2b5008edf41097a6c8a2b4ea29ad6998 ""
+  "thesis.toc" 1743715887.57076 1795 572a3d6bb9bc69252db9d44972137221 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.lof"
