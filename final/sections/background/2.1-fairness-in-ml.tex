@@ -68,36 +68,40 @@ Group fairness demands that statistical outcomes of algorithms be equitable acro
 Each of these metrics presents trade-offs, and no universal criterion exists to satisfy all simultaneously,
  leading to a fundamental tension explored later.
 
-\subsection{Real-World Instances of Algorithmic Bias}\label{subsec:real_world_bias}
+ 
+ \subsection{Real-World Instances and Ethical Dimensions of Algorithmic Bias}\label{subsec:real_world_bias}
 
-Concrete examples vividly illustrate the risks associated with biased algorithms. For instance, the COMPAS
-algorithm—widely used to assess criminal recidivism—demonstrated significant racial bias, incorrectly labeling
-Black defendants as high-risk at nearly twice the rate of White defendants who later re-offended \cite{angwin2016machine}.
-Facial recognition software has similarly exhibited higher error rates among darker-skinned individuals, prompting concerns
-about racial profiling and misidentification. Likewise, historical employment datasets have led hiring algorithms
-to inadvertently discriminate against women due to previously biased hiring decisions embedded in the training data.
-
-These cases underscore the necessity of proactive and methodologically rigorous fairness interventions to mitigate
- existing societal biases embedded within historical datasets.
-
-\subsection{Ethical and Legal Dimensions of Fairness}\label{subsec:ethical_legal_dimensions}
-
-Beyond technical definitions, fairness in machine learning embodies essential ethical and legal principles. Legally,
-frameworks like Title VII of the U.S. Civil Rights Act mandate nondiscrimination in employment. Similarly, regulatory
-initiatives such as the European Union’s GDPR and proposed AI Act explicitly address transparency and equity in
-algorithmic systems, embedding fairness as a regulatory imperative.
-
-Ethically, fairness resonates deeply with justice and equity, particularly when algorithms influence opportunities
-and resource allocations. Ensuring algorithmic fairness helps prevent perpetuating historical inequities, promotes
-social justice, and supports legitimacy and public trust in automated systems.
-
-\subsection{Challenges and Future Directions}\label{subsec:challenges_future}
-
-As the use of advanced AI models (such as large language models) expands rapidly, ensuring fairness becomes
-increasingly critical. "Alignment" methods—techniques aimed at harmonizing AI behavior with human values—emerge
-as a significant evolution in fairness research. Alignment expands the fairness discourse to complex AI models
-and broader ethical considerations, emphasizing human-centric objectives in AI behavior. \\
-
-Yet, achieving fairness is inherently challenging due to conflicting definitions and practical constraints.
-The impossibility of simultaneously satisfying all fairness definitions
-(e.g., demographic parity versus predictive parity) necessitates context-specific, nuanced solutions
+ Concrete examples vividly illustrate the risks associated with biased algorithms. One widely cited example is the COMPAS algorithm, frequently used in criminal justice for predicting recidivism. Investigations revealed significant racial biases, incorrectly labeling Black defendants as high-risk at nearly twice the rate of White defendants who later re-offended~\cite{angwin2016machine}. Similarly, facial recognition software has consistently demonstrated higher error rates for darker-skinned individuals, exacerbating risks of racial profiling and wrongful identification.
+ 
+ Algorithmic biases also permeate employment contexts, where historical data reflecting past hiring decisions embed biases against women or minority groups, perpetuating discrimination through ostensibly neutral automated decision-making systems. When training algorithms on historical employment records, biases and stereotypes embedded in the data disproportionately disadvantage female candidates.
+ 
+ A particularly telling example emerges from machine translation. Consider translating sentences from English to Turkish and then back into English, as illustrated in Figures~\ref{fig:eng-to-turkish} and~\ref{fig:turkish-to-eng}. Turkish pronouns are gender-neutral, but when translated back into English, gender-specific pronouns are inferred based on statistical associations. As a result, occupations stereotypically associated with men—such as ``engineer'' or ``doctor''—are translated back using male pronouns, while occupations stereotypically associated with women—such as ``nurse''—return female pronouns. This phenomenon arises from two biases embedded in training datasets: real-world labor market statistics reflecting historical occupational distributions and the ``male-as-norm'' bias, whereby male pronouns are preferentially selected when gender is ambiguous or unknown~\cite{caliskan2017semantics}.
+ 
+ \begin{figure}[h]
+     \centering
+     \includegraphics[width=0.9\textwidth]{sections/background/eng-to-turkish.png}
+     \caption{Translations of gender-specific English sentences into gender-neutral Turkish.}
+     \label{fig:eng-to-turkish}
+ \end{figure}
+ 
+ \begin{figure}[h]
+     \centering
+     \includegraphics[width=0.9\textwidth]{sections/background/turkish-to-eng.png}
+     \caption{Translations from gender-neutral Turkish sentences back into English reveal embedded gender biases.}
+     \label{fig:turkish-to-eng}
+ \end{figure}
+ 
+ Attempts to mitigate biases by removing explicitly sensitive attributes (such as gender or race) from training datasets frequently fall short due to \textit{proxy variables}. Proxy attributes—such as the age at which individuals start programming—can inadvertently encode sensitive information like gender, reinforcing biases even in their absence. Additionally, biases due to disparities in sample sizes among demographic groups lead to poorer model performance for minority groups, reinforcing systematic inequities~\cite{barocas2016big}.
+ 
+ Beyond technical considerations, fairness intersects profoundly with ethical and legal imperatives. Legal frameworks such as Title VII of the U.S. Civil Rights Act mandate nondiscrimination in employment. Similarly, regulatory initiatives like the European Union’s GDPR and proposed AI Act embed fairness, transparency, and equity into regulatory requirements for algorithmic systems.
+ 
+ Ethically, ensuring fairness aligns closely with broader principles of justice and equity, particularly as algorithmic systems increasingly influence societal outcomes such as employment, education, and criminal justice. Effective fairness interventions help prevent reinforcing historical injustices, foster social equity, and maintain public trust in algorithm-driven decision-making.
+ 
+ \subsection{Challenges, Limitations, and Future Directions}\label{subsec:challenges_future}
+ 
+ While fairness research in machine learning represents a critical endeavor, it faces inherent limitations and challenges. Foremost is the tension among different fairness criteria, as previously discussed (see Section~\ref{subsec:fairness_definitions}). It is mathematically impossible to simultaneously satisfy all fairness notions, such as Demographic Parity, Equal Opportunity, and Predictive Parity. Consequently, context-specific, nuanced solutions must be adopted, underscoring the difficulty of universal fairness guarantees.
+ 
+ Furthermore, fairness interventions typically target algorithmic aspects of decision-making. Yet, algorithmic bias is deeply rooted in broader societal, historical, cultural, and economic contexts. Simply addressing biases within algorithms—without tackling underlying structural inequalities—may prove insufficient. For example, correcting gender bias in employment algorithms does not address the deeper systemic issue of unequal access to educational opportunities or societal expectations that shape labor distributions.
+ 
+ Addressing these multidimensional challenges requires extensive cross-disciplinary collaboration involving researchers from sociology, law, ethics, economics, cultural studies, and computer science. Developing truly equitable systems necessitates a holistic approach, acknowledging that algorithmic fairness is merely one aspect of a much larger societal problem. Thus, future research should increasingly focus on integrated methodologies that combine technical algorithmic solutions with broader structural, legal, cultural, and ethical insights to effectively mitigate algorithmic bias and its societal consequences.
+ 

@@ -2,24 +2,29 @@
 \contentsline {section}{\numberline {0.1}Why use it?}{1}{}%
 \contentsline {section}{\numberline {0.2}Who should use it?}{1}{}%
 \contentsline {chapter}{Chapter 1: Background}{3}{}%
-\contentsline {section}{\numberline {1.1}Hierarchical Clustering and Cost}{3}{}%
-\contentsline {subsection}{\numberline {1.1.1}Definition and Concepts}{3}{}%
-\contentsline {subsection}{\numberline {1.1.2}Cost Functions in Hierarchical Clustering}{3}{}%
-\contentsline {section}{\numberline {1.2}Fairness Concepts in Machine Learning}{3}{}%
-\contentsline {subsection}{\numberline {1.2.1}Algorithmic Bias}{4}{}%
-\contentsline {subsection}{\numberline {1.2.2}Defining Fairness in Machine Learning}{4}{}%
+\contentsline {section}{\numberline {1.1}Fairness Concepts in Machine Learning}{3}{}%
+\contentsline {subsection}{\numberline {1.1.1}Algorithmic Bias}{3}{}%
+\contentsline {subsection}{\numberline {1.1.2}Defining Fairness in Machine Learning}{4}{}%
 \contentsline {paragraph}{Individual Fairness.}{4}{}%
 \contentsline {paragraph}{Group Fairness.}{4}{}%
-\contentsline {subsection}{\numberline {1.2.3}Real-World Instances of Algorithmic Bias}{5}{}%
-\contentsline {subsection}{\numberline {1.2.4}Ethical and Legal Dimensions of Fairness}{5}{}%
-\contentsline {subsection}{\numberline {1.2.5}Challenges and Future Directions}{6}{}%
-\contentsline {section}{\numberline {1.3}Preliminaries and Fairness in Clustering}{6}{}%
-\contentsline {subsection}{\numberline {1.3.1}Clustering Algorithms}{6}{}%
-\contentsline {subsection}{\numberline {1.3.2}Taxonomy of Clustering Methods}{6}{}%
-\contentsline {subsection}{\numberline {1.3.3}Fairness in Machine Learning}{7}{}%
-\contentsline {subsection}{\numberline {1.3.4}Fairness Notions for Clustering}{8}{}%
-\contentsline {chapter}{Conclusion}{9}{}%
-\contentsline {section}{\numberline {4.1}More info}{9}{}%
-\contentsline {chapter}{Appendix A: The First Appendix}{11}{}%
-\contentsline {chapter}{Appendix B: The Second Appendix, for Fun}{13}{}%
-\contentsline {chapter}{References}{15}{}%
+\contentsline {subsection}{\numberline {1.1.3}Real-World Instances and Ethical Dimensions of Algorithmic Bias}{5}{}%
+\contentsline {subsection}{\numberline {1.1.4}Challenges, Limitations, and Future Directions}{6}{}%
+\contentsline {section}{\numberline {1.2}Preliminaries and Fairness in Clustering}{7}{}%
+\contentsline {subsection}{\numberline {1.2.1}Clustering Algorithms}{7}{}%
+\contentsline {subsection}{\numberline {1.2.2}Taxonomy of Clustering Methods}{7}{}%
+\contentsline {subsection}{\numberline {1.2.3}Fairness in Machine Learning}{8}{}%
+\contentsline {subsection}{\numberline {1.2.4}Fairness Notions for Clustering}{9}{}%
+\contentsline {section}{\numberline {1.3}Hierarchical Clustering and Cost}{11}{}%
+\contentsline {subsection}{\numberline {1.3.1}Hierarchical Clustering: Definition and Approaches}{11}{}%
+\contentsline {paragraph}{Agglomerative Clustering (Bottom-Up Approach).}{11}{}%
+\contentsline {paragraph}{Divisive Clustering (Top-Down Approach).}{12}{}%
+\contentsline {subsection}{\numberline {1.3.2}Cost Functions in Hierarchical Clustering}{12}{}%
+\contentsline {subsection}{\numberline {1.3.3}Applications of Hierarchical Clustering.}{13}{}%
+\contentsline {subsection}{\numberline {1.3.4}Fair Hierarchical Clustering}{14}{}%
+\contentsline {subsubsection}{Problem Formulation}{14}{}%
+\contentsline {subsubsection}{Algorithmic Approaches and Advances}{15}{}%
+\contentsline {chapter}{Conclusion}{17}{}%
+\contentsline {section}{\numberline {4.1}More info}{17}{}%
+\contentsline {chapter}{Appendix A: The First Appendix}{19}{}%
+\contentsline {chapter}{Appendix B: The Second Appendix, for Fun}{21}{}%
+\contentsline {chapter}{References}{23}{}%

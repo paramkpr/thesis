@@ -7,11 +7,16 @@ Warning--I didn't find a database entry for "barocas2016big"
 Warning--I didn't find a database entry for "pessach2020algorithmic"
 Warning--I didn't find a database entry for "dwork2012fairness"
 Warning--I didn't find a database entry for "angwin2016machine"
+Warning--I didn't find a database entry for "caliskan2017semantics"
 Warning--I didn't find a database entry for "XuSurvey"
 Warning--I didn't find a database entry for "ChhabraOverview"
+Warning--I didn't find a database entry for "dasgupta2016cost"
+Warning--I didn't find a database entry for "charikar2019hierarchical"
+Warning--I didn't find a database entry for "knittel2023generalized"
+Warning--I didn't find a database entry for "ahmadian2020fairhc"
 You've used 16 entries,
             2804 wiz_defined-function locations,
-            685 strings with 6779 characters,
+            690 strings with 6880 characters,
 and the built_in function-call counts, 7830 in all, are:
 = -- 632
 > -- 262
@@ -50,4 +55,4 @@ warning$ -- 0
 while$ -- 59
 width$ -- 0
 write$ -- 204
-(There were 6 warnings)
+(There were 11 warnings)

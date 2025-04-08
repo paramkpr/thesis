@@ -1,0 +1,39 @@
+
+Given the widespread application of hierarchical clustering in sensitive domains such as healthcare, hiring, criminal justice, and social network analysis, ensuring fairness becomes not only ethically imperative but also practically critical. \emph{Fair hierarchical clustering (FHC)} integrates explicit fairness constraints into hierarchical clustering methods, thereby producing cluster hierarchies that respect fairness at every hierarchical level.
+
+\subsubsection{Problem Formulation}
+
+Formally, fair hierarchical clustering requires that fairness constraints are satisfied at every internal node of the clustering hierarchy, rather than solely at a final partition. Consider a dataset \( X \) partitioned into \( \lambda \) protected groups (e.g., gender, ethnicity). A hierarchical clustering \( T \) is considered \emph{fair} if, for every cluster \( C \) in the hierarchy (excluding singletons), the representation of each protected group within that cluster remains within predefined bounds~\cite{knittel2023generalized}. 
+
+Specifically, given parameters \(\alpha_i\), \(\beta_i\) for each group \( i \in [\lambda] \), cluster \( C \) is fair if the proportion of elements belonging to group \( i \) lies within the range:
+\[
+\beta_i \leq \frac{|C_i|}{|C|} \leq \alpha_i
+\]
+where \(|C_i|\) denotes the number of points from group \( i \) within cluster \( C \). A common special case, known as \emph{proportional fairness}, occurs when the group proportions within each cluster precisely reflect their proportions in the overall dataset, typically allowing some small tolerance (slack). For example, if the dataset contains 30\% members of one protected group and 70\% of another, each cluster at every level of the hierarchy must approximately reflect this 30/70 ratio~\cite{knittel2023generalized}. Such recursive enforcement of fairness constraints significantly complicates the hierarchical clustering problem, as decisions at higher levels impose stringent constraints on lower-level cluster splits.
+
+Beyond proportional fairness, researchers have introduced the concept of \emph{relative balance}, which refers to structural or size-based balance in the hierarchy itself. Relative balance ensures clusters at each split are not overly skewed in size, avoiding trivial fairness solutions (e.g., singletons or tiny clusters) and enhancing interpretability. Determining suitable notions of balance (size, depth, or distribution of protected groups) remains an active research question, as balance criteria often conflict with optimizing traditional clustering objectives like Dasgupta’s cost~\cite{knittel2023generalized}.
+
+The integration of fairness into hierarchical clustering introduces considerable theoretical and computational challenges. Ensuring local fairness at each step can conflict with global optimization objectives, such as Dasgupta's cost, often necessitating higher-cost merges to maintain fairness. Furthermore, the combinatorial nature of the problem—searching through an exponentially large space of feasible hierarchies constrained by fairness—amplifies complexity. These difficulties require novel formulations and algorithms explicitly designed to balance fairness and clustering quality.
+
+\emph{(Open question: How can fairness and cluster balance constraints be effectively combined, and what constitutes a suitable balance metric in hierarchical clustering?)}
+
+\subsubsection{Algorithmic Approaches and Advances}
+
+Fair hierarchical clustering is a relatively recent research area. Early pioneering work by Ahmadian et al.~\cite{ahmadian2020fairhc} introduced the first formal definition of fair hierarchical clustering, extending the concept of "fairlets" (small, inherently fair subsets of points) from flat clustering into hierarchical clustering. In their approach, the hierarchy is constructed through modified agglomerative or divisive algorithms that ensure fairness at each intermediate merge or split. While groundbreaking, these initial algorithms had significant limitations, including restrictive assumptions (e.g., two equally sized groups) and relatively weak theoretical guarantees, achieving a cost approximation factor of roughly \( O(n^{5/6}\cdot\text{polylog}(n)) \)~\cite{ahmadian2020fairhc}.
+
+Subsequent research by Knittel et al.~\cite{knittel2023generalized} significantly advanced this area by proposing generalized reduction methods. These methods systematically convert any initial (possibly unfair) hierarchical clustering into a fair and balanced hierarchy with provably small increases in cost. Central to their approach is a collection of carefully defined \emph{tree operators}, such as:
+
+\begin{itemize}
+    \item \textbf{Subtree Swap:} Exchanges subtrees or nodes between clusters to improve fairness ratios.
+    \item \textbf{Leaf Promotion:} Moves certain leaves higher in the hierarchy to correct fairness imbalances.
+    \item \textbf{Bifurcation Adjustment:} Modifies splits to evenly distribute protected groups across branches.
+    \item \textbf{Merge/Split Adjustments:} Refines cluster boundaries at different hierarchical levels to maintain fairness.
+\end{itemize}
+
+By judiciously applying and scheduling these operators, the generalized reduction approach maintains fairness recursively while closely controlling clustering cost. Remarkably, Knittel et al.’s algorithms provide cost approximation guarantees that are polylogarithmic in \( n \), achieving nearly exponential improvements over earlier methods. Furthermore, their framework accommodates multiple protected groups with arbitrary proportions, significantly generalizing earlier restrictive settings~\cite{knittel2023generalized}.
+
+Current state-of-the-art algorithms for fair hierarchical clustering can thus yield solutions provably within polylogarithmic factors of optimal clustering cost, while ensuring fairness at every hierarchical node. Nonetheless, ongoing research aims to further narrow the approximation gaps and enhance practical usability, since current methods involve intricate multi-phase adjustments.
+
+Empirical evidence from recent studies suggests that enforcing fairness constraints typically induces only modest increases in clustering cost, making fair hierarchical clustering viable for real-world use~\cite{ahmadian2020fairhc,knittel2023generalized}. Still, considerable opportunities remain for refining algorithms, improving computational efficiency, and tailoring these methods for domain-specific constraints.
+
+\emph{(Open question: Can fair hierarchical clustering algorithms be made more computationally efficient and practically scalable, and what domain-specific adjustments could enhance their effectiveness?)}

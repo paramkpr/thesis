@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex thesis"] 1743715887.05551 "thesis.aux" "thesis.bbl" "thesis" 1743715887.83845 0
+["bibtex thesis"] 1744146354.94548 "thesis.aux" "thesis.bbl" "thesis" 1744146355.91051 0
   "./APA/apa-good.bst" 1743708167.29278 29521 681759d6fea01a76087da65eae747ed5 ""
   "./thesis.bib" 1743708167.31826 4700 81ae089109fb7aa2c6392fdd86f53ea4 ""
-  "thesis.aux" 1743715887.57003 4689 ac85a29acf380b0345227e0de55ddbf4 "pdflatex"
+  "thesis.aux" 1744146355.65887 6431 c27aaca4f62dbe3ab2ca937caf7ffcbb "pdflatex"
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1743715887.16489 "/Users/paramkapur/projects/thesis/final/thesis.tex" "thesis.pdf" "thesis" 1743715887.83865 0
-  "/Users/paramkapur/projects/thesis/final/thesis.tex" 1743715885.96928 10374 2b5008edf41097a6c8a2b4ea29ad6998 ""
+["pdflatex"] 1744146355.04687 "/Users/paramkapur/projects/thesis/final/thesis.tex" "thesis.pdf" "thesis" 1744146355.91063 0
+  "/Users/paramkapur/projects/thesis/final/thesis.tex" 1744146353.79546 10065 0a6442f6d83e2c7f13e6b9f205c1e80b ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -37,7 +37,9 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm" 1136768653 520 4889cce2180234b97cad636b6039c722 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy8.tfm" 1136768653 520 7bb3abb160b19e0ed6ac404bb59052b7 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb" 1248133631 37166 8ab3487cbe3ab49ebce74c29ea2418db ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb" 1248133631 35469 70d41d2b9ea31d5d813066df7c99281c ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1248133631 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1248133631 32726 0a1aea6fcd6468ee2cf64d891f5c43c8 ""
@@ -86,14 +88,18 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "chemarr.sty" 1743708167.31009 2427 429918874401aa8c2f0b441e3fc621f5 ""
   "reedthesis.cls" 1743708167.31304 8293 480a01b2533a1585368760477c470aa0 ""
-  "sections/background/2.1-fairness-in-ml.tex" 1743712107.43093 6931 4e58698e133e2ec51fcd88a2e23b79ae ""
-  "sections/background/2.2-fair-clustering.tex" 1743715854.2957 6335 bfa857a5f83b7dec6ec5111bba6664d4 ""
-  "thesis.aux" 1743715887.57003 4689 ac85a29acf380b0345227e0de55ddbf4 "pdflatex"
-  "thesis.bbl" 1743715887.16274 3580 0f5d647ab92d085b9be3b70f21adda8f "bibtex thesis"
-  "thesis.lof" 1743715887.57083 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
-  "thesis.lot" 1743715887.5708 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
-  "thesis.tex" 1743715885.96928 10374 2b5008edf41097a6c8a2b4ea29ad6998 ""
-  "thesis.toc" 1743715887.57076 1795 572a3d6bb9bc69252db9d44972137221 "pdflatex"
+  "sections/background/2.1-fairness-in-ml.tex" 1744145161.35797 10030 39df1576aa0b94cd29980af3f4947b8f ""
+  "sections/background/2.2-fair-clustering.tex" 1744144433.65034 10415 2a25b81c5ab2dfcdd24481be9767c9d4 ""
+  "sections/background/2.3-hierarchical-clustering-and-cost.tex" 1744145891.90081 9161 56e5025face89e1d8cd00093df4d8594 ""
+  "sections/background/2.4-fair-hierarchical-clustering.tex" 1744146353.89318 6701 9c1dc68837b7190862fcd880d8f6de59 ""
+  "sections/background/eng-to-turkish.png" 1744144871.59723 132220 5fbea208f87f08e1acdec223012544f3 ""
+  "sections/background/turkish-to-eng.png" 1744144871.59367 132112 9d8204840e47d16c49ed0c103bfb9997 ""
+  "thesis.aux" 1744146355.65887 6431 c27aaca4f62dbe3ab2ca937caf7ffcbb "pdflatex"
+  "thesis.bbl" 1744146355.04488 3580 0f5d647ab92d085b9be3b70f21adda8f "bibtex thesis"
+  "thesis.lof" 1744146355.65977 365 d9c64d25c0163c0dd3cb2436294f7973 "pdflatex"
+  "thesis.lot" 1744146355.65974 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
+  "thesis.tex" 1744146353.79546 10065 0a6442f6d83e2c7f13e6b9f205c1e80b ""
+  "thesis.toc" 1744146355.6597 2236 66ff02718ba45a70337d01863846239f "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.lof"

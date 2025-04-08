@@ -1,0 +1,60 @@
+\subsection{Hierarchical Clustering: Definition and Approaches}\label{subsec:hierarchical_clustering}
+
+Given the ethical, societal, and practical implications of algorithmic decision-making discussed previously, understanding the methodologies that underpin these algorithms becomes essential. Among these methodologies, \textit{hierarchical clustering} stands out as an influential unsupervised learning technique widely applied across numerous domains to identify natural groupings and reveal underlying structures within complex data.
+
+Hierarchical clustering organizes a dataset \(X\) into a structured hierarchy of nested clusters, represented by a tree-like diagram known as a \textit{dendrogram}. Each leaf node corresponds to an individual data point, while internal nodes represent clusters formed through either merging or splitting of points. The dendrogram offers a multi-resolution view, enabling users to explore and select clusters at varying degrees of granularity. Unlike flat clustering methods (e.g., \(k\)-means), hierarchical methods do not require pre-specification of the number of clusters, providing a flexible structure adaptable to different analytical needs.
+
+Hierarchical clustering methods are broadly categorized into two complementary approaches: agglomerative (bottom-up) and divisive (top-down).
+
+\paragraph{Agglomerative Clustering (Bottom-Up Approach).}
+Agglomerative hierarchical clustering (AHC) starts by placing each data point into its own singleton cluster. It then iteratively merges pairs of clusters that are closest according to a defined linkage criterion until a single encompassing cluster is obtained. The linkage criterion, which determines how inter-cluster distances are measured, greatly influences the shape and composition of resulting clusters. Common linkage methods include: [SCIPY DOCS HAVE CITS]
+
+\begin{itemize}
+    \item \textbf{Single-Linkage (Nearest-Neighbor):} Defines cluster proximity by the shortest distance between any two points from different clusters. While effective at capturing clusters with irregular shapes, single-linkage can be susceptible to chaining effects, producing loosely connected clusters.
+    \item \textbf{Complete-Linkage (Farthest-Neighbor):} Defines cluster proximity as the greatest distance between points across clusters, favoring more compact and spherical clusters, and being robust to noise.
+    \item \textbf{Average-Linkage (UPGMA):} Measures the average pairwise distance across all pairs of points from two clusters. This balanced approach avoids the extreme behaviors of single- and complete-linkage and is widely applied in practice.
+    \item \textbf{Centroid-Linkage:} Uses the Euclidean distance between the centroids (means) of clusters. Centroid-linkage typically forms spherical clusters and can be computationally efficient.
+    \item \textbf{Ward’s Method:} Minimizes within-cluster variance at each merge, producing highly compact and balanced clusters.
+\end{itemize}
+
+The agglomerative approach's primary advantage lies in its conceptual simplicity, interpretability, and deterministic nature, but it typically incurs a computational complexity of \(O(n^2\log n)\) or \(O(n^3)\), depending on the linkage method and implementation.
+
+\paragraph{Divisive Clustering (Top-Down Approach).}
+Divisive hierarchical clustering operates in the reverse direction: it begins by placing all data points into a single comprehensive cluster. At each iteration, this cluster is recursively split into smaller clusters according to a specified criterion—often focusing on maximizing inter-cluster distance or minimizing intra-cluster similarity—until each cluster contains only one data point. 
+
+Divisive clustering provides a complementary perspective to agglomerative methods, allowing potentially clearer initial partitioning of the data. However, divisive algorithms generally require greater computational resources, as optimal splitting is typically more computationally intensive than merging clusters. Due to this increased complexity, divisive clustering is less commonly used in practice but is valuable in contexts where meaningful top-level partitions are prioritized.
+
+
+\subsection{Cost Functions in Hierarchical Clustering}\label{subsec:hierarchical_clustering_cost}
+
+To quantitatively assess and optimize hierarchical clustering, researchers have proposed explicit cost functions. Dasgupta introduced a formal, pairwise-similarity-based objective that allows rigorous evaluation and comparison of hierarchical clustering outcomes~\cite{dasgupta2016cost}. Specifically, given a weighted similarity graph \( G=(V,E,w) \), where each vertex represents a data point and each weighted edge \( w_{ij} \) quantifies the similarity between points \( i \) and \( j \), Dasgupta’s cost function for a hierarchical tree \( T \) is defined as:
+\[
+\text{cost}_G(T) = \sum_{\{i,j\}\in E} w_{ij}\,\big|\text{leaves}(T_{i \vee j})\big|,
+\]
+where \( \text{leaves}(T_{i \vee j}) \) is the set of leaves under the subtree rooted at the lowest common ancestor of \( i \) and \( j \). Intuitively, this cost penalizes hierarchies that delay clustering highly similar points, encouraging closely related items to cluster together early in the hierarchy.
+
+The significance of Dasgupta’s cost function lies in its formalization of hierarchical clustering quality, enabling algorithmic comparisons through approximation ratios—how closely algorithms approximate the optimal hierarchy. Consequently, this cost function has prompted considerable theoretical research, revealing that while optimizing Dasgupta’s cost exactly is NP-hard, practical algorithms such as average-linkage agglomerative clustering achieve provable constant-factor approximations~\cite{charikar2019hierarchical}.
+
+Recent studies have extended this framework, investigating alternative objectives (e.g., revenue maximization, robustness, interpretability) that prioritize different aspects of hierarchical clustering quality. However, even with explicit cost functions, certain intuitive attributes—like interpretability or alignment with external categories—might remain inadequately captured. [WHERE WAS THIS FROM UGH]
+
+
+\subsection{Applications of Hierarchical Clustering.}
+Hierarchical clustering's flexibility and interpretability have enabled it to become pervasive across diverse application areas. Notable examples include:
+
+\begin{itemize}
+    \item \textbf{Computational Biology and Bioinformatics:} Widely employed for gene expression analysis to discover clusters of co-expressed genes, thereby elucidating biological pathways and functions. Additionally, hierarchical clustering underpins the construction of phylogenetic trees, revealing evolutionary relationships among species or genetic sequences.
+    
+    \item \textbf{Image Processing and Computer Vision:} Hierarchical methods are integral to multi-scale image segmentation, effectively organizing pixels into coherent regions at various resolutions. Such techniques facilitate detailed scene understanding, object detection, and content-based image retrieval.
+    
+    \item \textbf{Natural Language Processing (NLP):} Extensively applied in document clustering to identify thematic groupings, thereby enabling structured information retrieval, summarization, and exploration of large textual corpora. Hierarchical clustering is also instrumental in developing taxonomies and concept hierarchies in ontology construction.
+    
+    \item \textbf{Marketing and Customer Analytics:} Businesses frequently utilize hierarchical clustering for market segmentation and customer profiling, revealing detailed consumer segments based on purchasing behaviors, demographic attributes, or online activities. This segmentation allows targeted marketing and personalized recommendations.
+    
+    \item \textbf{Social Network Analysis:} Hierarchical clustering aids in detecting community structures within networks, capturing meaningful groupings such as social circles, influencer communities, or collaborative groups. These structures can inform targeted interventions, marketing strategies, or community detection in online platforms.
+    
+    \item \textbf{Psychology and Sociology:} Researchers leverage hierarchical clustering for psychometric data analysis and social behavior pattern identification, uncovering latent constructs and behavioral archetypes within populations. This facilitates targeted policy-making, interventions, and sociocultural studies.
+    
+    \item \textbf{Healthcare and Medical Diagnostics:} Hierarchical methods help classify patients based on symptom profiles or diagnostic test results, improving patient stratification, treatment personalization, and clinical decision support systems.
+\end{itemize}
+
+The broad applicability across these domains underscores hierarchical clustering’s effectiveness in capturing complex structures inherent to diverse datasets, aligning closely with many practical, societal, and ethical contexts discussed earlier. Nonetheless, the computational complexity of hierarchical clustering poses a persistent challenge, especially with massive datasets.

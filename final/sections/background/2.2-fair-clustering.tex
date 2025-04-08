@@ -17,7 +17,7 @@ A diverse set of clustering methodologies exists, each employing distinct strate
 
     \item \textbf{Center-Based Clustering:} These algorithms partition the data to minimize an error metric between samples and their cluster center. The canonical example is \(k\)-means, which minimizes the squared Euclidean distance.
 
-    \item \textbf{Hierarchical Clustering:} This approach creates a binary tree (dendrogram) where the root node represents the entire dataset, leaf nodes represent individual samples, and intermediate nodes represent clusters. Hierarchical clustering methods are either agglomerative (bottom-up) or divisive (top-down).
+    \item \textbf{Hierarchical Clustering:} This approach creates a binary tree (dendrogram) where the root node represents the entire dataset, leaf nodes represent individual samples, and intermediate nodes represent clusters. Hierarchical clustering methods are either agglomerative (bottom-up) or divisive (top-down). We will specifically take a closer look at Hierarchical clustering methods in the following sections.
 
     \item \textbf{Mixture Model-Based Clustering:} A probabilistic approach that assumes data points originate from a mixture of underlying distributions. Algorithms in this class, such as Gaussian Mixture Models (GMM), optimize parameters to best fit the data distribution, typically via Expectation Maximization.
 
@@ -30,35 +30,77 @@ A diverse set of clustering methodologies exists, each employing distinct strate
 \end{enumerate}
 
 \subsection{Fairness in Machine Learning}
-Fairness in machine learning models can be ensured at different stages of the learning pipeline, typically categorized into:
+As previously discussed in Section~\ref{subsec:algorithmic_bias}, machine learning algorithms can unintentionally perpetuate and amplify societal biases embedded in historical data. These biases pose significant ethical and practical challenges, particularly in high-stakes applications like criminal justice, hiring, or healthcare. Consequently, considerable research effort has been dedicated to mitigating bias and ensuring fairness in machine learning models.
+
+Fairness interventions can be applied at different stages of the machine learning pipeline. Specifically, fairness strategies are commonly categorized as follows:
 
 \begin{enumerate}
-    \item \textbf{Pre-processing}: The original dataset is modified prior to clustering to ensure fair representation or remove biases.
-    \item \textbf{In-processing}: Fairness constraints are directly integrated into the clustering algorithm.
-    \item \textbf{Post-processing}: The output clusters undergo modification to meet fairness constraints, which is uncommon for clustering due to the absence of a separate validation set.
+    \item \textbf{Pre-processing}: The original dataset is modified prior to training or clustering to ensure fair representation or remove biases. This approach directly addresses biases inherent in training datasets and biases due to missing or underrepresented data, as introduced in Section~\ref{subsec:algorithmic_bias}.
+    
+    \item \textbf{In-processing}: Fairness constraints are integrated directly into the algorithm's learning objective. In-processing approaches typically modify optimization criteria or integrate fairness considerations into model structures, explicitly counteracting optimization biases highlighted in the previous discussion of algorithmic bias.
+    
+    \item \textbf{Post-processing}: Model outputs or clusters undergo modification after the learning or clustering process to meet fairness constraints. However, for clustering tasks, post-processing methods are less common due to the absence of labeled validation sets, as clustering is inherently unsupervised.
 \end{enumerate}
 
-Since clustering is inherently unsupervised, without labels to quantify fairness explicitly, defining and enforcing fairness becomes notably challenging. Fairness in clustering often focuses on ensuring adequate representation of protected groups within each cluster (group-level fairness) or ensuring similar individuals are clustered similarly (individual-level fairness).
+Defining and enforcing fairness in unsupervised settings, such as clustering, is especially challenging. Unlike supervised learning—where fairness criteria, such as Demographic Parity or Equalized Odds (Section~\ref{subsec:fairness_definitions}), rely on labeled outcomes—in clustering, no explicit labels are available. Thus, clustering fairness typically involves ensuring adequate representation of protected groups within clusters (\textit{group-level fairness}), or ensuring that individuals who are similar according to a defined similarity measure receive similar clustering outcomes (\textit{individual-level fairness}). These notions extend the concepts of individual fairness (similar treatment of similar cases) and group fairness (statistical parity across demographic groups) discussed in the previous section.
+
+The absence of explicit labels complicates direct application of standard supervised fairness metrics. Consequently, specialized fairness notions and metrics tailored explicitly for clustering tasks have emerged, as detailed in the subsequent section.
 
 \subsection{Fairness Notions for Clustering}
 Fairness notions in clustering can be classified into several categories:
 
 \begin{itemize}
-    \item \textbf{Group-Level Fairness}: Inspired by the Disparate Impact doctrine, these notions aim to ensure no protected group (e.g., based on ethnicity or gender) is disproportionately disadvantaged. For example, the \emph{balance} measure quantifies how proportionally protected groups are represented in clusters.
-
+    \item \textbf{Group-Level Fairness}: Inspired by the Disparate Impact doctrine, these notions aim to ensure no protected group (e.g., based on ethnicity or gender) is disproportionately disadvantaged.
     \item \textbf{Individual-Level Fairness}: Ensures similar individuals receive similar clustering outcomes, typically defined using a dissimilarity metric.
-
     \item \textbf{Algorithm Agnostic Notions}: Defined independently of the clustering algorithm and applicable universally across clustering methods.
-
     \item \textbf{Algorithm Specific Notions}: Tailored specifically for certain clustering objectives or algorithms, such as the social fairness cost for \(k\)-means clustering.
 \end{itemize}
 
-Prominent fairness notions include:
+We now present detailed mathematical definitions for prominent fairness notions, following Chhabra et al.~\cite{ChhabraOverview}:
+
 \begin{itemize}
-    \item \textbf{Balance:} Ensures proportional representation of protected groups in clusters.
-    \item \textbf{Bounded Representation:} Enforces constraints on the maximum and minimum proportions of protected groups allowed in clusters.
-    \item \textbf{Max Fairness Cost:} Measures deviations from an ideal proportional representation.
-    \item \textbf{Social Fairness Cost:} Focuses on equitable representation of protected groups within the clustering cost objective.
+
+\item \textbf{Balance:} A cluster solution has a high balance if each protected group is proportionally represented in each cluster. For \(m\) protected groups, define \(r\) as the proportion of samples belonging to protected group \(b\) in the dataset and \(r_a\) as the proportion of group \(b\) members in cluster \(a\). Then, balance is defined as:
+\[
+\text{Balance} = \min_{a\in [k], b\in [m]} \min\left\{\frac{r}{r_a}, \frac{r_a}{r}\right\}
+\]
+
+Balance takes values between 0 and 1, with higher values indicating greater fairness.
+
+\item \textbf{Bounded Representation:} Enforces constraints on the maximum (\(\alpha\)) and minimum (\(\beta\)) proportions of protected group members in clusters. For each cluster \(a\) and protected group \(b\), the constraint is:
+\[
+\beta \leq P_{a,b} \leq \alpha, \quad \forall a\in [k], b\in [m]
+\]
+
+\item \textbf{Max Fairness Cost (MFC):} Measures deviation from a user-specified ideal proportion \(I_b\) for each protected group \(b\). The proportion of group \(b\) points in cluster \(a\) is \(P_{a,b}\), and MFC is defined as:
+\[
+\text{MFC} = \max_{a\in [k]} \sum_{b\in [m]} |P_{a,b} - I_b|
+\]
+
+\item \textbf{Social Fairness Cost:} For a set of cluster centers \(U\), the clustering cost for group \(a\) is \(O(U, X_a) = \sum_{x \in X_a} \min_{u \in U}\|x - u\|^2\), and the social fairness cost is defined as:
+\[
+\text{Social Fairness Cost} = \max_{a \in [m]} \frac{O(U, X_a)}{|X_a|}
+\]
+
+The objective here is to minimize this cost to ensure equitable clustering quality across groups.
+
+\item \textbf{Distributional Individual Fairness:} Assumes an \(f\)-divergence \(H_f(V_x \| V_y)\) measuring statistical distance between output distributions \(V_x\) and \(V_y\) of samples \(x\) and \(y\). Given a fairness similarity measure \(F(x,y)\), fairness requires:
+\[
+H_f(V_x \| V_y) \leq F(x,y), \quad \forall x,y \in X \times X
+\]
+
+\item \textbf{Kleindessner et al.'s Individual Fairness:} Ensures for each sample \(x\), belonging to cluster \(C_a\), the average distance \(d\) to samples in its cluster is at most the average distance to samples in any other cluster \(C_b\):
+\[
+\frac{1}{|C_a| - 1}\sum_{z \in C_a} d(x,z) \leq \frac{1}{|C_b|}\sum_{z \in C_b} d(x,z), \quad \forall b \neq a
+\]
+
+\item \textbf{Entropy (used mainly in deep clustering models)}: Defined based on the representation of each protected group in clusters. Let \(N_{a,b}\) denote the set of samples belonging to both cluster \(a\) and protected group \(b\), and \(n_a\) the total samples in cluster \(a\). Then entropy is defined as:
+\[
+\text{Entropy} = -\sum_{a \in [k]} \frac{|N_{a,b}|}{n_a} \log \frac{|N_{a,b}|}{n_a}
+\]
+
+Higher entropy indicates higher fairness within clusters.
+
 \end{itemize}
 
-Balancing fairness constraints with clustering quality often presents trade-offs, motivating methods that aim to find \emph{Pareto-optimal} solutions that best balance these competing objectives \cite{ChhabraOverview}.
+Balancing fairness constraints with clustering quality often presents trade-offs, motivating methods that aim to find \emph{Pareto-optimal} solutions that best balance these competing objectives~\cite{ChhabraOverview}.

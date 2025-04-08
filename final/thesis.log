@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  3 APR 2025 14:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  8 APR 2025 14:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -362,11 +362,8 @@ Package natbib Warning: Citation `barocas2016big' on page 3 undefined on input l
 Package natbib Warning: Citation `pessach2020algorithmic' on page 3 undefined on input line 12.
 
 
-Underfull \vbox (badness 3492) has occurred while \output is active []
 
-
-
-[3]
+[3{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
 Package natbib Warning: Citation `dwork2012fairness' on page 4 undefined on input line 35.
 
@@ -376,6 +373,9 @@ Overfull \hbox (0.86438pt too wide) in paragraph at lines 33--36
  []
 
 
+Package natbib Warning: Citation `angwin2016machine' on page 4 undefined on input line 74.
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -384,21 +384,41 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[4{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+[4]
 
-Package natbib Warning: Citation `angwin2016machine' on page 5 undefined on input line 75.
+Package natbib Warning: Citation `caliskan2017semantics' on page 5 undefined on input line 78.
+
+<sections/background/eng-to-turkish.png, id=86, 1209.51875pt x 357.335pt>
+File: sections/background/eng-to-turkish.png Graphic file (type png)
+<use sections/background/eng-to-turkish.png>
+Package pdftex.def Info: sections/background/eng-to-turkish.png  used on input line 82.
+(pdftex.def)             Requested size: 390.25534pt x 115.29282pt.
+<sections/background/turkish-to-eng.png, id=88, 1196.47pt x 354.32375pt>
+File: sections/background/turkish-to-eng.png Graphic file (type png)
+<use sections/background/turkish-to-eng.png>
+Package pdftex.def Info: sections/background/turkish-to-eng.png  used on input line 89.
+(pdftex.def)             Requested size: 390.25534pt x 115.57014pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (32.41415pt too wide) in paragraph at lines 73--79
-\OT1/cmr/m/n/12 in-stance, the COM-PAS al-go-rithm|widely used to as-sess crim-i-nal re-cidi-vism|demonstrated
+Package natbib Warning: Citation `barocas2016big' on page 5 undefined on input line 94.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[5 <./sections/background/eng-to-turkish.png>]
+Overfull \hbox (0.63383pt too wide) in paragraph at lines 104--105
+[]\OT1/cmr/m/n/12 Furthermore, fair-ness in-ter-ven-tions typ-i-cally tar-get al-go-rith-mic as-pects of decision-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--100
-
- []
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -407,20 +427,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[5]) (./sections/background/2.2-fair-clustering.tex
+[6 <./sections/background/turkish-to-eng.png>]) (./sections/background/2.2-fair-clustering.tex
 
-Package natbib Warning: Citation `XuSurvey' on page 6 undefined on input line 14.
-
-
+Package natbib Warning: Citation `XuSurvey' on page 7 undefined on input line 14.
 
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[6]
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -431,10 +442,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [7]
 
-Package natbib Warning: Citation `ChhabraOverview' on page 8 undefined on input line 64.
-
-)
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -444,31 +451,157 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [8]
 
-[9
+Package natbib Warning: Citation `ChhabraOverview' on page 9 undefined on input line 59.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[9]
+
+Package natbib Warning: Citation `ChhabraOverview' on page 10 undefined on input line 106.
+
+) (./sections/background/2.3-hierarchical-clustering-and-cost.tex
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[10]
+Overfull \hbox (0.79048pt too wide) in paragraph at lines 16--17
+[]\OT1/cmr/bx/n/12 Centroid-Linkage: \OT1/cmr/m/n/12 Uses the Eu-clidean dis-tance be-tween the cen-troids (means)
+ []
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[11]
+
+Package natbib Warning: Citation `dasgupta2016cost' on page 12 undefined on input line 30.
+
+
+Package natbib Warning: Citation `charikar2019hierarchical' on page 12 undefined on input line 36.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[12])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[13] (./sections/background/2.4-fair-hierarchical-clustering.tex
+
+Package natbib Warning: Citation `knittel2023generalized' on page 14 undefined on input line 6.
+
+
+Package natbib Warning: Citation `knittel2023generalized' on page 14 undefined on input line 12.
+
+
+Package natbib Warning: Citation `knittel2023generalized' on page 14 undefined on input line 14.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[14]
+
+Package natbib Warning: Citation `ahmadian2020fairhc' on page 15 undefined on input line 22.
+
+
+Package natbib Warning: Citation `ahmadian2020fairhc' on page 15 undefined on input line 22.
+
+
+Package natbib Warning: Citation `knittel2023generalized' on page 15 undefined on input line 24.
+
+
+Overfull \hbox (3.50336pt too wide) in paragraph at lines 29--30
+[]\OT1/cmr/bx/n/12 Bifurcation Ad-just-ment: \OT1/cmr/m/n/12 Mod-i-fies splits to evenly dis-tribute pro-tected groups
+ []
+
+
+Package natbib Warning: Citation `knittel2023generalized' on page 15 undefined on input line 33.
+
+
+Package natbib Warning: Citation `ahmadian2020fairhc' on page 15 undefined on input line 37.
+
+
+Package natbib Warning: Citation `knittel2023generalized' on page 15 undefined on input line 37.
+
+
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[15])
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 14.49998pt, for example:
+(fancyhdr)                \setlength{\headheight}{14.49998pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
+
+[16]
+
+[17
 
 ]
 
-[10
+[18
 
 ]
 Appendix A.
 
 
-[11]
+[19]
 
-[12
+[20
 
 ]
 Appendix B.
 
 
-[13]
+[21]
 
-[14
+[22
 
 ] (./thesis.bbl
 
-[15
+[23
 
 ])
 
@@ -483,25 +616,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[16] (./thesis.aux)
+[24] (./thesis.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3994 strings out of 473190
- 60055 string characters out of 5715801
- 453584 words of memory out of 5000000
- 27176 multiletter control sequences out of 15000+600000
+ 4026 strings out of 473190
+ 61554 string characters out of 5715801
+ 455707 words of memory out of 5000000
+ 27202 multiletter control sequences out of 15000+600000
  567129 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,68p,887b,397s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (36 pages, 166248 bytes).
+ 57i,12n,68p,1056b,372s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on thesis.pdf (44 pages, 346827 bytes).
 PDF statistics:
- 181 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
+ 224 PDF objects out of 1000 (max. 8388607)
+ 144 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
