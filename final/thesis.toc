@@ -20,7 +20,7 @@
 \contentsline {paragraph}{Divisive Clustering (Top-Down Approach).}{12}{}%
 \contentsline {subsection}{\numberline {1.3.2}Cost Functions in Hierarchical Clustering}{12}{}%
 \contentsline {subsection}{\numberline {1.3.3}Applications of Hierarchical Clustering.}{13}{}%
-\contentsline {subsection}{\numberline {1.3.4}Fair Hierarchical Clustering}{14}{}%
+\contentsline {section}{\numberline {1.4}Fair Hierarchical Clustering}{14}{}%
 \contentsline {subsubsection}{Problem Formulation}{14}{}%
 \contentsline {subsubsection}{Algorithmic Approaches and Advances}{15}{}%
 \contentsline {chapter}{Conclusion}{17}{}%

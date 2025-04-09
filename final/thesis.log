@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  8 APR 2025 14:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  9 APR 2025 10:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -552,12 +552,6 @@ Overfull \hbox (3.50336pt too wide) in paragraph at lines 29--30
 Package natbib Warning: Citation `knittel2023generalized' on page 15 undefined on input line 33.
 
 
-Package natbib Warning: Citation `ahmadian2020fairhc' on page 15 undefined on input line 37.
-
-
-Package natbib Warning: Citation `knittel2023generalized' on page 15 undefined on input line 37.
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -566,7 +560,14 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[15])
+[15]
+
+Package natbib Warning: Citation `ahmadian2020fairhc' on page 16 undefined on input line 37.
+
+
+Package natbib Warning: Citation `knittel2023generalized' on page 16 undefined on input line 37.
+
+)
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -625,13 +626,13 @@ L3 programming layer <2025-01-18>
 Here is how much of TeX's memory you used:
  4026 strings out of 473190
  61554 string characters out of 5715801
- 455707 words of memory out of 5000000
+ 455700 words of memory out of 5000000
  27202 multiletter control sequences out of 15000+600000
  567129 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  57i,12n,68p,1056b,372s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (44 pages, 346827 bytes).
+Output written on thesis.pdf (44 pages, 347042 bytes).
 PDF statistics:
  224 PDF objects out of 1000 (max. 8388607)
  144 compressed objects within 2 object streams
