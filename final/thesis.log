@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  15 APR 2025 11:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  15 APR 2025 13:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -657,7 +657,7 @@ Chapter 1.
 [3
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-Overfull \hbox (0.86438pt too wide) in paragraph at lines 53--58
+Overfull \hbox (0.86438pt too wide) in paragraph at lines 59--64
 \OT1/cmr/m/n/12 puts for sim-i-lar in-di-vid-u-als, where sim-i-lar-ity is as-sessed based on rel-e-vant non-sensitive
  []
 
@@ -672,10 +672,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [4]
 
-LaTeX Warning: Reference `fig:turkish-to-eng' on page 5 undefined on input line 126.
-
-
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -684,16 +680,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [5]
-<sections/background/turkish-to-eng.png, id=90, 1196.47pt x 354.32375pt>
-File: sections/background/turkish-to-eng.png Graphic file (type png)
-<use sections/background/turkish-to-eng.png>
-Package pdftex.def Info: sections/background/turkish-to-eng.png  used on input line 140.
-(pdftex.def)             Requested size: 390.25534pt x 115.57014pt.
-<sections/background/eng-to-turkish.png, id=92, 1209.51875pt x 357.335pt>
+<sections/background/eng-to-turkish.png, id=90, 1209.51875pt x 357.335pt>
 File: sections/background/eng-to-turkish.png Graphic file (type png)
 <use sections/background/eng-to-turkish.png>
-Package pdftex.def Info: sections/background/eng-to-turkish.png  used on input line 141.
+Package pdftex.def Info: sections/background/eng-to-turkish.png  used on input line 148.
 (pdftex.def)             Requested size: 390.25534pt x 115.29282pt.
+<sections/background/turkish-to-eng.png, id=92, 1196.47pt x 354.32375pt>
+File: sections/background/turkish-to-eng.png Graphic file (type png)
+<use sections/background/turkish-to-eng.png>
+Package pdftex.def Info: sections/background/turkish-to-eng.png  used on input line 149.
+(pdftex.def)             Requested size: 390.25534pt x 115.57014pt.
 
 
 
@@ -703,7 +699,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[6 <./sections/background/turkish-to-eng.png> <./sections/background/eng-to-turkish.png>]
+[6 <./sections/background/eng-to-turkish.png> <./sections/background/turkish-to-eng.png>]
 Underfull \vbox (badness 1629) has occurred while \output is active []
 
 
@@ -715,7 +711,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[7]) (./sections/background/2.2-fair-clustering.tex
+[7]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -727,7 +723,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[8]
+[8]) (./sections/background/2.2-fair-clustering.tex
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -764,8 +760,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [12]) (./sections/background/2.3-hierarchical-clustering-and-cost.tex
-Underfull \vbox (badness 1308) has occurred while \output is active []
-
+<sections/background/scipy_dendrogram.png, id=122, 867.24pt x 578.16pt>
+File: sections/background/scipy_dendrogram.png Graphic file (type png)
+<use sections/background/scipy_dendrogram.png>
+Package pdftex.def Info: sections/background/scipy_dendrogram.png  used on input line 25.
+(pdftex.def)             Requested size: 390.25534pt x 260.16959pt.
 
 
 
@@ -776,12 +775,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [13]
-<sections/background/scipy_dendrogram.png, id=125, 867.24pt x 578.16pt>
-File: sections/background/scipy_dendrogram.png Graphic file (type png)
-<use sections/background/scipy_dendrogram.png>
-Package pdftex.def Info: sections/background/scipy_dendrogram.png  used on input line 25.
-(pdftex.def)             Requested size: 390.25534pt x 260.16959pt.
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -801,6 +794,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [15]
 
+LaTeX Warning: Citation 'cohen' on page 16 undefined on input line 151.
+
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -809,10 +806,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [16]
-
-LaTeX Warning: Citation 'cohen' on page 17 undefined on input line 151.
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -876,9 +869,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [22]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -887,17 +877,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[23]
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[24])
-Overfull \hbox (11.04344pt too wide) in paragraph at lines 143--233
+[23])
+Overfull \hbox (11.04344pt too wide) in paragraph at lines 130--239
 []\OT1/cmr/m/n/12 Addressing these chal-lenges and ques-tions will be vi-tal for clos-ing the the-ory{practice
  []
 
@@ -910,18 +891,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[25]
+[24]
+
+[25
+
+]
 
 [26
 
 ]
+Appendix A.
+
 
 [27]
 
 [28
 
 ]
-Appendix A.
+Appendix B.
 
 
 [29]
@@ -929,21 +916,13 @@ Appendix A.
 [30
 
 ]
-Appendix B.
-
-
-[31]
-
-[32
-
-]
-Overfull \hbox (4.02061pt too wide) in paragraph at lines 293--293
+Overfull \hbox (4.02061pt too wide) in paragraph at lines 299--299
 [][][]\OT1/cmr/m/n/12 . \OT1/cmr/m/it/12 In-ter-ac-tive Com-puter Graph-ics : A Top-Down Ap-proach with OpenGL\OT1/cmr/m/n/12 . Boston,
  []
 
 
 
-[33
+[31
 
 ]
 
@@ -954,7 +933,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[34] (./thesis.aux)
+[32] (./thesis.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -973,18 +952,18 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14671 strings out of 473190
- 282657 string characters out of 5715801
- 1405598 words of memory out of 5000000
- 37743 multiletter control sequences out of 15000+600000
+ 14670 strings out of 473190
+ 282637 string characters out of 5715801
+ 1405607 words of memory out of 5000000
+ 37742 multiletter control sequences out of 15000+600000
  568012 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,13n,95p,735b,3950s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on thesis.pdf (54 pages, 396888 bytes).
+Output written on thesis.pdf (52 pages, 395839 bytes).
 PDF statistics:
- 257 PDF objects out of 1000 (max. 8388607)
- 165 compressed objects within 2 object streams
+ 251 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

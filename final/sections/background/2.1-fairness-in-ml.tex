@@ -41,6 +41,12 @@ commonly originates from:
     from the dataset.
 \end{itemize}
 
+This means that algorithmic bias is a fundamental and unavoidable
+fact when developing machine learning algorithms. However, not all is
+lost, by carefully defining what it is we mean when we require an
+algorithm to be "fair", that is without bias, machine learning
+research has made immense strides in making these algorithms more
+accurate, correct, and true representations of real-world scenarios.
 \subsection{Defining Fairness in Machine
 Learning}\label{subsec:fairness_definitions}
 
@@ -61,7 +67,9 @@ as follows \cite{dwork2012fairness}:
 where \(x\) and \(x'\) are individuals with comparable non-sensitive
 attributes, and \(\rho\) is a small constant. This definition
 emphasizes the fair treatment of similar cases on an individual
-basis, ensuring minimal unjustified variability.
+basis, ensuring minimal unjustified variability. Heuristically, we
+find individual fairness to be a stronger criterion for fairness, but
+in practice, it is much harder to implement.
 
 \paragraph{Group Fairness.}
 Group fairness demands that statistical outcomes of algorithms be
@@ -108,7 +116,7 @@ algorithms. One widely cited example is the COMPAS algorithm,
 frequently used in criminal justice for predicting recidivism.
 Investigations revealed significant racial biases, incorrectly
 labeling Black defendants as high-risk at nearly twice the rate of
-White defendants who later re-offended~\cite{angwin2016machine}.
+White defendants who later re-offended ~[\cite{angwin2016machine}].
 Similarly, facial recognition software has consistently demonstrated
 higher error rates for darker-skinned individuals, exacerbating risks
 of racial profiling and wrongful identification.
@@ -122,32 +130,32 @@ embedded in the data disproportionately disadvantage female candidates.
 
 A particularly telling example emerges from machine translation.
 Consider translating sentences from English to Turkish and then back
-into English, as illustrated in Figures~\ref{fig:eng-to-turkish}
-and~\ref{fig:turkish-to-eng}. Turkish pronouns are gender-neutral,
+into English, as illustrated in Figure~\ref{fig:eng-to-turkish}.
+Turkish pronouns are gender-neutral,
 but when translated back into English, gender-specific pronouns are
 inferred based on statistical associations. As a result, occupations
 stereotypically associated with men—such as ``engineer'' or
 ``doctor''—are translated back using male pronouns, while occupations
 stereotypically associated with women—such as ``nurse''—return female
 pronouns. This phenomenon arises from two biases embedded in training
-datasets: real-world labor market statistics reflecting historical
-occupational distributions and the ``male-as-norm'' bias, whereby
+datasets: first, real-world labor market statistics reflecting historical
+occupational distributions and, second, the ``male-as-norm'' bias, whereby
 male pronouns are preferentially selected when gender is ambiguous or
 unknown~\cite{caliskan2017semantics}.
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.9\textwidth]{sections/background/turkish-to-eng.png}
   \includegraphics[width=0.9\textwidth]{sections/background/eng-to-turkish.png}
-  \caption{Translations of gender-specific English sentences into
+  \includegraphics[width=0.9\textwidth]{sections/background/turkish-to-eng.png}
+  \caption{Google translate screenshot of gender-specific English sentences into
   gender-neutral Turkish and then back to English.}
   \label{fig:eng-to-turkish}
 \end{figure}
 
 Attempts to mitigate biases by removing explicitly sensitive
 attributes (such as gender or race) from training datasets frequently
-fall short due to \textit{proxy variables}. Proxy attributes—such as
-the age at which individuals start programming—can inadvertently
+fall short due to \textit{proxy variables}. Proxy attributes, for example,
+the age at which individuals start programming, can inadvertently
 encode sensitive information like gender, reinforcing biases even in
 their absence. Additionally, biases due to disparities in sample
 sizes among demographic groups lead to poorer model performance for
@@ -172,24 +180,24 @@ Directions}\label{subsec:challenges_future}
 (TODO: citations here need to be filled in carefully I relied a bit
 on yt tAjFuhkiV2c)
 
-The growing emphasis on fairness in algorithmic decision-making,
-particularly in clustering and machine learning contexts, has
+The growing emphasis on fairness in algorithmic decision-making has
 significantly advanced our understanding of bias mitigation.
 Nevertheless, this field continues to face considerable challenges
 and inherent limitations.
 
 One prominent difficulty arises from conflicting fairness criteria.
-It is mathematically impossible to simultaneously satisfy all
-fairness definitions—such as Demographic Parity, Equal Opportunity,
-and Equalized Odds—highlighting the necessity for context-specific
+It is mathematically impossible (TODO: why? should I explain here?)
+to simultaneously satisfy all fairness definitions — like
+Demographic Parity, Equal Opportunity,
+and Equalized Odds — highlighting the necessity for context-specific
 fairness solutions. For example, attempts to apply broad fairness
 concepts, initially developed within supervised learning frameworks,
-to clustering tasks often encounter mismatches in meaning. Individual
+to clustering tasks often encounter mismatches in meaning. [cite] Individual
 fairness definitions emphasizing distributional equity may not
 translate effectively into clustering contexts, where groups or
 clusters often lack inherent meaning until assigned. This mismatch
 underscores the need to carefully adapt fairness criteria from
-supervised learning to unsupervised scenarios.
+supervised learning to unsupervised scenarios. [cite]
 
 Moreover, algorithmic fairness interventions rarely function in
 isolation. They typically constitute components within broader
@@ -199,7 +207,7 @@ variables, a common fairness strategy, can inadvertently lead to
 unintended consequences. For instance, the practice of "Ban the Box,"
 intended to eliminate employment discrimination by prohibiting
 questions about criminal history, inadvertently increased racial
-discrimination as employers began using race as a proxy variable.
+discrimination as employers began using race as a proxy variable. [cite]
 This underscores the complexity and potential pitfalls inherent in
 algorithmic fairness interventions and highlights the importance of
 anticipating and managing unintended downstream consequences.
@@ -212,7 +220,7 @@ algorithmic interventions. Historical efforts like school busing
 aimed at integrating racially segregated districts illustrate how
 algorithmic clustering solutions can unintentionally disrupt
 communities or exacerbate segregation through mechanisms such as
-"white flight." This historical context reveals the critical need to
+"white flight." [cite] This historical context reveals the critical need to
 engage deeply with domain-specific constraints, legal frameworks, and
 stakeholder needs, reinforcing that algorithmic solutions must be
 cognizant of broader historical and societal dynamics.
@@ -230,7 +238,7 @@ with practical realities and ethical standards.
 
 Another essential consideration is stakeholder engagement. Too often,
 fairness solutions are developed paternalistically, without
-adequately involving those directly impacted. Engaging
+adequately involving those directly impacted.[cite] Engaging
 stakeholders—including affected communities, policy experts, and
 practitioners—in defining fairness and assessing interventions can
 prevent misguided assumptions and ensure that algorithmic systems
@@ -257,3 +265,5 @@ technical algorithmic approaches with broader societal, legal, and
 ethical considerations, researchers can develop more robust,
 equitable, and practically viable solutions to mitigate algorithmic
 biases and their profound societal implications.
+
+(TODO: connect to the next section here? required? if so, how?)

@@ -4,7 +4,7 @@
 In algorithmic research, a significant challenge is the persistent
 gap between theoretical guarantees and practical performance,
 commonly known as the \emph{theory–practice gap}. This gap emerges
-when algorithms that perform exceptionally well under theoretical
+when algorithms that perform well under theoretical
 models fail to deliver expected outcomes in real-world applications,
 or conversely, when methods that excel in practice lack robust
 theoretical foundations. Understanding and addressing this disparity
@@ -17,31 +17,32 @@ properties—such as optimality, approximation guarantees, or
 polynomial runtimes—do not align closely with empirical results.
 While theoretical analyses often focus on worst-case scenarios,
 real-world data typically exhibit patterns or structures that differ
-significantly from these pathological cases. For instance, the
+significantly from these cases. For instance, the
 simplex algorithm for linear programming has exponential complexity
 in the worst case but is remarkably efficient on typical real-world
-problems. Conversely, theoretically optimal polynomial-time
+problems [cite]. Conversely, theoretically optimal polynomial-time
 algorithms, such as certain interior-point methods, sometimes perform
-worse in practice due to high constant factors or implementation complexity.
+worse in practice due to high constant factors or implementation
+complexity. [cite]
 
 Another example is in reinforcement learning (RL), where numerous
 theoretically sound algorithms with convergence guarantees fail to
 outperform simpler heuristic-based methods in practical tasks like
 game-playing or robotic control. This phenomenon was notably
-highlighted at recent NeurIPS conferences, where the RL community
+highlighted at a recent NeurIPS conferences [cite], where the RL community
 acknowledged the pressing need to integrate practical insights into
 theoretical frameworks. Such examples illustrate how real-world
 complexity, such as stochasticity and function approximation,
-challenges overly simplified theoretical models.
+challenges simplified theoretical models.
 
 Deep learning further epitomizes this gap. Despite the overwhelming
 success of deep neural networks in practical applications,
 theoretical explanations of their effectiveness, such as
-generalization in overparameterized models, remain incomplete.
+generalization in overparameterized models, remain incomplete. [cite]
 Techniques developed empirically, including batch normalization and
 specific optimization heuristics, have often preceded theoretical
 understanding, underscoring how empirical experimentation sometimes
-outpaces theory.
+outpaces theory. [cite]
 
 The existence of this gap has implications for both research and
 practice. Practitioners may disregard algorithms that, despite their
@@ -49,8 +50,9 @@ theoretical strengths, prove impractical due to complexity or poor
 empirical performance. Conversely, theoretically weaker but
 practically effective methods gain prominence, occasionally leading
 to skepticism toward theoretical results. Therefore, efforts to
-bridge this gap by developing more realistic theoretical models and
-improving practical algorithm implementations remain essential.
+bridge this gap by conducting systematic empirical experiments on
+algorithms that perform well in theory but have not been put through
+rigorous real-world testing remain essential.
 
 \subsection{Empirical Evaluation Methodologies}
 
@@ -59,18 +61,16 @@ identifying precisely where theoretical expectations diverge from
 practical outcomes. Effective empirical evaluation involves careful
 dataset selection, appropriate metrics, and standardized evaluation
 procedures. Benchmarks such as the DIMACS challenges for graph
-algorithms or platforms like Kaggle competitions in machine learning
+algorithms [cite] or platforms like Kaggle competitions in machine learning
 exemplify rigorous empirical frameworks, allowing researchers to
 measure real-world performance consistently.
 
 For fair algorithms, especially in unsupervised tasks like
-clustering, benchmarking must also consider fairness metrics
+clustering, benchmarking must also consider fairness metrics that we
+have discussed previously
 alongside traditional performance indicators like runtime and
-clustering cost. Metrics could include measures such as the maximum
-deviation of a cluster’s group proportions from global proportions,
-or more nuanced fairness trade-offs, illustrating how improving
-fairness impacts clustering quality. This multi-dimensional
-evaluation helps stakeholders understand algorithm performance comprehensively.
+clustering cost. This multi-dimensional evaluation helps stakeholders
+understand algorithm performance comprehensively.
 
 Benchmarking also uncovers performance nuances often missed in
 theoretical analyses. Two algorithms with identical theoretical
@@ -86,7 +86,7 @@ do not represent real-world conditions adequately, the results may
 not generalize beyond the benchmark suite. Additionally, fairness
 evaluations introduce complexities, such as acquiring datasets with
 accurate protected attribute labels and defining meaningful fairness
-metrics reflective of societal concerns.
+metrics reflective of societal concerns. [cite how?]
 
 \subsection{Benchmarking Systems and Requirements for Fair Algorithms}
 
@@ -101,30 +101,24 @@ A fairness-specific benchmarking system should incorporate metrics
 explicitly designed to measure fairness, clearly documenting how
 fairness constraints influence algorithm performance. Such a system
 must balance multiple objectives—like fairness versus clustering
-quality—and present results transparently, possibly using
-visualizations or Pareto frontiers to facilitate interpretation.
+quality—and present results transparently. [cite how?]
 
 Transparency and reproducibility become even more critical in fair
 benchmarking due to ethical implications. Open-source
 implementations, publicly accessible datasets, and well-documented
 evaluation protocols are crucial for validating claims about fairness
-improvements. Additionally, benchmarks must include algorithms beyond
-explicitly fair approaches to contextualize fairness improvements
-relative to standard methods and heuristics.
-
-Extensibility and interpretability are also essential. Benchmarks
-must accommodate evolving fairness definitions, metrics, and
-algorithmic innovations. Interpretability, achieved through intuitive
-visualizations and comprehensive reporting, ensures stakeholders
-understand fairness outcomes and performance trade-offs clearly.
+improvements. Additionally, benchmarks must include algorithms unfair
+approaches to contextualize fairness improvements
+relative to standard methods.
 
 Lastly, stress-testing algorithms with challenging or edge-case
-scenarios—such as minority group representation or inherent
-fairness-structure conflicts—provides deeper insights into algorithm
+scenarios provides deeper insights into algorithm
 robustness and highlights areas requiring further theoretical or
 empirical attention.
 
-\subsection{Future Directions and Open Questions}
+\subsection{Future Directions}
+(TODO: unsure of section title, since this is what the rest of the
+thesis will deal with)
 
 Despite progress, numerous open questions remain. One critical area
 involves developing standardized benchmarks specifically for fair
@@ -132,13 +126,6 @@ clustering and other fairness-aware algorithmic tasks. Currently, no
 widely adopted benchmarks exist for systematically evaluating
 fairness in clustering contexts, highlighting a clear gap in the
 research infrastructure.
-
-Another open question concerns the feasibility of establishing a
-unified benchmarking platform analogous to MLCommons but dedicated
-explicitly to fairness-focused algorithms. Such a platform would
-enable consistent evaluation, accelerate algorithmic innovation, and
-foster deeper integration between theoretical advancements and
-practical requirements.
 
 Addressing these challenges and questions will be vital for closing
 the theory–practice gap, ultimately leading to algorithms that are

@@ -179,27 +179,33 @@ practitioners often lack reliable, evidence-based guidance to predict
 real-world performance accurately. Consequently, this uncertainty can
 either deter the use of theoretically superior algorithms or result
 in suboptimal algorithmic choices based on anecdotal experiences or
-incomplete testing. Despite its significance, systematic empirical
-evaluation of algorithmic performance—especially in domains
-exhibiting notable theory-practice discrepancies—is still rare.
+incomplete testing. Despite its significance, domains
+exhibiting notable theory-practice discrepancies keep growing in
+number as theoretical algorithmic research pushes onwards.
 
 This thesis tackles precisely this issue by providing a
-comprehensive, structured empirical analysis designed to bridge the
+comprehensive, structured empirical analysis designed to bridge an
 existing theory–practice gap. Through an extensive literature review,
-I first identify key algorithmic areas—such as fair hierarchical
-clustering, parallel graph processing, and approximation methods—that
+we first identify key algorithmic areas— (TODO: change based on
+reality) such as fair hierarchical clustering, parallel graph
+processing, and approximation methods—that
 demonstrate significant divergence between theoretical predictions
 and empirical observations. Recognizing the need for rigorous,
-reproducible, and standardized testing, I have developed a robust
+reproducible, and standardized testing, we then develop a robust
 benchmarking framework specifically aimed at controlled
-experimentation and comprehensive performance evaluations.
+experimentation and comprehensive performance evaluations. Additionally,
+theoretical algorithmic research frequently draw from a common set of
+datasets for their initial experimentation. Naturally, this can cause
+over-fitting to those datasets and consequently initial experimental
+results may not reflect real world performance. We attempt to test
+algorithm performance on a greater variety of data.
 
 Utilizing this benchmarking environment, the research reported in
 this thesis includes extensive empirical studies involving both
 synthetic datasets—which probe specific theoretical
 characteristics—and diverse real-world datasets that reflect typical
 practical scenarios. These experiments systematically compare
-theoretical metrics like runtime complexity, approximation ratios,
+theoretical metrics like runtime complexity
 and fairness guarantees with empirical outcomes such as actual
 execution times, memory consumption, solution quality, and fairness
 metrics. Rather than isolated studies, this thesis presents an
@@ -212,14 +218,14 @@ and implementation decisions, effectively bridging the gap between
 theoretical expectations and practical realities.
 
 \chapter{Background}
-This is the first page of the first chapter. You may delete the
-contents of this chapter so you can add your own text; it's just here
-to show you some examples.
+We begin by introducing key concepts required to understand the class
+of algorithms that we will implement. Then we dive into methods to
+benchmark and empirically evaluate these algorithms.
 
 \section{Fairness Concepts in Machine Learning}\label{sec:fairness_concepts}
 \input{sections/background/2.1-fairness-in-ml.tex}
 
-\section{Preliminaries and Fairness in Clustering}\label{sec:fair_clustering}
+\section{Clustering Algorithms and Fairness}\label{sec:fair_clustering}
 \input{sections/background/2.2-fair-clustering.tex}
 
 \section{Hierarchical Clustering and Cost}

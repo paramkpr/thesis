@@ -13,18 +13,11 @@ cluster assignment strategies, clustering is broadly categorized into two types:
     probabilistically to multiple clusters.
 \end{itemize}
 
-In clustering tasks, unlike supervised learning, labels for data
-samples are unavailable. Consequently, the same dataset \(X\) is used
-for both training and evaluating the clustering outcomes. This
-complicates the definition and enforcement of fairness, as
-conventional fairness measures for supervised methods rely on labels
-to evaluate biases or discrimination.
-
 The number of clusters \(k\) can either be provided as an input
 parameter or determined by the clustering method itself. For
 instance, in \(k\)-means, \(k\) is predefined, whereas hierarchical
 clustering outputs a dendrogram without a predetermined \(k\),
-allowing users to choose the number of clusters post hoc.
+allowing users to choose the number of clusters later.
 
 \subsection{Taxonomy of Clustering Methods}
 A diverse set of clustering methodologies exists, each employing
@@ -79,10 +72,9 @@ by Xu et al. \cite{XuSurvey}, we classify clustering algorithms as follows:
 As previously discussed in Section~\ref{subsec:algorithmic_bias},
 machine learning algorithms can unintentionally perpetuate and
 amplify societal biases embedded in historical data. These biases
-pose significant ethical and practical challenges, particularly in
-high-stakes applications like criminal justice, hiring, or
-healthcare. Consequently, considerable research effort has been
-dedicated to mitigating bias and ensuring fairness in machine learning models.
+pose significant ethical and practical challenges. Consequently,
+considerable research effort has been dedicated to mitigating bias
+and ensuring fairness in machine learning models.
 
 Fairness interventions can be applied at different stages of the
 machine learning pipeline. Specifically, fairness strategies are
@@ -111,23 +103,18 @@ commonly categorized as follows:
 \end{enumerate}
 
 Defining and enforcing fairness in unsupervised settings, such as
-clustering, is especially challenging. Unlike supervised
-learning—where fairness criteria, such as Demographic Parity or
-Equalized Odds (Section~\ref{subsec:fairness_definitions}), rely on
-labeled outcomes—in clustering, no explicit labels are available.
-Thus, clustering fairness typically involves ensuring adequate
-representation of protected groups within clusters
-(\textit{group-level fairness}), or ensuring that individuals who are
-similar according to a defined similarity measure receive similar
-clustering outcomes (\textit{individual-level fairness}). These
-notions extend the concepts of individual fairness (similar treatment
-of similar cases) and group fairness (statistical parity across
-demographic groups) discussed in the previous section.
+clustering, is especially challenging. In clustering tasks, unlike
+supervised learning, labels for data
+samples are unavailable. Consequently, the same dataset \(X\) is used
+for both training and evaluating the clustering outcomes. This
+complicates the definition and enforcement of fairness, as
+conventional fairness measures for supervised methods rely on labels
+to evaluate biases or discrimination.
 
 The absence of explicit labels complicates direct application of
 standard supervised fairness metrics. Consequently, specialized
 fairness notions and metrics tailored explicitly for clustering tasks
-have emerged, as detailed in the subsequent section.
+have emerged.
 
 \subsection{Fairness Notions for Clustering}
 Fairness notions in clustering can be classified into these four categories:
@@ -148,7 +135,7 @@ Fairness notions in clustering can be classified into these four categories:
 \end{itemize}
 
 As we move forward, the following mathematical definitions for prominent
-fairness notions in clustering will be important:
+fairness notions in clustering will be important.
 [\cite{ChhabraOverview}ChabbraIEEE]
 
 \begin{itemize}

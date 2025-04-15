@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber thesis"] 1744743245.54665 "thesis.bcf" "thesis.bbl" "thesis" 1744743544.06402 0
-  "thesis.bcf" 1744743543.98458 161877 d5206d818e3ebd34e62d4a6d683b0ad3 "pdflatex"
+["biber thesis"] 1744743245.54665 "thesis.bcf" "thesis.bbl" "thesis" 1744749001.5606 0
+  "thesis.bcf" 1744749001.47555 161877 d5206d818e3ebd34e62d4a6d683b0ad3 "pdflatex"
   "thesis.bib" 1744660698.16846 5989 a8ea97de5dfc75fa9b2d3843beae5455 ""
   (generated)
   "thesis.bbl"
   "thesis.blg"
   (rewritten before read)
-["pdflatex"] 1744743542.63207 "/Users/paramkapur/projects/thesis/final/thesis.tex" "thesis.pdf" "thesis" 1744743544.06435 0
-  "/Users/paramkapur/projects/thesis/final/thesis.tex" 1744743540.98328 12422 837f5f81903e854ea7c3bd8921e721f9 ""
+["pdflatex"] 1744749000.07065 "/Users/paramkapur/projects/thesis/final/thesis.tex" "thesis.pdf" "thesis" 1744749001.56094 0
+  "/Users/paramkapur/projects/thesis/final/thesis.tex" 1744748999.84406 12779 40d03cfb4cbe65ed66fd7624a4332aaa ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -117,21 +117,21 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "chemarr.sty" 1743708167.31009 2427 429918874401aa8c2f0b441e3fc621f5 ""
   "reedthesis.cls" 1743708167.31304 8293 480a01b2533a1585368760477c470aa0 ""
-  "sections/background/2.1-fairness-in-ml.tex" 1744741841.52039 13196 76d1a6dfdf0b1a8195e7fd24e3bc09e1 ""
-  "sections/background/2.2-fair-clustering.tex" 1744742096.7984 10867 16b23f1d969087fe3dba6f290aaf7640 ""
+  "sections/background/2.1-fairness-in-ml.tex" 1744747083.9438 13812 44309c0bc5df4e8185623daba36ac977 ""
+  "sections/background/2.2-fair-clustering.tex" 1744747493.54024 10014 103a01fd536de3d2f3f3a820476291ed ""
   "sections/background/2.3-hierarchical-clustering-and-cost.tex" 1744741297.94265 10877 f39c4d0c3b44392c4330fcd470f8d1c6 ""
   "sections/background/2.4-fair-hierarchical-clustering.tex" 1744740769.93893 7073 990792ff2da483adfb08b0c24c5aeea9 ""
-  "sections/background/2.5-theory-practice-benchmarking.tex" 1744743122.36696 7865 1cdcb4704e8fce311b211ffd093c249e ""
+  "sections/background/2.5-theory-practice-benchmarking.tex" 1744748933.78837 6955 ff37247cfc215437cd65243d8cdae8ab ""
   "sections/background/eng-to-turkish.png" 1744144871.59723 132220 5fbea208f87f08e1acdec223012544f3 ""
   "sections/background/scipy_dendrogram.png" 1744741286.03131 28102 d678bb06a2d436c344f546bf7e5eacc8 ""
   "sections/background/turkish-to-eng.png" 1744144871.59367 132112 9d8204840e47d16c49ed0c103bfb9997 ""
-  "thesis.aux" 1744743543.98194 12205 930aebca2c162919e1d88a3c42704509 "pdflatex"
+  "thesis.aux" 1744749001.4731 12204 9dcbf2a14ac4bf8cc0cc84c2fb491cea "pdflatex"
   "thesis.bbl" 1744743247.15663 28711 364a5e1cf4f2a9452389c633103c6fbe "biber thesis"
-  "thesis.lof" 1744743543.98534 333 83c677d4b37d2d31afe097b62a40e12f "pdflatex"
-  "thesis.lot" 1744743543.98532 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
-  "thesis.run.xml" 1744743543.98522 2363 b33fd081bda50a6eab17f89df847a22a "pdflatex"
-  "thesis.tex" 1744743540.98328 12422 837f5f81903e854ea7c3bd8921e721f9 ""
-  "thesis.toc" 1744743543.98529 3573 7ae49095c7c1364e93bf003d5ed27d87 "pdflatex"
+  "thesis.lof" 1744749001.47669 348 f9c1098059cbcba1e34c92a0904c0fb3 "pdflatex"
+  "thesis.lot" 1744749001.47666 60 35b3ba4c48b0bf046560cd0a3baa68f3 "pdflatex"
+  "thesis.run.xml" 1744749001.47656 2363 b33fd081bda50a6eab17f89df847a22a "pdflatex"
+  "thesis.tex" 1744748999.84406 12779 40d03cfb4cbe65ed66fd7624a4332aaa ""
+  "thesis.toc" 1744749001.47663 3548 1623d18c65cdee09bdae3cbe192ac762 "pdflatex"
   (generated)
   "thesis.aux"
   "thesis.bcf"
