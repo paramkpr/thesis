@@ -1,106 +1,231 @@
 \subsection{Clustering Algorithms}
-A clustering algorithm \(A\) partitions an input dataset \(X \in \mathbb{R}^{n \times m}\) into \(k\) clusters, where \(k \leq n\). Formally, the algorithm outputs a set \(C = \{C_1, C_2, \dots, C_k\}\), with each cluster \(C_i \subseteq X\), such that each data sample \(x \in X\) is assigned to at least one cluster. Depending on cluster assignment strategies, clustering is broadly categorized into two types:
+A clustering algorithm \(A\) partitions an input dataset \(X \in
+\mathbb{R}^{n \times m}\) into \(k\) clusters, where \(k \leq n\).
+Formally, the algorithm outputs a set \(C = \{C_1, C_2, \dots,
+C_k\}\), with each cluster \(C_i \subseteq X\), such that each data
+sample \(x \in X\) is assigned to at least one cluster. Depending on
+cluster assignment strategies, clustering is broadly categorized into two types:
 
 \begin{itemize}
-    \item \textbf{Hard clustering:} Each data point \(x\) belongs to exactly one cluster.
-    \item \textbf{Soft clustering:} Data points may belong partially or probabilistically to multiple clusters.
+  \item \textbf{Hard clustering:} Each data point \(x\) belongs to
+    exactly one cluster.
+  \item \textbf{Soft clustering:} Data points may belong partially or
+    probabilistically to multiple clusters.
 \end{itemize}
 
-In clustering tasks, unlike supervised learning, labels for data samples are unavailable. Consequently, the same dataset \(X\) is used for both training and evaluating the clustering outcomes. This complicates the definition and enforcement of fairness, as conventional fairness measures for supervised methods rely on labels to evaluate biases or discrimination.
+In clustering tasks, unlike supervised learning, labels for data
+samples are unavailable. Consequently, the same dataset \(X\) is used
+for both training and evaluating the clustering outcomes. This
+complicates the definition and enforcement of fairness, as
+conventional fairness measures for supervised methods rely on labels
+to evaluate biases or discrimination.
 
-The number of clusters \(k\) can either be provided as an input parameter or determined by the clustering method itself. For instance, in \(k\)-means, \(k\) is predefined, whereas hierarchical clustering outputs a dendrogram without a predetermined \(k\), allowing users to choose the number of clusters post hoc.
+The number of clusters \(k\) can either be provided as an input
+parameter or determined by the clustering method itself. For
+instance, in \(k\)-means, \(k\) is predefined, whereas hierarchical
+clustering outputs a dendrogram without a predetermined \(k\),
+allowing users to choose the number of clusters post hoc.
 
 \subsection{Taxonomy of Clustering Methods}
-A diverse set of clustering methodologies exists, each employing distinct strategies and assumptions. Following the taxonomy presented by Xu et al. \cite{XuSurvey}, we classify clustering algorithms as follows:
+A diverse set of clustering methodologies exists, each employing
+distinct strategies and assumptions. Following the taxonomy presented
+by Xu et al. \cite{XuSurvey}, we classify clustering algorithms as follows:
 
 \begin{enumerate}
 
-    \item \textbf{Center-Based Clustering:} These algorithms partition the data to minimize an error metric between samples and their cluster center. The canonical example is \(k\)-means, which minimizes the squared Euclidean distance.
+  \item \textbf{Center-Based Clustering:} These algorithms partition
+    the data to minimize an error metric between samples and their
+    cluster center. The canonical example is \(k\)-means, which
+    minimizes the squared Euclidean distance.
 
-    \item \textbf{Hierarchical Clustering:} This approach creates a binary tree (dendrogram) where the root node represents the entire dataset, leaf nodes represent individual samples, and intermediate nodes represent clusters. Hierarchical clustering methods are either agglomerative (bottom-up) or divisive (top-down). We will specifically take a closer look at Hierarchical clustering methods in the following sections.
+  \item \textbf{Hierarchical Clustering:} This approach creates a
+    binary tree (dendrogram) where the root node represents the
+    entire dataset, leaf nodes represent individual samples, and
+    intermediate nodes represent clusters. Hierarchical clustering
+    methods are either agglomerative (bottom-up) or divisive
+    (top-down). We will specifically take a closer look at
+    Hierarchical clustering methods in the following sections.
 
-    \item \textbf{Mixture Model-Based Clustering:} A probabilistic approach that assumes data points originate from a mixture of underlying distributions. Algorithms in this class, such as Gaussian Mixture Models (GMM), optimize parameters to best fit the data distribution, typically via Expectation Maximization.
+  \item \textbf{Mixture Model-Based Clustering:} A probabilistic
+    approach that assumes data points originate from a mixture of
+    underlying distributions. Algorithms in this class, such as
+    Gaussian Mixture Models (GMM), optimize parameters to best fit
+    the data distribution, typically via Expectation Maximization.
 
-    \item \textbf{Graph-Based Clustering:} Data is first represented as a graph, where vertices represent samples, and edges denote similarity or proximity between samples. Clustering is performed by partitioning the graph based on its spectral properties, commonly by using eigenvectors of the Laplacian matrix. Graph-based clustering is particularly advantageous in scenarios involving complex relational data or non-convex clusters.
+  \item \textbf{Graph-Based Clustering:} Data is first represented as
+    a graph, where vertices represent samples, and edges denote
+    similarity or proximity between samples. Clustering is performed
+    by partitioning the graph based on its spectral properties,
+    commonly by using eigenvectors of the Laplacian matrix.
+    Graph-based clustering is particularly advantageous in scenarios
+    involving complex relational data or non-convex clusters.
 
-    \item \textbf{Fuzzy Clustering:} Unlike traditional clustering, fuzzy clustering assigns samples a grade of membership to clusters. Fuzzy C-Means (FCM) is the archetypal algorithm, where data points have partial cluster memberships, reflecting uncertainty or gradual boundaries between clusters.
+  \item \textbf{Fuzzy Clustering:} Unlike traditional clustering,
+    fuzzy clustering assigns samples a grade of membership to
+    clusters. Fuzzy C-Means (FCM) is the archetypal algorithm, where
+    data points have partial cluster memberships, reflecting
+    uncertainty or gradual boundaries between clusters.
 
-    \item \textbf{Combinatorial Search-Based Clustering:} Many clustering objectives are NP-hard, prompting approaches to reformulate the clustering problem as a combinatorial optimization task. Evolutionary algorithms, genetic algorithms, and simulated annealing are typical techniques used to explore solutions efficiently.
+  \item \textbf{Combinatorial Search-Based Clustering:} Many
+    clustering objectives are NP-hard, prompting approaches to
+    reformulate the clustering problem as a combinatorial
+    optimization task. Evolutionary algorithms, genetic algorithms,
+    and simulated annealing are typical techniques used to explore
+    solutions efficiently.
 
 \end{enumerate}
 
 \subsection{Fairness in Machine Learning}
-As previously discussed in Section~\ref{subsec:algorithmic_bias}, machine learning algorithms can unintentionally perpetuate and amplify societal biases embedded in historical data. These biases pose significant ethical and practical challenges, particularly in high-stakes applications like criminal justice, hiring, or healthcare. Consequently, considerable research effort has been dedicated to mitigating bias and ensuring fairness in machine learning models.
+As previously discussed in Section~\ref{subsec:algorithmic_bias},
+machine learning algorithms can unintentionally perpetuate and
+amplify societal biases embedded in historical data. These biases
+pose significant ethical and practical challenges, particularly in
+high-stakes applications like criminal justice, hiring, or
+healthcare. Consequently, considerable research effort has been
+dedicated to mitigating bias and ensuring fairness in machine learning models.
 
-Fairness interventions can be applied at different stages of the machine learning pipeline. Specifically, fairness strategies are commonly categorized as follows:
+Fairness interventions can be applied at different stages of the
+machine learning pipeline. Specifically, fairness strategies are
+commonly categorized as follows:
 
 \begin{enumerate}
-    \item \textbf{Pre-processing}: The original dataset is modified prior to training or clustering to ensure fair representation or remove biases. This approach directly addresses biases inherent in training datasets and biases due to missing or underrepresented data, as introduced in Section~\ref{subsec:algorithmic_bias}.
-    
-    \item \textbf{In-processing}: Fairness constraints are integrated directly into the algorithm's learning objective. In-processing approaches typically modify optimization criteria or integrate fairness considerations into model structures, explicitly counteracting optimization biases highlighted in the previous discussion of algorithmic bias.
-    
-    \item \textbf{Post-processing}: Model outputs or clusters undergo modification after the learning or clustering process to meet fairness constraints. However, for clustering tasks, post-processing methods are less common due to the absence of labeled validation sets, as clustering is inherently unsupervised.
+  \item \textbf{Pre-processing}: The original dataset is modified
+    prior to training or clustering to ensure fair representation or
+    remove biases. This approach directly addresses biases inherent
+    in training datasets and biases due to missing or
+    underrepresented data, as introduced in
+    Section~\ref{subsec:algorithmic_bias}.
+
+  \item \textbf{In-processing}: Fairness constraints are integrated
+    directly into the algorithm's learning objective. In-processing
+    approaches typically modify optimization criteria or integrate
+    fairness considerations into model structures, explicitly
+    counteracting optimization biases highlighted in the previous
+    discussion of algorithmic bias.
+
+  \item \textbf{Post-processing}: Model outputs or clusters undergo
+    modification after the learning or clustering process to meet
+    fairness constraints. However, for clustering tasks,
+    post-processing methods are less common due to the absence of
+    labeled validation sets, as clustering is inherently unsupervised.
 \end{enumerate}
 
-Defining and enforcing fairness in unsupervised settings, such as clustering, is especially challenging. Unlike supervised learning—where fairness criteria, such as Demographic Parity or Equalized Odds (Section~\ref{subsec:fairness_definitions}), rely on labeled outcomes—in clustering, no explicit labels are available. Thus, clustering fairness typically involves ensuring adequate representation of protected groups within clusters (\textit{group-level fairness}), or ensuring that individuals who are similar according to a defined similarity measure receive similar clustering outcomes (\textit{individual-level fairness}). These notions extend the concepts of individual fairness (similar treatment of similar cases) and group fairness (statistical parity across demographic groups) discussed in the previous section.
+Defining and enforcing fairness in unsupervised settings, such as
+clustering, is especially challenging. Unlike supervised
+learning—where fairness criteria, such as Demographic Parity or
+Equalized Odds (Section~\ref{subsec:fairness_definitions}), rely on
+labeled outcomes—in clustering, no explicit labels are available.
+Thus, clustering fairness typically involves ensuring adequate
+representation of protected groups within clusters
+(\textit{group-level fairness}), or ensuring that individuals who are
+similar according to a defined similarity measure receive similar
+clustering outcomes (\textit{individual-level fairness}). These
+notions extend the concepts of individual fairness (similar treatment
+of similar cases) and group fairness (statistical parity across
+demographic groups) discussed in the previous section.
 
-The absence of explicit labels complicates direct application of standard supervised fairness metrics. Consequently, specialized fairness notions and metrics tailored explicitly for clustering tasks have emerged, as detailed in the subsequent section.
+The absence of explicit labels complicates direct application of
+standard supervised fairness metrics. Consequently, specialized
+fairness notions and metrics tailored explicitly for clustering tasks
+have emerged, as detailed in the subsequent section.
 
 \subsection{Fairness Notions for Clustering}
-Fairness notions in clustering can be classified into several categories:
+Fairness notions in clustering can be classified into these four categories:
 
 \begin{itemize}
-    \item \textbf{Group-Level Fairness}: Inspired by the Disparate Impact doctrine, these notions aim to ensure no protected group (e.g., based on ethnicity or gender) is disproportionately disadvantaged.
-    \item \textbf{Individual-Level Fairness}: Ensures similar individuals receive similar clustering outcomes, typically defined using a dissimilarity metric.
-    \item \textbf{Algorithm Agnostic Notions}: Defined independently of the clustering algorithm and applicable universally across clustering methods.
-    \item \textbf{Algorithm Specific Notions}: Tailored specifically for certain clustering objectives or algorithms, such as the social fairness cost for \(k\)-means clustering.
+  \item \textbf{Group-Level Fairness}: Inspired by the Disparate
+    Impact doctrine, these notions aim to ensure no protected group
+    (e.g., based on ethnicity or gender) is disproportionately disadvantaged.
+  \item \textbf{Individual-Level Fairness}: Ensures similar
+    individuals receive similar clustering outcomes, typically
+    defined using a dissimilarity metric.
+  \item \textbf{Algorithm Agnostic Notions}: Defined independently of
+    the clustering algorithm and applicable universally across
+    clustering methods.
+  \item \textbf{Algorithm Specific Notions}: Tailored specifically
+    for certain clustering objectives or algorithms, such as the
+    social fairness cost for \(k\)-means clustering.
 \end{itemize}
 
-We now present detailed mathematical definitions for prominent fairness notions, following Chhabra et al.~\cite{ChhabraOverview}:
+As we move forward, the following mathematical definitions for prominent
+fairness notions in clustering will be important:
+[\cite{ChhabraOverview}ChabbraIEEE]
 
 \begin{itemize}
 
-\item \textbf{Balance:} A cluster solution has a high balance if each protected group is proportionally represented in each cluster. For \(m\) protected groups, define \(r\) as the proportion of samples belonging to protected group \(b\) in the dataset and \(r_a\) as the proportion of group \(b\) members in cluster \(a\). Then, balance is defined as:
-\[
-\text{Balance} = \min_{a\in [k], b\in [m]} \min\left\{\frac{r}{r_a}, \frac{r_a}{r}\right\}
-\]
+  \item \textbf{Balance:} A cluster solution has a high balance if
+    each protected group is proportionally represented in each
+    cluster. For \(m\) protected groups, define \(r\) as the
+    proportion of samples belonging to protected group \(b\) in the
+    dataset and \(r_a\) as the proportion of group \(b\) members in
+    cluster \(a\). Then, balance is defined as:
+    \[
+      \text{Balance} = \min_{a\in [k], b\in [m]}
+      \min\left\{\frac{r}{r_a}, \frac{r_a}{r}\right\}
+    \]
 
-Balance takes values between 0 and 1, with higher values indicating greater fairness.
+    Balance takes values between 0 and 1, with higher values
+    indicating greater fairness.
 
-\item \textbf{Bounded Representation:} Enforces constraints on the maximum (\(\alpha\)) and minimum (\(\beta\)) proportions of protected group members in clusters. For each cluster \(a\) and protected group \(b\), the constraint is:
-\[
-\beta \leq P_{a,b} \leq \alpha, \quad \forall a\in [k], b\in [m]
-\]
+  \item \textbf{Bounded Representation:} Enforces constraints on the
+    maximum (\(\alpha\)) and minimum (\(\beta\)) proportions of
+    protected group members in clusters. For each cluster \(a\) and
+    protected group \(b\), the constraint is:
+    \[
+      \beta \leq P_{a,b} \leq \alpha, \quad \forall a\in [k], b\in [m]
+    \]
 
-\item \textbf{Max Fairness Cost (MFC):} Measures deviation from a user-specified ideal proportion \(I_b\) for each protected group \(b\). The proportion of group \(b\) points in cluster \(a\) is \(P_{a,b}\), and MFC is defined as:
-\[
-\text{MFC} = \max_{a\in [k]} \sum_{b\in [m]} |P_{a,b} - I_b|
-\]
+  \item \textbf{Max Fairness Cost (MFC):} Measures deviation from a
+    user-specified ideal proportion \(I_b\) for each protected group
+    \(b\). The proportion of group \(b\) points in cluster \(a\) is
+    \(P_{a,b}\), and MFC is defined as:
+    \[
+      \text{MFC} = \max_{a\in [k]} \sum_{b\in [m]} |P_{a,b} - I_b|
+    \]
 
-\item \textbf{Social Fairness Cost:} For a set of cluster centers \(U\), the clustering cost for group \(a\) is \(O(U, X_a) = \sum_{x \in X_a} \min_{u \in U}\|x - u\|^2\), and the social fairness cost is defined as:
-\[
-\text{Social Fairness Cost} = \max_{a \in [m]} \frac{O(U, X_a)}{|X_a|}
-\]
+  \item \textbf{Social Fairness Cost:} For a set of cluster centers
+    \(U\), the clustering cost for group \(a\) is \(O(U, X_a) =
+    \sum_{x \in X_a} \min_{u \in U}\|x - u\|^2\), and the social
+    fairness cost is defined as:
+    \[
+      \text{Social Fairness Cost} = \max_{a \in [m]} \frac{O(U, X_a)}{|X_a|}
+    \]
 
-The objective here is to minimize this cost to ensure equitable clustering quality across groups.
+    The objective here is to minimize this cost to ensure equitable
+    clustering quality across groups.
 
-\item \textbf{Distributional Individual Fairness:} Assumes an \(f\)-divergence \(H_f(V_x \| V_y)\) measuring statistical distance between output distributions \(V_x\) and \(V_y\) of samples \(x\) and \(y\). Given a fairness similarity measure \(F(x,y)\), fairness requires:
-\[
-H_f(V_x \| V_y) \leq F(x,y), \quad \forall x,y \in X \times X
-\]
+  \item \textbf{Distributional Individual Fairness:} Assumes an
+    \(f\)-divergence \(H_f(V_x \| V_y)\) measuring statistical
+    distance between output distributions \(V_x\) and \(V_y\) of
+    samples \(x\) and \(y\). Given a fairness similarity measure
+    \(F(x,y)\), fairness requires:
+    \[
+      H_f(V_x \| V_y) \leq F(x,y), \quad \forall x,y \in X \times X
+    \]
 
-\item \textbf{Kleindessner et al.'s Individual Fairness:} Ensures for each sample \(x\), belonging to cluster \(C_a\), the average distance \(d\) to samples in its cluster is at most the average distance to samples in any other cluster \(C_b\):
-\[
-\frac{1}{|C_a| - 1}\sum_{z \in C_a} d(x,z) \leq \frac{1}{|C_b|}\sum_{z \in C_b} d(x,z), \quad \forall b \neq a
-\]
+  \item \textbf{Kleindessner et al.'s Individual Fairness:} Ensures
+    for each sample \(x\), belonging to cluster \(C_a\), the average
+    distance \(d\) to samples in its cluster is at most the average
+    distance to samples in any other cluster \(C_b\):
+    \[
+      \frac{1}{|C_a| - 1}\sum_{z \in C_a} d(x,z) \leq
+      \frac{1}{|C_b|}\sum_{z \in C_b} d(x,z), \quad \forall b \neq a
+    \]
 
-\item \textbf{Entropy (used mainly in deep clustering models)}: Defined based on the representation of each protected group in clusters. Let \(N_{a,b}\) denote the set of samples belonging to both cluster \(a\) and protected group \(b\), and \(n_a\) the total samples in cluster \(a\). Then entropy is defined as:
-\[
-\text{Entropy} = -\sum_{a \in [k]} \frac{|N_{a,b}|}{n_a} \log \frac{|N_{a,b}|}{n_a}
-\]
+  \item \textbf{Entropy (used mainly in deep clustering models)}:
+    Defined based on the representation of each protected group in
+    clusters. Let \(N_{a,b}\) denote the set of samples belonging to
+    both cluster \(a\) and protected group \(b\), and \(n_a\) the
+    total samples in cluster \(a\). Then entropy is defined as:
+    \[
+      \text{Entropy} = -\sum_{a \in [k]} \frac{|N_{a,b}|}{n_a} \log
+      \frac{|N_{a,b}|}{n_a}
+    \]
 
-Higher entropy indicates higher fairness within clusters.
+    Higher entropy indicates higher fairness within clusters.
 
 \end{itemize}
 
-Balancing fairness constraints with clustering quality often presents trade-offs, motivating methods that aim to find \emph{Pareto-optimal} solutions that best balance these competing objectives~\cite{ChhabraOverview}.
+Balancing fairness constraints with clustering quality often presents
+trade-offs, motivating methods that aim to find \emph{Pareto-optimal}
+solutions that best balance these competing objectives~\cite{ChhabraOverview}.

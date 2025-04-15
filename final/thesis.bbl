@@ -1,87 +1,728 @@
-\begin{thebibliography}{16}
-\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{{\tt #1}}\fi
-\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{}\fi
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
 
-\bibitem[{Angel(2000)}]{angel:2000}
-Angel, E. (2000).
-\newblock {\em Interactive Computer Graphics : A Top-Down Approach with OpenGL\/}.
-\newblock Boston, MA: Addison Wesley Longman.
 
-\bibitem[{Angel(2001{\natexlab{a}})}]{angel:2001}
-Angel, E. (2001{\natexlab{a}}).
-\newblock {\em Batch-file Computer Graphics : A Bottom-Up Approach with QuickTime\/}.
-\newblock Boston, MA: Wesley Addison Longman.
+\refsection{0}
+  \datalist[entry]{cms/global//global/global/global}
+    \entry{barocas2016big}{article}{}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+    \endentry
+    \entry{pessach2020algorithmic}{article}{}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+    \endentry
+    \entry{dwork2012fairness}{article}{}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+    \endentry
+    \entry{angwin2016machine}{book}{}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+    \endentry
+    \entry{caliskan2017semantics}{article}{}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+    \endentry
+    \entry{dasgupta2016cost}{article}{}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+    \endentry
+    \entry{charikar2019hierarchical}{article}{}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \true{nocite}
+    \endentry
+    \entry{ChhabraOverview}{article}{}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+    \endentry
+    \entry{knittel2023}{article}{}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+      \field{number}{4}
+    \endentry
+    \entry{ahmadian2020}{article}{}{}
+      \field{sortinit}{0}
+      \field{sortinithash}{c5602f03f17cc894ea7a6362c3cb0e13}
+    \endentry
+    \entry{angel:2001}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=aca30818492a167f72c21b45eeb687ce}{%
+           family={Angel},
+           familyi={A\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Wesley Addison Longman}%
+      }
+      \strng{namehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{fullhash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{fullhashraw}{aca30818492a167f72c21b45eeb687ce}
+      \strng{bibnamehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authorbibnamehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authornamehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authorfullhash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authorfullhashraw}{aca30818492a167f72c21b45eeb687ce}
+      \field{extraname}{1}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-201-38597-X}
+      \field{title}{Batch-file Computer Graphics : A Bottom-Up Approach with QuickTime}
+      \field{year}{2001}
+      \true{nocite}
+    \endentry
+    \entry{angel:2000}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=aca30818492a167f72c21b45eeb687ce}{%
+           family={Angel},
+           familyi={A\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Addison Wesley Longman}%
+      }
+      \strng{namehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{fullhash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{fullhashraw}{aca30818492a167f72c21b45eeb687ce}
+      \strng{bibnamehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authorbibnamehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authornamehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authorfullhash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authorfullhashraw}{aca30818492a167f72c21b45eeb687ce}
+      \field{extraname}{2}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-201-38597-X}
+      \field{title}{Interactive Computer Graphics : A Top-Down Approach with OpenGL}
+      \field{year}{2000}
+      \true{nocite}
+    \endentry
+    \entry{angel:2002a}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=aca30818492a167f72c21b45eeb687ce}{%
+           family={Angel},
+           familyi={A\bibinitperiod},
+           given={Edward},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {Wesley Addison Longman}%
+      }
+      \strng{namehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{fullhash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{fullhashraw}{aca30818492a167f72c21b45eeb687ce}
+      \strng{bibnamehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authorbibnamehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authornamehash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authorfullhash}{aca30818492a167f72c21b45eeb687ce}
+      \strng{authorfullhashraw}{aca30818492a167f72c21b45eeb687ce}
+      \field{extraname}{3}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-201-38597-X}
+      \field{title}{test second book by angel}
+      \field{year}{2001}
+      \true{nocite}
+    \endentry
+    \entry{XuSurvey}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1ff4183847e0f36ba65a0f0e36a300a5}{%
+           family={Chabbra},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{1ff4183847e0f36ba65a0f0e36a300a5}
+      \strng{fullhash}{1ff4183847e0f36ba65a0f0e36a300a5}
+      \strng{fullhashraw}{1ff4183847e0f36ba65a0f0e36a300a5}
+      \strng{bibnamehash}{1ff4183847e0f36ba65a0f0e36a300a5}
+      \strng{authorbibnamehash}{1ff4183847e0f36ba65a0f0e36a300a5}
+      \strng{authornamehash}{1ff4183847e0f36ba65a0f0e36a300a5}
+      \strng{authorfullhash}{1ff4183847e0f36ba65a0f0e36a300a5}
+      \strng{authorfullhashraw}{1ff4183847e0f36ba65a0f0e36a300a5}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Survey IEEE}
+    \endentry
+    \entry{deussen:2000}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=675352a3dd6162348006cba3551962ee}{%
+           family={Deussen},
+           familyi={D\bibinitperiod},
+           given={Oliver},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=09fb68ef76b6d57545878ff675c0ad3d}{%
+           family={Strothotte},
+           familyi={S\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=46aaecf43ec225444bf8ff5134695ac4}{%
+           family={Akeley},
+           familyi={A\bibinitperiod},
+           given={Kurt},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New Orleans, Louisiana}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press / ACM SIGGRAPH / Addison Wesley Longman}%
+      }
+      \strng{namehash}{77f95b193a0043b10c08635658b0e5a7}
+      \strng{fullhash}{77f95b193a0043b10c08635658b0e5a7}
+      \strng{fullhashraw}{77f95b193a0043b10c08635658b0e5a7}
+      \strng{bibnamehash}{77f95b193a0043b10c08635658b0e5a7}
+      \strng{authorbibnamehash}{77f95b193a0043b10c08635658b0e5a7}
+      \strng{authornamehash}{77f95b193a0043b10c08635658b0e5a7}
+      \strng{authorfullhash}{77f95b193a0043b10c08635658b0e5a7}
+      \strng{authorfullhashraw}{77f95b193a0043b10c08635658b0e5a7}
+      \strng{editorbibnamehash}{46aaecf43ec225444bf8ff5134695ac4}
+      \strng{editornamehash}{46aaecf43ec225444bf8ff5134695ac4}
+      \strng{editorfullhash}{46aaecf43ec225444bf8ff5134695ac4}
+      \strng{editorfullhashraw}{46aaecf43ec225444bf8ff5134695ac4}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-58113-208-5}
+      \field{journaltitle}{``Proceedings of'' SIGGRAPH 2000}
+      \field{series}{Computer Graphics Proceedings, Annual Conference Series}
+      \field{title}{Computer-Generated Pen-and-Ink Illustration of Trees}
+      \field{year}{2000}
+      \true{nocite}
+      \field{pages}{13\bibrangedash 18}
+      \range{pages}{6}
+    \endentry
+    \entry{hipr:1997}{book}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=bfa1f44b84774d284df5f2d669a342f2}{%
+           family={Fisher},
+           familyi={F\bibinitperiod},
+           given={Robert},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=464bf1b7a0c7da75befc4f62ce7bf873}{%
+           family={Perkins},
+           familyi={P\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6a75f62b8a57ae0506542830e35000fa}{%
+           family={Walker},
+           familyi={W\bibinitperiod},
+           given={Ashley},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c90d1438ba0c8ae47e7357d8faf52a12}{%
+           family={Wolfart},
+           familyi={W\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {New York, NY}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{ee9b15a15c27c60b52c1d7e2001148fe}
+      \strng{fullhash}{5fca46dc6b1bf20f5f8fb785dd8506a5}
+      \strng{fullhashraw}{5fca46dc6b1bf20f5f8fb785dd8506a5}
+      \strng{bibnamehash}{5fca46dc6b1bf20f5f8fb785dd8506a5}
+      \strng{authorbibnamehash}{5fca46dc6b1bf20f5f8fb785dd8506a5}
+      \strng{authornamehash}{ee9b15a15c27c60b52c1d7e2001148fe}
+      \strng{authorfullhash}{5fca46dc6b1bf20f5f8fb785dd8506a5}
+      \strng{authorfullhashraw}{5fca46dc6b1bf20f5f8fb785dd8506a5}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-471-96243-0}
+      \field{title}{Hypermedia Image Processing Reference}
+      \field{year}{1997}
+      \true{nocite}
+    \endentry
+    \entry{goochandgooch:2001}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=99087cd20cb2a0302849e874298dff55}{%
+           family={Gooch},
+           familyi={G\bibinitperiod},
+           given={Bruce},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=19e3f7bcdafcaf117eea52c143c94fe8}{%
+           family={Gooch},
+           familyi={G\bibinitperiod},
+           given={Amy},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Natick, Massachusetts}%
+      }
+      \list{publisher}{1}{%
+        {A K Peters}%
+      }
+      \strng{namehash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{fullhash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{fullhashraw}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{bibnamehash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{authorbibnamehash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{authornamehash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{authorfullhash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{authorfullhashraw}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \field{extraname}{1}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-56881-133-0}
+      \field{title}{{Non-Photorealistic Rendering}}
+      \field{year}{2001}
+      \true{nocite}
+    \endentry
+    \entry{goochandgooch:2001a}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=99087cd20cb2a0302849e874298dff55}{%
+           family={Gooch},
+           familyi={G\bibinitperiod},
+           given={Bruce},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=19e3f7bcdafcaf117eea52c143c94fe8}{%
+           family={Gooch},
+           familyi={G\bibinitperiod},
+           given={Amy},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Natick, Massachusetts}%
+      }
+      \list{publisher}{1}{%
+        {A K Peters}%
+      }
+      \strng{namehash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{fullhash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{fullhashraw}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{bibnamehash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{authorbibnamehash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{authornamehash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{authorfullhash}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \strng{authorfullhashraw}{f9a976e10f9b8cf626ee7acf9d108eba}
+      \field{extraname}{2}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-56881-133-0}
+      \field{title}{Test second book by gooches}
+      \field{year}{2001}
+      \true{nocite}
+    \endentry
+    \entry{hertzmann:2000}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3ae15403d73bb9a613bdf9c281d73496}{%
+           family={Hertzmann},
+           familyi={H\bibinitperiod},
+           given={Aaron},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=17c36e47d778ed9aa0898454cd9fdbaf}{%
+           family={Zorin},
+           familyi={Z\bibinitperiod},
+           given={Dennis},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=46aaecf43ec225444bf8ff5134695ac4}{%
+           family={Akeley},
+           familyi={A\bibinitperiod},
+           given={Kurt},
+           giveni={K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New Orleans, Louisiana}%
+      }
+      \list{publisher}{1}{%
+        {ACM Press / ACM SIGGRAPH / Addison Wesley Longman}%
+      }
+      \strng{namehash}{96a6dd1f61e5826dd70645da9e19ae7d}
+      \strng{fullhash}{96a6dd1f61e5826dd70645da9e19ae7d}
+      \strng{fullhashraw}{96a6dd1f61e5826dd70645da9e19ae7d}
+      \strng{bibnamehash}{96a6dd1f61e5826dd70645da9e19ae7d}
+      \strng{authorbibnamehash}{96a6dd1f61e5826dd70645da9e19ae7d}
+      \strng{authornamehash}{96a6dd1f61e5826dd70645da9e19ae7d}
+      \strng{authorfullhash}{96a6dd1f61e5826dd70645da9e19ae7d}
+      \strng{authorfullhashraw}{96a6dd1f61e5826dd70645da9e19ae7d}
+      \strng{editorbibnamehash}{46aaecf43ec225444bf8ff5134695ac4}
+      \strng{editornamehash}{46aaecf43ec225444bf8ff5134695ac4}
+      \strng{editorfullhash}{46aaecf43ec225444bf8ff5134695ac4}
+      \strng{editorfullhashraw}{46aaecf43ec225444bf8ff5134695ac4}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{1-58113-208-5}
+      \field{journaltitle}{Proceedings of SIGGRAPH 2000}
+      \field{month}{7}
+      \field{number}{17}
+      \field{series}{Computer Graphics Proceedings, Annual Conference Series}
+      \field{title}{Illustrating Smooth Surfaces}
+      \field{volume}{5}
+      \field{year}{2000}
+      \true{nocite}
+      \field{pages}{517\bibrangedash 526}
+      \range{pages}{10}
+    \endentry
+    \entry{jain:1989}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=cd01587a47d1084d2adebe55a57d1c5c}{%
+           family={Jain},
+           familyi={J\bibinitperiod},
+           given={Anil\bibnamedelima K.},
+           giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Englewood Cliffs, New Jersey}%
+      }
+      \list{publisher}{1}{%
+        {Prentice-Hall}%
+      }
+      \strng{namehash}{cd01587a47d1084d2adebe55a57d1c5c}
+      \strng{fullhash}{cd01587a47d1084d2adebe55a57d1c5c}
+      \strng{fullhashraw}{cd01587a47d1084d2adebe55a57d1c5c}
+      \strng{bibnamehash}{cd01587a47d1084d2adebe55a57d1c5c}
+      \strng{authorbibnamehash}{cd01587a47d1084d2adebe55a57d1c5c}
+      \strng{authornamehash}{cd01587a47d1084d2adebe55a57d1c5c}
+      \strng{authorfullhash}{cd01587a47d1084d2adebe55a57d1c5c}
+      \strng{authorfullhashraw}{cd01587a47d1084d2adebe55a57d1c5c}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-13-336165-9}
+      \field{title}{Fundamentals of Digital Image Processing}
+      \field{year}{1989}
+      \true{nocite}
+    \endentry
+    \entry{Molina1994}{incollection}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=7edc6f676d8bbc4a38faf7bbc8c237b9}{%
+           family={Molina},
+           familyi={M\bibinitperiod},
+           given={S.\bibnamedelimi T.},
+           giveni={S\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ebc689d48c39da671dd9ba4727508fd8}{%
+           family={Borkovec},
+           familyi={B\bibinitperiod},
+           given={T.\bibnamedelimi D.},
+           giveni={T\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=6b478cb876a6cb36d7fc8a30726b8143}{%
+           family={Davey},
+           familyi={D\bibinitperiod},
+           given={G.\bibnamedelimi C.\bibnamedelimi L.},
+           giveni={G\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=a32aeb10160ca1668d56402e23f05a83}{%
+           family={Tallis},
+           familyi={T\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{3e80e982150568e8f45c30664972e1f0}
+      \strng{fullhash}{3e80e982150568e8f45c30664972e1f0}
+      \strng{fullhashraw}{3e80e982150568e8f45c30664972e1f0}
+      \strng{bibnamehash}{3e80e982150568e8f45c30664972e1f0}
+      \strng{authorbibnamehash}{3e80e982150568e8f45c30664972e1f0}
+      \strng{authornamehash}{3e80e982150568e8f45c30664972e1f0}
+      \strng{authorfullhash}{3e80e982150568e8f45c30664972e1f0}
+      \strng{authorfullhashraw}{3e80e982150568e8f45c30664972e1f0}
+      \strng{editorbibnamehash}{63487bb164ea1a346fcd47f6cade58c1}
+      \strng{editornamehash}{63487bb164ea1a346fcd47f6cade58c1}
+      \strng{editorfullhash}{63487bb164ea1a346fcd47f6cade58c1}
+      \strng{editorfullhashraw}{63487bb164ea1a346fcd47f6cade58c1}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Worrying: Perspectives on theory, assessment and treatment}
+      \field{title}{The {P}enn {S}tate Worry Questionnaire: Psychometric properties and associated characteristics}
+      \field{year}{1994}
+      \true{nocite}
+      \field{pages}{265\bibrangedash 283}
+      \range{pages}{19}
+    \endentry
+    \entry{noble:2002}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=198a1a7365c8d649d102455c130be86d}{%
+           family={Noble},
+           familyi={N\bibinitperiod},
+           given={Samuel\bibnamedelima G.},
+           giveni={S\bibinitperiod\bibinitdelim G\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Reed College}%
+      }
+      \strng{namehash}{198a1a7365c8d649d102455c130be86d}
+      \strng{fullhash}{198a1a7365c8d649d102455c130be86d}
+      \strng{fullhashraw}{198a1a7365c8d649d102455c130be86d}
+      \strng{bibnamehash}{198a1a7365c8d649d102455c130be86d}
+      \strng{authorbibnamehash}{198a1a7365c8d649d102455c130be86d}
+      \strng{authornamehash}{198a1a7365c8d649d102455c130be86d}
+      \strng{authorfullhash}{198a1a7365c8d649d102455c130be86d}
+      \strng{authorfullhashraw}{198a1a7365c8d649d102455c130be86d}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Turning images into simple line-art}
+      \field{type}{Undergraduate thesis}
+      \field{year}{2002}
+      \true{nocite}
+    \endentry
+    \entry{reedweb:2007}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=fe317b1e7c13edb4cd28f3d031ca3aee}{%
+           family={Reed{\bibnamedelimb }College},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{fe317b1e7c13edb4cd28f3d031ca3aee}
+      \strng{fullhash}{fe317b1e7c13edb4cd28f3d031ca3aee}
+      \strng{fullhashraw}{fe317b1e7c13edb4cd28f3d031ca3aee}
+      \strng{bibnamehash}{fe317b1e7c13edb4cd28f3d031ca3aee}
+      \strng{authorbibnamehash}{fe317b1e7c13edb4cd28f3d031ca3aee}
+      \strng{authornamehash}{fe317b1e7c13edb4cd28f3d031ca3aee}
+      \strng{authorfullhash}{fe317b1e7c13edb4cd28f3d031ca3aee}
+      \strng{authorfullhashraw}{fe317b1e7c13edb4cd28f3d031ca3aee}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{title}{LaTeX Your Document}
+      \field{year}{2007}
+      \true{nocite}
+      \verb{urlraw}
+      \verb http://web.reed.edu/cis/help/LaTeX/index.html
+      \endverb
+      \verb{url}
+      \verb http://web.reed.edu/cis/help/LaTeX/index.html
+      \endverb
+    \endentry
+    \entry{russ:1995}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=49e1194f7a97a322702ee05a43763281}{%
+           family={Russ},
+           familyi={R\bibinitperiod},
+           given={John\bibnamedelima C.},
+           giveni={J\bibinitperiod\bibinitdelim C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Boca Raton, Florida}%
+      }
+      \list{publisher}{1}{%
+        {CRC Press}%
+      }
+      \strng{namehash}{49e1194f7a97a322702ee05a43763281}
+      \strng{fullhash}{49e1194f7a97a322702ee05a43763281}
+      \strng{fullhashraw}{49e1194f7a97a322702ee05a43763281}
+      \strng{bibnamehash}{49e1194f7a97a322702ee05a43763281}
+      \strng{authorbibnamehash}{49e1194f7a97a322702ee05a43763281}
+      \strng{authornamehash}{49e1194f7a97a322702ee05a43763281}
+      \strng{authorfullhash}{49e1194f7a97a322702ee05a43763281}
+      \strng{authorfullhashraw}{49e1194f7a97a322702ee05a43763281}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-8493-2516-1}
+      \field{title}{{The Image Processing Handbook, Second Edition}}
+      \field{year}{1995}
+      \true{nocite}
+    \endentry
+    \entry{salisbury:1997}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=d7be8d34d08754142045696ee279f2c8}{%
+           family={Salisbury},
+           familyi={S\bibinitperiod},
+           given={Michael\bibnamedelima P.},
+           giveni={M\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8cea005b6d48b5556067dc682433dab9}{%
+           family={Wong},
+           familyi={W\bibinitperiod},
+           given={Michael\bibnamedelima T.},
+           giveni={M\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f301cb8654c4029713c65f456589d819}{%
+           family={Hughes},
+           familyi={H\bibinitperiod},
+           given={John\bibnamedelima F.},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fb04afa5b83da95867e8bbb9801f531b}{%
+           family={Salesin},
+           familyi={S\bibinitperiod},
+           given={David\bibnamedelima H.},
+           giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=78cdabb19cc323abf6bcccc7d2322dba}{%
+           family={Whitted},
+           familyi={W\bibinitperiod},
+           given={Turner},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Los Angeles, California}%
+      }
+      \list{publisher}{1}{%
+        {Addison Wesley}%
+      }
+      \strng{namehash}{f23abc37b18acc228d66d66755c372cb}
+      \strng{fullhash}{9ef98e87352a7035a98786e4b528892c}
+      \strng{fullhashraw}{9ef98e87352a7035a98786e4b528892c}
+      \strng{bibnamehash}{9ef98e87352a7035a98786e4b528892c}
+      \strng{authorbibnamehash}{9ef98e87352a7035a98786e4b528892c}
+      \strng{authornamehash}{f23abc37b18acc228d66d66755c372cb}
+      \strng{authorfullhash}{9ef98e87352a7035a98786e4b528892c}
+      \strng{authorfullhashraw}{9ef98e87352a7035a98786e4b528892c}
+      \strng{editorbibnamehash}{78cdabb19cc323abf6bcccc7d2322dba}
+      \strng{editornamehash}{78cdabb19cc323abf6bcccc7d2322dba}
+      \strng{editorfullhash}{78cdabb19cc323abf6bcccc7d2322dba}
+      \strng{editorfullhashraw}{78cdabb19cc323abf6bcccc7d2322dba}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-89791-896-7}
+      \field{journaltitle}{``Proceedings of'' SIGGRAPH 97}
+      \field{month}{8}
+      \field{series}{Computer Graphics Proceedings, Annual Conference Series}
+      \field{title}{Orientable Textures for Image-Based Pen-and-Ink Illustration}
+      \field{year}{1997}
+      \true{nocite}
+      \field{pages}{401\bibrangedash 406}
+      \range{pages}{6}
+    \endentry
+    \entry{savitch:2001}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=45a6cb7d49a6fd199aba99648927c667}{%
+           family={Savitch},
+           familyi={S\bibinitperiod},
+           given={Walter},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Upper Saddle River, New Jersey}%
+      }
+      \list{publisher}{1}{%
+        {Prentice Hall}%
+      }
+      \strng{namehash}{45a6cb7d49a6fd199aba99648927c667}
+      \strng{fullhash}{45a6cb7d49a6fd199aba99648927c667}
+      \strng{fullhashraw}{45a6cb7d49a6fd199aba99648927c667}
+      \strng{bibnamehash}{45a6cb7d49a6fd199aba99648927c667}
+      \strng{authorbibnamehash}{45a6cb7d49a6fd199aba99648927c667}
+      \strng{authornamehash}{45a6cb7d49a6fd199aba99648927c667}
+      \strng{authorfullhash}{45a6cb7d49a6fd199aba99648927c667}
+      \strng{authorfullhashraw}{45a6cb7d49a6fd199aba99648927c667}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-13-031697-0}
+      \field{title}{JAVA: An Introduction to Computer Science \& Programming}
+      \field{year}{2001}
+      \true{nocite}
+    \endentry
+    \entry{wong:1999}{thesis}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b253086f8939563210b4a6114613aad7}{%
+           family={Wong},
+           familyi={W\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{institution}{1}{%
+        {Cornell University}%
+      }
+      \strng{namehash}{b253086f8939563210b4a6114613aad7}
+      \strng{fullhash}{b253086f8939563210b4a6114613aad7}
+      \strng{fullhashraw}{b253086f8939563210b4a6114613aad7}
+      \strng{bibnamehash}{b253086f8939563210b4a6114613aad7}
+      \strng{authorbibnamehash}{b253086f8939563210b4a6114613aad7}
+      \strng{authornamehash}{b253086f8939563210b4a6114613aad7}
+      \strng{authorfullhash}{b253086f8939563210b4a6114613aad7}
+      \strng{authorfullhashraw}{b253086f8939563210b4a6114613aad7}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Artistic Rendering of Portrait Photographs}}
+      \field{type}{mathesis}
+      \field{year}{1999}
+      \true{nocite}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
 
-\bibitem[{Angel(2001{\natexlab{b}})}]{angel:2002a}
-Angel, E. (2001{\natexlab{b}}).
-\newblock {\em test second book by angel\/}.
-\newblock Boston, MA: Wesley Addison Longman.
-
-\bibitem[{Deussen \& Strothotte(2000)}]{deussen:2000}
-Deussen, O., \& Strothotte, T. (2000).
-\newblock Computer-generated pen-and-ink illustration of trees.
-\newblock {\em ``Proceedings of'' SIGGRAPH 2000\/}, (pp. 13--18).
-
-\bibitem[{Fisher et~al.(1997)Fisher, Perkins, Walker, \& Wolfart}]{hipr:1997}
-Fisher, R., Perkins, S., Walker, A., \& Wolfart, E. (1997).
-\newblock {\em Hypermedia Image Processing Reference\/}.
-\newblock New York, NY: John Wiley \& Sons.
-
-\bibitem[{Gooch \& Gooch(2001{\natexlab{a}})}]{goochandgooch:2001}
-Gooch, B., \& Gooch, A. (2001{\natexlab{a}}).
-\newblock {\em {Non-Photorealistic Rendering}\/}.
-\newblock Natick, Massachusetts: A K Peters.
-
-\bibitem[{Gooch \& Gooch(2001{\natexlab{b}})}]{goochandgooch:2001a}
-Gooch, B., \& Gooch, A. (2001{\natexlab{b}}).
-\newblock {\em Test second book by gooches\/}.
-\newblock Natick, Massachusetts: A K Peters.
-
-\bibitem[{Hertzmann \& Zorin(2000)}]{hertzmann:2000}
-Hertzmann, A., \& Zorin, D. (2000).
-\newblock Illustrating smooth surfaces.
-\newblock {\em Proceedings of SIGGRAPH 2000\/}, {\em 5\/}(17), 517--526.
-
-\bibitem[{Jain(1989)}]{jain:1989}
-Jain, A.~K. (1989).
-\newblock {\em Fundamentals of Digital Image Processing\/}.
-\newblock Englewood Cliffs, New Jersey: Prentice-Hall.
-
-\bibitem[{Molina \& Borkovec(1994)}]{Molina1994}
-Molina, S.~T., \& Borkovec, T.~D. (1994).
-\newblock The {P}enn {S}tate worry questionnaire: Psychometric properties and associated characteristics.
-\newblock In G.~C.~L. Davey, \& F.~Tallis (Eds.), {\em Worrying: Perspectives on theory, assessment and treatment\/}, (pp. 265--283). New York: Wiley.
-
-\bibitem[{Noble(2002)}]{noble:2002}
-Noble, S.~G. (2002).
-\newblock {\em Turning images into simple line-art\/}.
-\newblock Undergraduate thesis, Reed College.
-
-\bibitem[{Reed{\ }College(2007)}]{reedweb:2007}
-Reed{\ }College (2007).
-\newblock Latex your document.
-\urlprefix\url{http://web.reed.edu/cis/help/LaTeX/index.html}
-
-\bibitem[{Russ(1995)}]{russ:1995}
-Russ, J.~C. (1995).
-\newblock {\em {The Image Processing Handbook, Second Edition}\/}.
-\newblock Boca Raton, Florida: CRC Press.
-
-\bibitem[{Salisbury et~al.(1997)Salisbury, Wong, Hughes, \& Salesin}]{salisbury:1997}
-Salisbury, M.~P., Wong, M.~T., Hughes, J.~F., \& Salesin, D.~H. (1997).
-\newblock Orientable textures for image-based pen-and-ink illustration.
-\newblock {\em ``Proceedings of'' SIGGRAPH 97\/}, (pp. 401--406).
-
-\bibitem[{Savitch(2001)}]{savitch:2001}
-Savitch, W. (2001).
-\newblock {\em JAVA: An Introduction to Computer Science \& Programming\/}.
-\newblock Upper Saddle River, New Jersey: Prentice Hall.
-
-\bibitem[{Wong(1999)}]{wong:1999}
-Wong, E. (1999).
-\newblock {\em {Artistic Rendering of Portrait Photographs}\/}.
-\newblock Master's thesis, Cornell University.
-
-\end{thebibliography}

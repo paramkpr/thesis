@@ -1,107 +1,259 @@
-Machine learning has fundamentally transformed decision-making by allowing algorithms to discover intricate and
-meaningful patterns directly from data, without relying explicitly on predefined rules. Rather than encoding
-human expertise through manual programming, machine learning algorithms generalize from examples. This inductive
-process, which generalizes observed cases to unseen scenarios, enables the algorithm to identify underlying patterns
-from historical examples and predict future outcomes. However, such a reliance on historical data inherently carries
-    risks, especially when data reflects existing societal biases, stereotypes, or inequalities.
+Machine learning has fundamentally transformed decision-making by
+allowing algorithms to discover intricate and
+meaningful patterns directly from data, without relying explicitly on
+predefined rules. Rather than encoding
+human expertise through manual programming, machine learning
+algorithms generalize from examples. This inductive
+process, which generalizes observed cases to unseen scenarios,
+enables the algorithm to identify underlying patterns
+from historical examples and predict future outcomes. However, such a
+reliance on historical data inherently carries
+risks, especially when data reflects existing societal biases,
+stereotypes, or inequalities.
 
 \subsection{Algorithmic Bias}\label{subsec:algorithmic_bias}
 
-Algorithmic bias refers to systematic and repeatable errors or unfair outcomes produced by machine learning models
-due to biases embedded within the training data or algorithm design. According to existing literature
-\cite{barocas2016big,pessach2020algorithmic}, algorithmic bias commonly originates from:
+Algorithmic bias refers to systematic and repeatable errors or unfair
+outcomes produced by machine learning models
+due to biases embedded within the training data or algorithm design.
+According to existing literature
+\cite{barocas2016big,pessach2020algorithmic}, algorithmic bias
+commonly originates from:
 
 \begin{itemize}
-    \item \textbf{Biases inherent in training datasets:} These biases result from biased human decisions, measurement errors,
-     reporting inaccuracies, or historical prejudices embedded in datasets. Machine learning algorithms, aiming at optimizing
-     prediction accuracy, often replicate these biases.
-    \item \textbf{Biases due to missing data:} When datasets lack sufficient representation from certain groups or have
-     significant data omissions, the resulting models fail to accurately represent the target population.
-    \item \textbf{Algorithmic optimization bias:} Typical optimization objectives, such as minimizing aggregate prediction
-     errors, tend to favor majority groups, often leading to poorer performance for minority groups.
-    \item \textbf{Bias from proxy attributes:} Non-sensitive attributes may indirectly capture sensitive information
-     (e.g., race, gender, age), unintentionally introducing biases even when sensitive attributes are explicitly excluded
-     from the dataset.
+  \item \textbf{Biases inherent in training datasets:} These biases
+    result from biased human decisions, measurement errors,
+    reporting inaccuracies, or historical prejudices embedded in
+    datasets. Machine learning algorithms, aiming at optimizing
+    prediction accuracy, often replicate these biases.
+  \item \textbf{Biases due to missing data:} When datasets lack
+    sufficient representation from certain groups or have
+    significant data omissions, the resulting models fail to
+    accurately represent the target population.
+  \item \textbf{Algorithmic optimization bias:} Typical optimization
+    objectives, such as minimizing aggregate prediction
+    errors, tend to favor majority groups, often leading to poorer
+    performance for minority groups.
+  \item \textbf{Bias from proxy attributes:} Non-sensitive attributes
+    may indirectly capture sensitive information
+    (e.g., race, gender, age), unintentionally introducing biases
+    even when sensitive attributes are explicitly excluded
+    from the dataset.
 \end{itemize}
 
-\subsection{Defining Fairness in Machine Learning}\label{subsec:fairness_definitions}
+\subsection{Defining Fairness in Machine
+Learning}\label{subsec:fairness_definitions}
 
-Given the increasing use of machine learning in high-stakes domains, rigorous fairness definitions have emerged to guide
- algorithmic development. These definitions typically fall into two broad categories: individual fairness and group fairness.
+Given the increasing use of machine learning in high-stakes domains,
+rigorous fairness definitions have emerged to guide
+algorithmic development. These definitions typically fall into two
+broad categories: individual fairness and group fairness.
 
-\paragraph{Individual Fairness.}  
-Individual fairness requires models to produce similar outputs for similar individuals, where similarity is assessed based
-on relevant non-sensitive features. Formally, individual fairness can be articulated using Lipschitz continuity
+\paragraph{Individual Fairness.}
+Individual fairness requires models to produce similar outputs for
+similar individuals, where similarity is assessed based
+on relevant non-sensitive features. Formally, individual fairness can
+be articulated using Lipschitz continuity
 as follows \cite{dwork2012fairness}:
 \[
-d(\text{output}(x), \text{output}(x')) \leq \rho \cdot d(x, x'),
+  d(\text{output}(x), \text{output}(x')) \leq \rho \cdot d(x, x'),
 \]
-where \(x\) and \(x'\) are individuals with comparable non-sensitive attributes, and \(\rho\) is a small constant. This definition
- emphasizes the fair treatment of similar cases on an individual basis, ensuring minimal unjustified variability.
+where \(x\) and \(x'\) are individuals with comparable non-sensitive
+attributes, and \(\rho\) is a small constant. This definition
+emphasizes the fair treatment of similar cases on an individual
+basis, ensuring minimal unjustified variability.
 
-\paragraph{Group Fairness.}  
-Group fairness demands that statistical outcomes of algorithms be equitable across predefined demographic groups.
- This approach explicitly acknowledges and attempts to rectify societal disparities. Notable metrics
-  for group fairness include:
+\paragraph{Group Fairness.}
+Group fairness demands that statistical outcomes of algorithms be
+equitable across predefined demographic groups.
+This approach explicitly acknowledges and attempts to rectify
+societal disparities. Notable metrics
+for group fairness include:
 
 \begin{itemize}
-    \item \textbf{Demographic Parity:} Ensures equal rates of positive predictions across demographic groups:
+  \item \textbf{Demographic Parity:} Ensures equal rates of positive
+    predictions across demographic groups:
     \[
-    P(R = 1 \mid A = a) = P(R = 1 \mid A = b),
+      P(R = 1 \mid A = a) = P(R = 1 \mid A = b),
     \]
-    where \(R\) denotes the model's prediction and \(A\) represents a protected attribute (e.g., race, gender).
+    where \(R\) denotes the model's prediction and \(A\) represents a
+    protected attribute (e.g., race, gender).
 
-    \item \textbf{Equal Opportunity:} Requires equal true positive rates among groups, ensuring fairness in the
-     allocation of positive outcomes given actual positives:
+  \item \textbf{Equal Opportunity:} Requires equal true positive
+    rates among groups, ensuring fairness in the
+    allocation of positive outcomes given actual positives:
     \[
-    P(R = 1 \mid Y = 1, A = a) = P(R = 1 \mid Y = 1, A = b),
+      P(R = 1 \mid Y = 1, A = a) = P(R = 1 \mid Y = 1, A = b),
     \]
     with \(Y\) representing the true outcome.
 
-    \item \textbf{Equalized Odds:} Further requires equal true positive and false positive rates across groups,
-     encompassing both success and error equity:
+  \item \textbf{Equalized Odds:} Further requires equal true positive
+    and false positive rates across groups,
+    encompassing both success and error equity:
     \[
-    P(R = 1 \mid Y = y, A = a) = P(R = 1 \mid Y = y, A = b), \quad \forall y \in \{0, 1\}.
+      P(R = 1 \mid Y = y, A = a) = P(R = 1 \mid Y = y, A = b), \quad
+      \forall y \in \{0, 1\}.
     \]
 \end{itemize}
 
-Each of these metrics presents trade-offs, and no universal criterion exists to satisfy all simultaneously,
- leading to a fundamental tension explored later.
+Each of these metrics presents trade-offs, and no universal criterion
+exists to satisfy all simultaneously,
+leading to a fundamental tension explored later.
 
- 
- \subsection{Real-World Instances and Ethical Dimensions of Algorithmic Bias}\label{subsec:real_world_bias}
+\subsection{Real-World Instances and Ethical Dimensions of
+Algorithmic Bias}\label{subsec:real_world_bias}
 
- Concrete examples vividly illustrate the risks associated with biased algorithms. One widely cited example is the COMPAS algorithm, frequently used in criminal justice for predicting recidivism. Investigations revealed significant racial biases, incorrectly labeling Black defendants as high-risk at nearly twice the rate of White defendants who later re-offended~\cite{angwin2016machine}. Similarly, facial recognition software has consistently demonstrated higher error rates for darker-skinned individuals, exacerbating risks of racial profiling and wrongful identification.
- 
- Algorithmic biases also permeate employment contexts, where historical data reflecting past hiring decisions embed biases against women or minority groups, perpetuating discrimination through ostensibly neutral automated decision-making systems. When training algorithms on historical employment records, biases and stereotypes embedded in the data disproportionately disadvantage female candidates.
- 
- A particularly telling example emerges from machine translation. Consider translating sentences from English to Turkish and then back into English, as illustrated in Figures~\ref{fig:eng-to-turkish} and~\ref{fig:turkish-to-eng}. Turkish pronouns are gender-neutral, but when translated back into English, gender-specific pronouns are inferred based on statistical associations. As a result, occupations stereotypically associated with men—such as ``engineer'' or ``doctor''—are translated back using male pronouns, while occupations stereotypically associated with women—such as ``nurse''—return female pronouns. This phenomenon arises from two biases embedded in training datasets: real-world labor market statistics reflecting historical occupational distributions and the ``male-as-norm'' bias, whereby male pronouns are preferentially selected when gender is ambiguous or unknown~\cite{caliskan2017semantics}.
- 
- \begin{figure}[h]
-     \centering
-     \includegraphics[width=0.9\textwidth]{sections/background/eng-to-turkish.png}
-     \caption{Translations of gender-specific English sentences into gender-neutral Turkish.}
-     \label{fig:eng-to-turkish}
- \end{figure}
- 
- \begin{figure}[h]
-     \centering
-     \includegraphics[width=0.9\textwidth]{sections/background/turkish-to-eng.png}
-     \caption{Translations from gender-neutral Turkish sentences back into English reveal embedded gender biases.}
-     \label{fig:turkish-to-eng}
- \end{figure}
- 
- Attempts to mitigate biases by removing explicitly sensitive attributes (such as gender or race) from training datasets frequently fall short due to \textit{proxy variables}. Proxy attributes—such as the age at which individuals start programming—can inadvertently encode sensitive information like gender, reinforcing biases even in their absence. Additionally, biases due to disparities in sample sizes among demographic groups lead to poorer model performance for minority groups, reinforcing systematic inequities~\cite{barocas2016big}.
- 
- Beyond technical considerations, fairness intersects profoundly with ethical and legal imperatives. Legal frameworks such as Title VII of the U.S. Civil Rights Act mandate nondiscrimination in employment. Similarly, regulatory initiatives like the European Union’s GDPR and proposed AI Act embed fairness, transparency, and equity into regulatory requirements for algorithmic systems.
- 
- Ethically, ensuring fairness aligns closely with broader principles of justice and equity, particularly as algorithmic systems increasingly influence societal outcomes such as employment, education, and criminal justice. Effective fairness interventions help prevent reinforcing historical injustices, foster social equity, and maintain public trust in algorithm-driven decision-making.
- 
- \subsection{Challenges, Limitations, and Future Directions}\label{subsec:challenges_future}
- 
- While fairness research in machine learning represents a critical endeavor, it faces inherent limitations and challenges. Foremost is the tension among different fairness criteria, as previously discussed (see Section~\ref{subsec:fairness_definitions}). It is mathematically impossible to simultaneously satisfy all fairness notions, such as Demographic Parity, Equal Opportunity, and Predictive Parity. Consequently, context-specific, nuanced solutions must be adopted, underscoring the difficulty of universal fairness guarantees.
- 
- Furthermore, fairness interventions typically target algorithmic aspects of decision-making. Yet, algorithmic bias is deeply rooted in broader societal, historical, cultural, and economic contexts. Simply addressing biases within algorithms—without tackling underlying structural inequalities—may prove insufficient. For example, correcting gender bias in employment algorithms does not address the deeper systemic issue of unequal access to educational opportunities or societal expectations that shape labor distributions.
- 
- Addressing these multidimensional challenges requires extensive cross-disciplinary collaboration involving researchers from sociology, law, ethics, economics, cultural studies, and computer science. Developing truly equitable systems necessitates a holistic approach, acknowledging that algorithmic fairness is merely one aspect of a much larger societal problem. Thus, future research should increasingly focus on integrated methodologies that combine technical algorithmic solutions with broader structural, legal, cultural, and ethical insights to effectively mitigate algorithmic bias and its societal consequences.
- 
+Concrete examples vividly illustrate the risks associated with biased
+algorithms. One widely cited example is the COMPAS algorithm,
+frequently used in criminal justice for predicting recidivism.
+Investigations revealed significant racial biases, incorrectly
+labeling Black defendants as high-risk at nearly twice the rate of
+White defendants who later re-offended~\cite{angwin2016machine}.
+Similarly, facial recognition software has consistently demonstrated
+higher error rates for darker-skinned individuals, exacerbating risks
+of racial profiling and wrongful identification.
+
+Algorithmic biases also permeate employment contexts, where
+historical data reflecting past hiring decisions embed biases against
+women or minority groups, perpetuating discrimination through
+ostensibly neutral automated decision-making systems. When training
+algorithms on historical employment records, biases and stereotypes
+embedded in the data disproportionately disadvantage female candidates.
+
+A particularly telling example emerges from machine translation.
+Consider translating sentences from English to Turkish and then back
+into English, as illustrated in Figures~\ref{fig:eng-to-turkish}
+and~\ref{fig:turkish-to-eng}. Turkish pronouns are gender-neutral,
+but when translated back into English, gender-specific pronouns are
+inferred based on statistical associations. As a result, occupations
+stereotypically associated with men—such as ``engineer'' or
+``doctor''—are translated back using male pronouns, while occupations
+stereotypically associated with women—such as ``nurse''—return female
+pronouns. This phenomenon arises from two biases embedded in training
+datasets: real-world labor market statistics reflecting historical
+occupational distributions and the ``male-as-norm'' bias, whereby
+male pronouns are preferentially selected when gender is ambiguous or
+unknown~\cite{caliskan2017semantics}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.9\textwidth]{sections/background/turkish-to-eng.png}
+  \includegraphics[width=0.9\textwidth]{sections/background/eng-to-turkish.png}
+  \caption{Translations of gender-specific English sentences into
+  gender-neutral Turkish and then back to English.}
+  \label{fig:eng-to-turkish}
+\end{figure}
+
+Attempts to mitigate biases by removing explicitly sensitive
+attributes (such as gender or race) from training datasets frequently
+fall short due to \textit{proxy variables}. Proxy attributes—such as
+the age at which individuals start programming—can inadvertently
+encode sensitive information like gender, reinforcing biases even in
+their absence. Additionally, biases due to disparities in sample
+sizes among demographic groups lead to poorer model performance for
+minority groups, reinforcing systematic inequities~\cite{barocas2016big}.
+
+Beyond technical considerations, fairness intersects profoundly with
+ethical and legal imperatives. Legal frameworks such as Title VII of
+the U.S. Civil Rights Act mandate nondiscrimination in employment.
+Similarly, regulatory initiatives like the European Union’s GDPR and
+proposed AI Act embed fairness, transparency, and equity into
+regulatory requirements for algorithmic systems.
+
+Ethically, ensuring fairness aligns closely with broader principles
+of justice and equity, particularly as algorithmic systems
+increasingly influence societal outcomes such as employment,
+education, and criminal justice. Effective fairness interventions
+help prevent reinforcing historical injustices, foster social equity,
+and maintain public trust in algorithm-driven decision-making.
+
+\subsection{Challenges, Limitations, and Future
+Directions}\label{subsec:challenges_future}
+(TODO: citations here need to be filled in carefully I relied a bit
+on yt tAjFuhkiV2c)
+
+The growing emphasis on fairness in algorithmic decision-making,
+particularly in clustering and machine learning contexts, has
+significantly advanced our understanding of bias mitigation.
+Nevertheless, this field continues to face considerable challenges
+and inherent limitations.
+
+One prominent difficulty arises from conflicting fairness criteria.
+It is mathematically impossible to simultaneously satisfy all
+fairness definitions—such as Demographic Parity, Equal Opportunity,
+and Equalized Odds—highlighting the necessity for context-specific
+fairness solutions. For example, attempts to apply broad fairness
+concepts, initially developed within supervised learning frameworks,
+to clustering tasks often encounter mismatches in meaning. Individual
+fairness definitions emphasizing distributional equity may not
+translate effectively into clustering contexts, where groups or
+clusters often lack inherent meaning until assigned. This mismatch
+underscores the need to carefully adapt fairness criteria from
+supervised learning to unsupervised scenarios.
+
+Moreover, algorithmic fairness interventions rarely function in
+isolation. They typically constitute components within broader
+socio-technical systems, necessitating careful consideration of both
+upstream inputs and downstream impacts. The removal of sensitive
+variables, a common fairness strategy, can inadvertently lead to
+unintended consequences. For instance, the practice of "Ban the Box,"
+intended to eliminate employment discrimination by prohibiting
+questions about criminal history, inadvertently increased racial
+discrimination as employers began using race as a proxy variable.
+This underscores the complexity and potential pitfalls inherent in
+algorithmic fairness interventions and highlights the importance of
+anticipating and managing unintended downstream consequences.
+
+Further complications emerge from the dynamic nature of real-world
+data. In applications such as school districting or political
+redistricting, clustering algorithms are applied to dynamic
+populations, where individuals may relocate in response to
+algorithmic interventions. Historical efforts like school busing
+aimed at integrating racially segregated districts illustrate how
+algorithmic clustering solutions can unintentionally disrupt
+communities or exacerbate segregation through mechanisms such as
+"white flight." This historical context reveals the critical need to
+engage deeply with domain-specific constraints, legal frameworks, and
+stakeholder needs, reinforcing that algorithmic solutions must be
+cognizant of broader historical and societal dynamics.
+
+Indeed, addressing these multidimensional challenges requires
+interdisciplinary collaboration beyond computer science. Integrating
+insights from fields such as sociology, criminology, economics, law,
+and ethics is critical. For instance, fairness research often
+overlooks valuable contributions from disciplines like criminology or
+education policy, which provide nuanced understandings of systemic
+inequities and practical constraints. Collaboration with experts from
+these domains can guide the appropriate adaptation of algorithmic
+methods to complex social contexts, ensuring solutions align closely
+with practical realities and ethical standards.
+
+Another essential consideration is stakeholder engagement. Too often,
+fairness solutions are developed paternalistically, without
+adequately involving those directly impacted. Engaging
+stakeholders—including affected communities, policy experts, and
+practitioners—in defining fairness and assessing interventions can
+prevent misguided assumptions and ensure that algorithmic systems
+genuinely serve intended beneficiaries. This is particularly evident
+in sensitive domains such as criminal justice, healthcare, and
+education, where the risk of inadvertently causing harm or
+perpetuating injustices remains high.
+
+Finally, reliance on commonly used benchmark datasets, such as the
+COMPAS, Adult, and German Credit datasets, introduces risks of
+replicating inherent data biases and inaccuracies. Issues such as
+noisy demographic labels, inappropriate or misleading features, and
+the misalignment of fairness labels highlight critical weaknesses in
+the existing empirical evaluation landscape. Consequently, rigorous
+methodological scrutiny and the development of better benchmarks
+reflecting real-world complexities and accurate demographic
+information are urgently needed.
+
+In summary, future directions in algorithmic fairness research must
+navigate inherent mathematical and practical complexities through
+rigorous interdisciplinary collaboration, careful stakeholder
+engagement, and meticulous empirical practices. By integrating
+technical algorithmic approaches with broader societal, legal, and
+ethical considerations, researchers can develop more robust,
+equitable, and practically viable solutions to mitigate algorithmic
+biases and their profound societal implications.

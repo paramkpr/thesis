@@ -1,3 +1,13 @@
+Hierarchical clustering algorithms are extensively utilized in modern
+data science across various domains such as healthcare, biology,
+recommender systems, criminal justice, and social network
+analysis~\cite{chhabra2023}. Unlike flat clustering, hierarchical
+methods do not require a pre-specified number of clusters and reveal
+hierarchical relationships within the data. Given their widespread
+application, especially in sensitive areas where biased data can
+perpetuate discrimination, ensuring fairness in hierarchical
+clustering is ethically imperative and practically critical.
+
 Fair hierarchical clustering (FHC) incorporates explicit fairness
 constraints into the clustering process, aiming to produce
 hierarchies fair at every resolution level. This approach ensures
@@ -5,7 +15,7 @@ that each internal cluster node satisfies fairness constraints,
 addressing biases at each merge or split decision throughout the
 clustering tree.
 
-\subsubsection{Problem Formulation}
+\subsection{Problem Formulation}
 
 Formally defined by Ahmadian et al.~\cite{ahmadian2020} and refined
 subsequently by Knittel et al.~\cite{knittel2023}, fair hierarchical
@@ -18,31 +28,19 @@ hierarchical clustering tree $T$ is fair if, for each non-singleton cluster $C$:
 \]
 where $|C_l|$ is the number of elements from group $l$ in cluster
 $C$, and $\alpha_l, \beta_l$ represent lower and upper fairness
-bounds.
-
-A common special case, \emph{proportional fairness}, enforces
+bounds. A common special case, \emph{proportional fairness}, enforces
 each cluster to reflect group proportions close to their overall
-distribution in the dataset, typically allowing some small tolerance
-(slack). For example, if the dataset contains 30\% members of one
-protected group and 70\% of another, each cluster at every level of
-the hierarchy must approximately reflect this 30/70
-ratio~\cite{knittel2023}. Such recursive enforcement of
-fairness constraints significantly complicates the hierarchical
-clustering problem, as decisions at higher levels impose stringent
-constraints on lower-level cluster splits.
+distribution in the dataset.
 
 Beyond representational fairness, \emph{relative balance} constraints
 have emerged as important. These ensure that sibling clusters
 resulting from splits are similar in size, improving interpretability
 and avoiding trivial solutions like isolating
-singletons~\cite{knittel2023}.
-
-However, balancing these constraints against traditional
-clustering objectives — such as minimizing Dasgupta’s cost,
-defined as \( \sum_{e=(x,y)} w(e) \cdot n_T(e) \) — remains
-challenging due to computational complexity and conflicting local
-and global optimization requirements as we will see in the
-following section. ~\cite{knittel2023}.
+singletons~\cite{knittel2023}. However, balancing these constraints
+against traditional clustering objectives—such as minimizing
+Dasgupta’s cost, defined as \( \sum_{e=(x,y)} w(e) \cdot n_T(e)
+\)—remains challenging due to computational complexity and
+conflicting local and global optimization requirements~\cite{knittel2023}.
 
 \subsection{Challenges and Implications}
 
@@ -66,12 +64,11 @@ fairness enforcement. This complexity arises from several critical issues:
     sacrificing interpretability remains an ongoing practical challenge.
 \end{itemize}
 
-However, it's not all bad news – due to recent research in the field,
-we can be optimistic; research indicates that fairness constraints often
-result in \emph{only modest cost increases}, suggesting their viability in
+Nevertheless, research indicates that fairness constraints often
+result in only modest cost increases, suggesting their viability in
 practice~\cite{knittel2023}.
 
-\subsection{Algorithmic Approaches and Advances}
+\subsection{Algorithmic Approaches}
 
 Fair hierarchical clustering algorithms broadly fall into two main
 categories: objective-based optimization approaches and procedural
@@ -91,10 +88,10 @@ an existing hierarchical clustering into a fair and balanced
 hierarchy through \emph{tree operators}, including Subtree
 Deletion/Insertion and Shallow Tree Folding. This method achieves a
 polylogarithmic approximation factor ($O(\log^2 n)$) relative to the
-optimal unfair clustering cost — significantly narrowing the gap
-between fairness - constrained and standard clustering algorithms.
+optimal unfair clustering cost—significantly narrowing the gap
+between fairness-constrained and standard clustering algorithms.
 These advances allow handling multiple groups and complex fairness
-criteria effectively!
+criteria effectively.
 
 \paragraph{Fair Modifications to HAC.} Contrasting the
 optimization-oriented approaches, Chhabra and
@@ -106,7 +103,8 @@ approach is designed to handle multiple protected groups
 simultaneously, maintaining runtime efficiency comparable to
 traditional HAC algorithms. Empirical evidence indicates that their
 method yields fairer clusterings with relatively minor cost
-increments.
+increments, offering practitioners a simpler, more direct route to
+incorporating fairness.
 
 \subsection{Open Questions and Future Directions}
 

@@ -1,23 +1,23 @@
-% This is the Reed College LaTeX thesis template. Most of the work 
+% This is the Reed College LaTeX thesis template. Most of the work
 % for the document class was done by Sam Noble (SN), as well as this
 % template. Later comments etc. by Ben Salzberg (BTS). Additional
 % restructuring and APA support by Jess Youngberg (JY).
 % Your comments and suggestions are more than welcome; please email
 % them to cus@reed.edu
 %
-% See http://web.reed.edu/cis/help/latex.html for help. There are a 
+% See http://web.reed.edu/cis/help/latex.html for help. There are a
 % great bunch of help pages there, with notes on
 % getting started, bibtex, etc. Go there and read it if you're not
 % already familiar with LaTeX.
 %
-% Any line that starts with a percent symbol is a comment. 
-% They won't show up in the document, and are useful for notes 
-% to yourself and explaining commands. 
-% Commenting also removes a line from the document; 
+% Any line that starts with a percent symbol is a comment.
+% They won't show up in the document, and are useful for notes
+% to yourself and explaining commands.
+% Commenting also removes a line from the document;
 % very handy for troubleshooting problems. -BTS
 
-% As far as I know, this follows the requirements laid out in 
-% the 2002-2003 Senior Handbook. Ask a librarian to check the 
+% As far as I know, this follows the requirements laid out in
+% the 2002-2003 Senior Handbook. Ask a librarian to check the
 % document before binding. -SN
 
 %%
@@ -30,24 +30,29 @@
 % Chemistry (chemtex), screenplays, you name it.
 % Check out CTAN to see: http://www.ctan.org/
 %%
-\usepackage{graphicx,latexsym} 
+\usepackage{graphicx,latexsym}
 \usepackage{amssymb,amsthm,amsmath}
-\usepackage{longtable,booktabs,setspace} 
-\usepackage{chemarr} %% Useful for one reaction arrow, useless if you're not a chem major
+\usepackage{longtable,booktabs,setspace}
+\usepackage{chemarr} %% Useful for one reaction arrow, useless if
+% you're not a chem major
 \usepackage[hyphens]{url}
 \usepackage{rotating}
-\usepackage{natbib}
-% Comment out the natbib line above and uncomment the following two lines to use the new 
-% biblatex-chicago style, for Chicago A. Also make some changes at the end where the 
-% bibliography is included. 
-%\usepackage{biblatex-chicago}
-%\bibliography{thesis}
+% \usepackage{natbib}
+% Comment out the natbib line above and uncomment the following two
+% lines to use the new
+% biblatex-chicago style, for Chicago A. Also make some changes at
+% the end where the
+% bibliography is included.
+\usepackage{biblatex-chicago}
+\bibliography{thesis}
 
-% \usepackage{times} % other fonts are available like times, bookman, charter, palatino
+% \usepackage{times} % other fonts are available like times, bookman,
+% charter, palatino
 
 \title{Empirical Analysis of Fair Hierarchical Clustering Algorithms}
 \author{Param Kapur}
-% The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
+% The month and year that you submit your FINAL draft TO THE LIBRARY
+% (May or December)
 \date{December 2025}
 \division{Mathematical and Natural Sciences}
 \advisor{Harper Knittel}
@@ -70,139 +75,222 @@
 %% The fun begins:
 \begin{document}
 
-  \maketitle
-  \frontmatter % this stuff will be roman-numbered
-  \pagestyle{empty} % this removes page numbers from the frontmatter
+\maketitle
+\frontmatter % this stuff will be roman-numbered
+\pagestyle{empty} % this removes page numbers from the frontmatter
 
 % Acknowledgements (Acceptable American spelling) are optional
 % So are Acknowledgments (proper English spelling)
-    \chapter*{Acknowledgements}
-	I want to thank a few people.
+\chapter*{Acknowledgements}
+I want to thank a few people.
 
 % The preface is optional
 % To remove it, comment it out or delete it.
-    \chapter*{Preface}
-	This is an example of a thesis setup to use the reed thesis document class.
-	
-	
+\chapter*{Preface}
+This is an example of a thesis setup to use the reed thesis document class.
 
-    \chapter*{List of Abbreviations}
-		You can always change the way your abbreviations are formatted. Play around with it yourself, use tables, or come to CUS if you'd like to change the way it looks. You can also completely remove this chapter if you have no need for a list of abbreviations. Here is an example of what this could look like:
+\chapter*{List of Abbreviations}
+You can always change the way your abbreviations are formatted. Play
+around with it yourself, use tables, or come to CUS if you'd like to
+change the way it looks. You can also completely remove this chapter
+if you have no need for a list of abbreviations. Here is an example
+of what this could look like:
 
-	\begin{table}[h]
-	\centering % You could remove this to move table to the left
-	\begin{tabular}{ll}
-		\textbf{ABC}  	&  American Broadcasting Company \\
-		\textbf{CBS}  	&  Columbia Broadcasting System\\
-		\textbf{CDC}  	&  Center for Disease Control \\
-		\textbf{CIA}  	&  Central Intelligence Agency\\
-		\textbf{CLBR} 	&  Center for Life Beyond Reed\\
-		\textbf{CUS}  	&  Computer User Services\\
-		\textbf{FBI}  	&  Federal Bureau of Investigation\\
-		\textbf{NBC}  	&  National Broadcasting Corporation\\
-	\end{tabular}
-	\end{table}
-	
+\begin{table}[h]
+  \centering % You could remove this to move table to the left
+  \begin{tabular}{ll}
+    \textbf{ABC}    &  American Broadcasting Company \\
+    \textbf{CBS}    &  Columbia Broadcasting System\\
+    \textbf{CDC}    &  Center for Disease Control \\
+    \textbf{CIA}    &  Central Intelligence Agency\\
+    \textbf{CLBR}   &  Center for Life Beyond Reed\\
+    \textbf{CUS}    &  Computer User Services\\
+    \textbf{FBI}    &  Federal Bureau of Investigation\\
+    \textbf{NBC}    &  National Broadcasting Corporation\\
+  \end{tabular}
+\end{table}
 
-    \tableofcontents
+\tableofcontents
 % if you want a list of tables, optional
-    \listoftables
+\listoftables
 % if you want a list of figures, also optional
-    \listoffigures
+\listoffigures
 
-% The abstract is not required if you're writing a creative thesis (but aren't they all?)
+% The abstract is not required if you're writing a creative thesis
+% (but aren't they all?)
 % If your abstract is longer than a page, there may be a formatting issue.
-    \chapter*{Abstract}
-	The preface pretty much says it all.
-	
-	\chapter*{Dedication}
-	You can have a dedication here if you wish.
+\chapter*{Abstract}
+The preface pretty much says it all.
 
-  \mainmatter % here the regular arabic numbering starts
-  \pagestyle{fancyplain} % turns page numbering back on
+\chapter*{Dedication}
+You can have a dedication here if you wish.
+
+\mainmatter % here the regular arabic numbering starts
+\pagestyle{fancyplain} % turns page numbering back on
 
 %The \introduction command is provided as a convenience.
-%if you want special chapter formatting, you'll probably want to avoid using it altogether
+%if you want special chapter formatting, you'll probably want to
+% avoid using it altogether
 
-    \chapter*{Introduction}
-         \addcontentsline{toc}{chapter}{Introduction}
-	\chaptermark{Introduction}
-	\markboth{Introduction}{Introduction}
-	% The three lines above are to make sure that the headers are right, that the intro gets included in the table of contents, and that it doesn't get numbered 1 so that chapter one is 1.
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\chaptermark{Introduction}
+\markboth{Introduction}{Introduction}
+% The three lines above are to make sure that the headers are right,
+% that the intro gets included in the table of contents, and that it
+% doesn't get numbered 1 so that chapter one is 1.
 
-% Double spacing: if you want to double space, or one and a half 
-% space, uncomment one of the following lines. You can go back to 
+% Double spacing: if you want to double space, or one and a half
+% space, uncomment one of the following lines. You can go back to
 % single spacing with the \singlespacing command.
-% \onehalfspacing
+\onehalfspacing
 % \doublespacing
-	
-	Welcome to the \LaTeX\ thesis template. If you've never used \TeX\ or \LaTeX\ before, you'll have an initial learning period to go through, but the results of a nicely formatted thesis are worth it for more than the aesthetic benefit: markup like \LaTeX\ is more consistent than the output of a word processor, much less prone to corruption or crashing and the resulting file is smaller than a Word file. While you may have never had problems using Word in the past, your thesis is going to be about twice as large and complex as anything you've written before, taxing Word's capabilities. If you're still on the fence about  using \LaTeX, read the Introduction to LaTeX on the CUS site as well as skim the following template and give it a few weeks. Pretty soon all the markup gibberish will become second nature.
 
-\section{Why use it?}
-	
-\LaTeX\ does a great job of formatting tables and paragraphs. Its line-breaking algorithm was the subject of a PhD.\thinspace thesis. It does a fine job of automatically inserting ligatures, and to top it all off it is the only way to typeset good-looking mathematics.
+Algorithmic development lies at the core of computer science, driving
+innovations across virtually every technology and application domain.
+Theoretical research provides essential insights, including
+guarantees on correctness, computational complexity, and solution
+quality. These theoretical properties guide the initial design and
+selection of algorithms. Yet, translating these theoretical
+guarantees into practical, real-world performance is often complex
+and unpredictable. Real-world factors such as implementation
+overhead, hardware-specific nuances, unique data characteristics, and
+hidden constant factors can substantially alter an algorithm’s
+observed performance compared to its theoretical expectations.
 
-\section{Who should use it?}
+This disconnect—commonly referred to as the \emph{theory–practice
+gap}—is particularly pronounced in areas that handle massive
+datasets, require real-time or near-real-time responses, or involve
+balancing multiple objectives such as fairness against traditional
+performance metrics. Fair hierarchical clustering, for instance,
+comes with theoretical bounds on the expected increase in clustering
+cost due to fairness constraints; however, actual performance
+trade-offs related to runtime and solution quality under realistic
+conditions often remain unclear. Similarly, theoretical predictions
+about parallel algorithms’ speedups can fail to materialize in
+practice due to overlooked factors like communication overhead, while
+approximation algorithms frequently outperform their theoretical
+worst-case guarantees on typical problem instances.
 
-Anyone who needs to use math, tables, a lot of figures, complex cross-references, IPA or who just cares about the final appearance of their document should use \LaTeX. At Reed, math majors are required to use it, most physics majors will want to use it, and many other science majors may want it also.
-	
+Addressing this theory–practice gap is crucial because it influences
+the adoption and practical impact of algorithms. While theory
+provides essential worst-case or average-case assurances,
+practitioners often lack reliable, evidence-based guidance to predict
+real-world performance accurately. Consequently, this uncertainty can
+either deter the use of theoretically superior algorithms or result
+in suboptimal algorithmic choices based on anecdotal experiences or
+incomplete testing. Despite its significance, systematic empirical
+evaluation of algorithmic performance—especially in domains
+exhibiting notable theory-practice discrepancies—is still rare.
+
+This thesis tackles precisely this issue by providing a
+comprehensive, structured empirical analysis designed to bridge the
+existing theory–practice gap. Through an extensive literature review,
+I first identify key algorithmic areas—such as fair hierarchical
+clustering, parallel graph processing, and approximation methods—that
+demonstrate significant divergence between theoretical predictions
+and empirical observations. Recognizing the need for rigorous,
+reproducible, and standardized testing, I have developed a robust
+benchmarking framework specifically aimed at controlled
+experimentation and comprehensive performance evaluations.
+
+Utilizing this benchmarking environment, the research reported in
+this thesis includes extensive empirical studies involving both
+synthetic datasets—which probe specific theoretical
+characteristics—and diverse real-world datasets that reflect typical
+practical scenarios. These experiments systematically compare
+theoretical metrics like runtime complexity, approximation ratios,
+and fairness guarantees with empirical outcomes such as actual
+execution times, memory consumption, solution quality, and fairness
+metrics. Rather than isolated studies, this thesis presents an
+integrated view, uncovering detailed patterns and insights into
+algorithmic behavior under realistic conditions.
+
+Ultimately, the contribution of this thesis lies in providing clear,
+systematic empirical evidence to better inform algorithm selection
+and implementation decisions, effectively bridging the gap between
+theoretical expectations and practical realities.
+
 \chapter{Background}
-	This is the first page of the first chapter. You may delete the contents of this chapter so you can add your own text; it's just here to show you some examples. 
+This is the first page of the first chapter. You may delete the
+contents of this chapter so you can add your own text; it's just here
+to show you some examples.
 
-	\section{Fairness Concepts in Machine Learning}\label{sec:fairness_concepts}
-		\input{sections/background/2.1-fairness-in-ml.tex}
+\section{Fairness Concepts in Machine Learning}\label{sec:fairness_concepts}
+\input{sections/background/2.1-fairness-in-ml.tex}
 
-	\section{Preliminaries and Fairness in Clustering}\label{sec:fair_clustering}
-		\input{sections/background/2.2-fair-clustering.tex}
+\section{Preliminaries and Fairness in Clustering}\label{sec:fair_clustering}
+\input{sections/background/2.2-fair-clustering.tex}
 
-	\section{Hierarchical Clustering and Cost}
-		\input{sections/background/2.3-hierarchical-clustering-and-cost.tex}
-	
-	\section{Fair Hierarchical Clustering}\label{subsec:fair_hierarchical_clustering}
-		\input{sections/background/2.4-fair-hierarchical-clustering.tex}
+\section{Hierarchical Clustering and Cost}
+\input{sections/background/2.3-hierarchical-clustering-and-cost.tex}
 
+\section{Fair Hierarchical
+Clustering}\label{subsec:fair_hierarchical_clustering}
+\input{sections/background/2.4-fair-hierarchical-clustering.tex}
+
+\input{sections/background/2.5-theory-practice-benchmarking.tex}
 
 \chapter*{Conclusion}
-         \addcontentsline{toc}{chapter}{Conclusion}
-	\chaptermark{Conclusion}
-	\markboth{Conclusion}{Conclusion}
-	\setcounter{chapter}{4}
-	\setcounter{section}{0}
-	
-Here's a conclusion, demonstrating the use of all that manual incrementing and table of contents adding that has to happen if you use the starred form of the chapter command. The deal is, the chapter command in \LaTeX\ does a lot of things: it increments the chapter counter, it resets the section counter to zero, it puts the name of the chapter into the table of contents and the running headers, and probably some other stuff. 
+\addcontentsline{toc}{chapter}{Conclusion}
+\chaptermark{Conclusion}
+\markboth{Conclusion}{Conclusion}
+\setcounter{chapter}{4}
+\setcounter{section}{0}
 
-So, if you remove all that stuff because you don't like it to say ``Chapter 4: Conclusion'', then you have to manually add all the things \LaTeX\ would normally do for you. Maybe someday we'll write a new chapter macro that doesn't add ``Chapter X'' to the beginning of every chapter title.
+Here's a conclusion, demonstrating the use of all that manual
+incrementing and table of contents adding that has to happen if you
+use the starred form of the chapter command. The deal is, the chapter
+command in \LaTeX\ does a lot of things: it increments the chapter
+counter, it resets the section counter to zero, it puts the name of
+the chapter into the table of contents and the running headers, and
+probably some other stuff.
+
+So, if you remove all that stuff because you don't like it to say
+``Chapter 4: Conclusion'', then you have to manually add all the
+things \LaTeX\ would normally do for you. Maybe someday we'll write a
+new chapter macro that doesn't add ``Chapter X'' to the beginning of
+every chapter title.
 
 \section{More info}
-And here's some other random info: the first paragraph after a chapter title or section head \emph{shouldn't be} indented, because indents are to tell the reader that you're starting a new paragraph. Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there. 
-
+And here's some other random info: the first paragraph after a
+chapter title or section head \emph{shouldn't be} indented, because
+indents are to tell the reader that you're starting a new paragraph.
+Since that's obvious after a chapter or section title, proper
+typesetting doesn't add an indent there.
 
 %If you feel it necessary to include an appendix, it goes here.
-    \appendix
-      \chapter{The First Appendix}
-      \chapter{The Second Appendix, for Fun}
-
+\appendix
+\chapter{The First Appendix}
+\chapter{The Second Appendix, for Fun}
 
 %This is where endnotes are supposed to go, if you have them.
 %I have no idea how endnotes work with LaTeX.
 
-  \backmatter % backmatter makes the index and bibliography appear properly in the t.o.c...
+\backmatter % backmatter makes the index and bibliography appear
+% properly in the t.o.c...
 
-% if you're using bibtex, the next line forces every entry in the bibtex file to be included
-% in your bibliography, regardless of whether or not you've cited it in the thesis.
-    \nocite{*}
+% if you're using bibtex, the next line forces every entry in the
+% bibtex file to be included
+% in your bibliography, regardless of whether or not you've cited it
+% in the thesis.
+\nocite{*}
 
-% Rename my bibliography to be called "Works Cited" and not "References" or ``Bibliography''
+% Rename my bibliography to be called "Works Cited" and not
+% "References" or ``Bibliography''
 % \renewcommand{\bibname}{Works Cited}
 
-%    \bibliographystyle{bsts/mla-good} % there are a variety of styles available; 
+%    \bibliographystyle{bsts/mla-good} % there are a variety of
+% styles available;
 %  \bibliographystyle{plainnat}
-% replace ``plainnat'' with the style of choice. You can refer to files in the bsts or APA 
-% subfolder, e.g. 
- \bibliographystyle{APA/apa-good}  % or
- \bibliography{thesis}
- % Comment the above two lines and uncomment the next line to use biblatex-chicago.
- %\printbibliography[heading=bibintoc]
+% replace ``plainnat'' with the style of choice. You can refer to
+% files in the bsts or APA
+% subfolder, e.g.
+% \bibliographystyle{APA/apa-good}  % or
+% \bibliography{thesis}
+% Comment the above two lines and uncomment the next line to use
+% biblatex-chicago.
+\printbibliography[heading=bibintoc]
 
 % Finally, an index would go here... but it is also optional.
 \end{document}

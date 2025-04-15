@@ -11,3 +11,5 @@ fhc/codes_fairhc/
 __pycache__*
 final/thesis.pdf
 final/subdivision.pdf
+.DS_Store
+.vscode
