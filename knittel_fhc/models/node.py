@@ -1,6 +1,6 @@
 """
 models/node.py
-Author: Param Kapur 
+Author: Param Kapur
 Date: 5/10/25
 Sources:
  - Knittel et. al. (https://doi.org/10.48550/arXiv.2311.12501)
@@ -23,7 +23,7 @@ class Node:
         parent (Optional[Node]): Parent node reference (None if root).
         data_indices (List[int]): Indices (in the dataset) of points belonging to this node’s cluster.
         size (int): Number of leaf nodes in the subtree.
-        color_counts (Optional[Dict[int, int]]): Tracks how many points of each color 
+        color_counts (Optional[Dict[int, int]]): Tracks how many points of each color
             are in the subtree (e.g. {0: count_blue, 1: count_red}). None if not used.
     """
 
@@ -34,7 +34,7 @@ class Node:
         parent: Optional[Node] = None,
         data_indices: Optional[List[int]] = None,
         size: int = 0,
-        color_counts: Optional[Dict[int, int]] = None
+        color_counts: Optional[Dict[int, int]] = None,
     ) -> None:
         self.id: Optional[int] = node_id
         self.children: List[Node] = children if children is not None else []
@@ -47,6 +47,29 @@ class Node:
         for child in self.children:
             child.parent = self
 
+    def get_count(self) -> int:
+        """Alias for self.size (number of leaves in the subtree)."""
+        return self.size
+
+    def get_id(self) -> Optional[int]:
+        return self.id
+
+    def get_children(self) -> List["Node"]:
+        return self.children
+
+    def get_parent(self) -> Optional["Node"]:
+        return self.parent
+
+    def get_color(self, red_key: int = 1) -> float:
+        """
+        Return the red-fraction of this cluster (default assumes 2-color
+        setting with '1' == red). Falls back to 0.0 if counts unknown.
+        """
+        if self.color_counts is None or self.size == 0:
+            return 0.0
+        red = self.color_counts.get(red_key, 0)
+        return red / self.size
+
     def is_leaf(self) -> bool:
         return len(self.children) == 0
 
@@ -57,9 +80,6 @@ class Node:
     def remove_child(self, child_node: Node) -> None:
         self.children.remove(child_node)
         child_node.parent = None
-
-    def get_children(self) -> Optional[List[Node]]:
-        return self.children
 
     def get_leaf_nodes(self) -> List[Node]:
         if self.is_leaf():
@@ -128,7 +148,7 @@ class Node:
             parent=None,
             data_indices=self.data_indices[:],
             size=self.size,
-            color_counts=new_cc
+            color_counts=new_cc,
         )
         for child in self.children:
             child_copy = child.copy()
@@ -139,7 +159,9 @@ class Node:
         """
         String representation for debugging.
         """
-        return (f"Node(id={self.id}, "
-                f"children={len(self.children)}, "
-                f"size={self.size}, "
-                f"color_counts={self.color_counts})")
+        return (
+            f"Node(id={self.id}, "
+            f"children={len(self.children)}, "
+            f"size={self.size}, "
+            f"color_counts={self.color_counts})"
+        )

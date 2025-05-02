@@ -1,342 +1,180 @@
+# ── algorithms/make_fair.py ────────────────────────────────────────────────
 """
-algorithms/make_fair.py
-Author: Param Kapur 
-Date: 5/10/25
-Sources:
- - Knittel et. al. (https://doi.org/10.48550/arXiv.2311.12501)
+Straightforward port of the reference MakeFair routine (Knittel et al.)
+to the modern Node / Hierarchy classes.
 
-Implements the MakeFair algorithm with debugging capabilities.
+* Two‑colour case only.
+* Works **in‑place** on the tree returned by split_root.
 """
 
-import time
-import logging
-from typing import List, Dict, Optional, Tuple
+from __future__ import annotations
+from typing import List
+
 import numpy as np
+
 from models.node import Node
 from models.hierarchy import Hierarchy
 from algorithms.split_root import split_root
-from utils.tree_operations import shallow_fold
 
-# Set up logging
-logging.basicConfig(
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler("makefair_debug.log"),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger("MakeFair")
 
-# Debug stats to track progress
-debug_stats = {
-    "recursion_depth": 0,
-    "max_recursion_depth": 0,
-    "nodes_processed": 0,
-    "folds_performed": 0,
-    "start_time": 0,
-    "step_times": {},
-}
-
-def reset_debug_stats():
-    """Reset debugging statistics"""
-    global debug_stats
-    debug_stats = {
-        "recursion_depth": 0,
-        "max_recursion_depth": 0,
-        "nodes_processed": 0,
-        "folds_performed": 0,
-        "start_time": time.time(),
-        "step_times": {},
-    }
-
-def log_step_time(step_name, start_time):
-    """Log the time taken for a step"""
-    elapsed = time.time() - start_time
-    if step_name in debug_stats["step_times"]:
-        debug_stats["step_times"][step_name] += elapsed
+# ───────────────────────── helper utilities ──────────────────────────────
+def update_counts(node: Node) -> None:
+    """
+    Recursively set node.size = #leaves underneath.
+    """
+    if node.is_leaf():
+        node.size = 1
     else:
-        debug_stats["step_times"][step_name] = elapsed
-    return elapsed
+        node.size = 0
+        for ch in node.children:
+            update_counts(ch)
+            node.size += ch.size
 
+
+def list_leaves(node: Node) -> List[Node]:
+    if node.is_leaf():
+        return [node]
+    leaves: List[Node] = []
+    for ch in node.children:
+        leaves.extend(list_leaves(ch))
+    return leaves
+
+
+def update_colors(node: Node, red_ids: set[int], blue_ids: set[int]) -> None:
+    """
+    Attach/refresh `node.color` = (#red / size) for every node.
+    """
+    if node.is_leaf():
+        if node.id in red_ids:
+            node.color = 1.0
+        else:
+            node.color = 0.0
+        return
+
+    red_total = 0.0
+    for ch in node.children:
+        update_colors(ch, red_ids, blue_ids)
+        red_total += ch.color * ch.size
+    node.color = red_total / node.size
+
+
+def order_children(node: Node, sort_by: int = 0) -> None:
+    """
+    sort_by = 0 → by size  (ascending)
+    sort_by = 1 → by red‑fraction (descending)
+    sort_by = 2 → by blue‑fraction (descending)
+    """
+    if node.is_leaf():
+        return
+
+    if sort_by == 0:
+        node.children.sort(key=lambda x: x.size)
+    elif sort_by == 1:
+        node.children.sort(key=lambda x: x.color / max(x.size, 1), reverse=True)
+    elif sort_by == 2:
+        node.children.sort(key=lambda x: (1 - x.color / max(x.size, 1)), reverse=True)
+
+    for ch in node.children:
+        order_children(ch, sort_by)
+
+
+def get_max_id(node: Node) -> int:
+    mid = -1 if node.id is None else node.id
+    for ch in node.children:
+        mid = max(mid, get_max_id(ch))
+    return mid
+
+
+def fold(root: Node, trees: List[Node]) -> None:
+    """
+    Same as reference: replace every listed subtree (siblings!) by a new node
+    whose children are their leaves.
+    """
+    if not trees:
+        return
+
+    parent = trees[0].parent
+    new_id = get_max_id(root) + 1
+    new_node = Node(node_id=new_id, parent=parent, children=[], size=0)
+    parent.children.append(new_node)
+
+    count = 0
+    new_children: List[Node] = []
+    for t in trees:
+        # detach t from parent
+        if t in parent.children:
+            parent.children.remove(t)
+        if t.is_leaf():
+            new_children.append(t)
+            t.parent = new_node
+            count += 1
+        else:
+            for ch in t.children:
+                new_children.append(ch)
+                ch.parent = new_node
+            count += t.size
+        t.parent = None  # detach fully
+
+    new_node.children = new_children
+    new_node.size = count
+    # colour counts fixed later via update_colors
+
+
+# ─────────────────────────── MakeFair itself ─────────────────────────────
 def make_fair(
-    hierarchy: Hierarchy, 
-    h: int, 
-    k: int, 
-    epsilon: float,
-    color_ids: List[List[int]],
-    max_depth: int = 10,  # Add max recursion depth parameter
-    debug: bool = True
+    hierarchy: Hierarchy,
+    h: int,
+    k: int,
+    eps: float,
+    colour_ids: List[int],
 ) -> Hierarchy:
     """
-    Implements the MakeFair algorithm to create a fair hierarchical clustering.
-    
-    Args:
-        hierarchy: Input hierarchical clustering
-        h: Parameter for SplitRoot (desired number of children)
-        k: Parameter for folding (number of groups to partition children into)
-        epsilon: Balance parameter (0 < ε < 1/6)
-        color_ids: Lists of point indices for each color category
-        max_depth: Maximum recursion depth (for safety)
-        debug: Whether to print debug information
-        
-    Returns:
-        Hierarchy: Fair hierarchical clustering
+    Thin wrapper: balance root with split_root, then run in‑place MakeFair
+    exactly as in the original pseudocode.  Returns the **same** hierarchy
+    object (for chaining).
     """
-    # Initialize debug stats on first call
-    if debug_stats["start_time"] == 0:
-        reset_debug_stats()
-    
-    # Increment recursion depth
-    debug_stats["recursion_depth"] += 1
-    debug_stats["max_recursion_depth"] = max(
-        debug_stats["max_recursion_depth"], 
-        debug_stats["recursion_depth"]
-    )
-    current_depth = debug_stats["recursion_depth"]
-    
-    # Log start of this recursion level
-    if debug:
-        logger.info(f"[Depth {current_depth}] Starting MakeFair on hierarchy with {len(hierarchy.get_leaves())} leaves")
-        logger.info(f"[Depth {current_depth}] Parameters: h={h}, k={k}, epsilon={epsilon}")
-        
-        # Print node sizes at start
-        if hierarchy.root:
-            logger.info(f"[Depth {current_depth}] Root size: {hierarchy.root.size}")
-            child_sizes = [child.size for child in hierarchy.root.children] if hierarchy.root.children else []
-            logger.info(f"[Depth {current_depth}] Child sizes: {child_sizes}")
-    
-    # Safety check - too deep recursion
-    if current_depth > max_depth:
-        if debug:
-            logger.warning(f"[Depth {current_depth}] Exceeded max recursion depth of {max_depth}!")
-        debug_stats["recursion_depth"] -= 1
+    if hierarchy.is_empty():
         return hierarchy
-    
-    # Make a copy to avoid modifying the input
-    result = hierarchy.copy()
-    
-    # Step 1: Apply SplitRoot to ensure the root has h children
-    step_start = time.time()
-    if debug:
-        logger.info(f"[Depth {current_depth}] Applying SplitRoot...")
-    
-    result = split_root(result, h, epsilon)
-    
-    if debug:
-        elapsed = log_step_time("split_root", step_start)
-        logger.info(f"[Depth {current_depth}] SplitRoot complete in {elapsed:.2f}s. Root now has {len(result.root.children)} children.")
-    
-    # Step 2: Assign colors to nodes based on color_ids
-    step_start = time.time()
-    if debug:
-        logger.info(f"[Depth {current_depth}] Assigning colors...")
-        print(color_ids)
-    
-    _assign_colors(result, color_ids)
-    
-    if debug:
-        elapsed = log_step_time("assign_colors", step_start)
-        logger.info(f"[Depth {current_depth}] Color assignment complete in {elapsed:.2f}s")
-    
-    # Save the original number of children
-    h_prime = len(result.root.children)
-    
-    # Step 3: For each color, apply folding
-    step_start = time.time()
-    num_colors = len(color_ids)
-    
-    if debug:
-        logger.info(f"[Depth {current_depth}] Starting folding for {num_colors} colors with k={k}...")
-    
-    for color_idx in range(num_colors):
-        if debug:
-            logger.info(f"[Depth {current_depth}] Processing color {color_idx}...")
-        
-        # Sort children by the proportion of this color (decreasing)
-        _sort_children_by_color(result.root, color_idx)
-        
-        # Get updated list of children (might have changed after previous color)
-        children = result.root.children.copy()
-        child_sizes = [child.size for child in children]
-        
-        if debug:
-            logger.info(f"[Depth {current_depth}] Child sizes after sorting for color {color_idx}: {child_sizes}")
-        
-        # Partition children into k groups
-        child_groups = _partition_into_groups(children, k)
-        
-        if debug:
-            group_sizes = [len(group) for group in child_groups]
-            logger.info(f"[Depth {current_depth}] Partitioned into {len(child_groups)} groups with sizes {group_sizes}")
-        
-        # Apply shallow folding to each group
-        for i, group in enumerate(child_groups):
-            if len(group) > 1:  # Only fold if there are multiple nodes
-                if debug:
-                    group_ids = [node.id for node in group]
-                    logger.info(f"[Depth {current_depth}] Folding group {i} with nodes {group_ids}...")
-                
-                before_nodes = len(result.get_all_nodes())
-                result = shallow_fold(result, group)
-                after_nodes = len(result.get_all_nodes())
-                
-                debug_stats["folds_performed"] += 1
-                
-                if debug:
-                    logger.info(f"[Depth {current_depth}] Fold complete. Nodes: {before_nodes} -> {after_nodes}")
-    
-    if debug:
-        elapsed = log_step_time("folding", step_start)
-        logger.info(f"[Depth {current_depth}] All folding complete in {elapsed:.2f}s")
-        logger.info(f"[Depth {current_depth}] Root now has {len(result.root.children)} children")
-    
-    # Step 4: Recursively apply MakeFair to each child of root
-    step_start = time.time()
-    if debug:
-        logger.info(f"[Depth {current_depth}] Starting recursion on {len(result.root.children)} children...")
-    
-    for i, child in enumerate(result.root.children.copy()):  # Use copy to avoid modification issues
-        # Skip if child is a leaf or too small
-        if child.is_leaf():
-            if debug:
-                logger.info(f"[Depth {current_depth}] Child {i} (id={child.id}) is a leaf, skipping")
-            continue
-            
-        if child.size < max(h, 1/(2*epsilon)):
-            if debug:
-                logger.info(f"[Depth {current_depth}] Child {i} (id={child.id}) size {child.size} is too small, skipping")
-            continue
-        
-        if debug:
-            logger.info(f"[Depth {current_depth}] Processing child {i} (id={child.id}) with size {child.size}...")
-        
-        # Create a sub-hierarchy rooted at this child
-        sub_hierarchy = Hierarchy(root=child)
-        
-        # Track node before recursion
-        debug_stats["nodes_processed"] += 1
-        
-        # Recursively apply MakeFair
-        new_sub = make_fair(sub_hierarchy, h, k, epsilon, color_ids, max_depth, debug)
-        
-        # Check if the child was modified
-        if new_sub.root != child:
-            # Find the child's index in the current list (may have changed)
-            try:
-                child_idx = result.root.children.index(child)
-                result.root.children[child_idx] = new_sub.root
-                new_sub.root.parent = result.root
-                
-                if debug:
-                    logger.info(f"[Depth {current_depth}] Child {i} replaced with new subtree")
-            except ValueError:
-                if debug:
-                    logger.warning(f"[Depth {current_depth}] Could not find child {i} in root's children!")
-    
-    if debug:
-        elapsed = log_step_time("recursion", step_start)
-        logger.info(f"[Depth {current_depth}] Recursion complete in {elapsed:.2f}s")
-    
-    # Make sure sizes and color counts are up-to-date
-    step_start = time.time()
-    result.update_all_sizes()
-    _assign_colors(result, color_ids)
-    
-    if debug:
-        elapsed = log_step_time("update", step_start)
-        logger.info(f"[Depth {current_depth}] Final updates complete in {elapsed:.2f}s")
-        logger.info(f"[Depth {current_depth}] MakeFair complete for this level")
-        
-        # Print summary statistics
-        if current_depth == 1:  # Root level
-            total_time = time.time() - debug_stats["start_time"]
-            logger.info("-" * 50)
-            logger.info(f"MakeFair Overall Statistics:")
-            logger.info(f"Total time: {total_time:.2f}s")
-            logger.info(f"Max recursion depth: {debug_stats['max_recursion_depth']}")
-            logger.info(f"Nodes processed: {debug_stats['nodes_processed']}")
-            logger.info(f"Folds performed: {debug_stats['folds_performed']}")
-            logger.info(f"Step times:")
-            for step, step_time in debug_stats["step_times"].items():
-                logger.info(f"  - {step}: {step_time:.2f}s ({step_time/total_time*100:.1f}%)")
-            logger.info("-" * 50)
-    
-    # Decrement recursion depth before returning
-    debug_stats["recursion_depth"] -= 1
-    
-    return result
 
+    # Balanced copy (split_root already returns a *new* Hierarchy)
+    H = split_root(hierarchy, h, eps)
+    root: Node = H.root
 
-def _assign_colors(hierarchy: Hierarchy, color_ids: List[List[int]]) -> None:
-    # First, clear all color counts
-    for node in hierarchy.get_all_nodes():
-        node.color_counts = {}
-        
-    # Assign colors to leaf nodes based on their data_indices
-    for node in hierarchy.get_leaves():
-        for data_idx in node.data_indices:
-            for color_idx, ids in enumerate(color_ids):
-                if data_idx in ids:
-                    node.color_counts[color_idx] = node.color_counts.get(color_idx, 0) + 1
-                    print(node.color_counts[color_idx])
-    
-    # Propagate colors upward
-    def update_node_colors(node):
-        if node.is_leaf():
-            return node.color_counts
-        
-        aggregate = {}
-        for child in node.children:
-            child_colors = update_node_colors(child)
-            for color, count in child_colors.items():
-                aggregate[color] = aggregate.get(color, 0) + count
-        
-        node.color_counts = aggregate
-        print("aggregate", aggregate)
-        return aggregate
-    
-    if hierarchy.root:
-        update_node_colors(hierarchy.root)
+    # Build helper id sets
+    blue_ids = colour_ids[1]
+    red_ids = colour_ids[0]
 
+    # Initial colour + count annotations
+    update_colors(root, red_ids, blue_ids)
+    update_counts(root)
 
-def _sort_children_by_color(node: Node, color_idx: int) -> None:
-    """Sort the children of a node by the proportion of a specific color."""
-    def get_color_proportion(child: Node) -> float:
-        """Get the proportion of the specified color in the child node."""
-        if child.size == 0:
-            return 0.0
-            
-        color_count = child.color_counts.get(color_idx, 0)
-        return color_count / child.size
-    
-    # Sort children by color proportion (decreasing)
-    node.children.sort(key=get_color_proportion, reverse=True)
+    # ---------------- Phase 1: root‑level folding ----------------
+    for c in range(2):  # red pass, blue pass
+        order_children(root, c + 1)  # 1 → red, 2 → blue
+        to_fold: List[Node] = []
+        for i in range(k):
+            for j in range(round(h / k) - 1):
+                idx = i + j * k
+                if idx < len(root.children):
+                    to_fold.append(root.children[idx])
+        fold(root, to_fold)
+        update_counts(root)
+        update_colors(root, red_ids, blue_ids)
 
+    # ---------------- Phase 2: recurse ---------------------------
+    thresh = np.max([1 / (2 * eps), h])
+    for child in list(root.children):  # list() → safe iter
+        if child.size >= thresh:
+            # recurse on subtree – wrap in tiny Hierarchy to reuse code
+            sub_h = Hierarchy(root=child)
+            make_fair(sub_h, h, k, eps, colour_ids)
+        else:
+            # flatten children to leaves if still internal
+            if not child.is_leaf():
+                leaves = list_leaves(child)
+                child.children = leaves
+                for lf in leaves:
+                    lf.parent = child
+                child.size = len(leaves)
 
-def _partition_into_groups(children: List[Node], k: int) -> List[List[Node]]:
-    """Partition children into k groups for folding."""
-    # Determine the number of nodes per group
-    n = len(children)
-    if n <= k:
-        # If there are fewer children than groups, each group has at most one child
-        return [[child] for child in children]
-    
-    nodes_per_group = n // k
-    remainder = n % k
-    
-    # Create groups by partitioning the sorted children
-    groups = []
-    start = 0
-    
-    for i in range(k):
-        # Add an extra node to early groups if there's a remainder
-        group_size = nodes_per_group + (1 if i < remainder else 0)
-        end = start + group_size
-        
-        if start < n:
-            groups.append(children[start:end])
-        
-        start = end
-    
-    return groups
+    return H

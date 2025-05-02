@@ -1,15 +1,12 @@
 # Example test code
 import numpy as np
 from data.synthetic import generate_colored_data
-from algorithms.vanilla import average_linkage
+from algorithms.average_linkage import average_linkage
 
 # Generate data
 n_points = 50
 points, color_ids = generate_colored_data(
-    total_points=n_points,
-    color_proportions=[0.4, 0.6],
-    dim=2,
-    seed=42
+    total_points=n_points, color_proportions=[0.4, 0.6], dim=2, seed=42
 )
 
 # Perform average linkage clustering
